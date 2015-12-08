@@ -33,7 +33,7 @@
                     <nav class="mobilemenu">
                         <select>
                              <option value="<?php echo base_url('site/home');?>">Home</option>
-                            <option value="team.html">Users</option>
+                            <option value="<?php echo base_url('users_admin');?>">Users</option>
                             <option value="video.html">Teams</option>
                             <option value="<?php echo base_url('news_admin');?>">News and Updates</option>
                             <option value="<?php echo base_url('announcement_admin');?>">Announcements</option>
