@@ -19,3 +19,5 @@ b. git checkout yournamecopy
 
 5. git push --set-upstream origin yournamecopy
  (it will ask for your username and password)
+
+alji
