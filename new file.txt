@@ -1,7 +1,7 @@
 <html>
 <body>
 <div>
-	added
+	added content
 </div>
 </body 
 <html>
