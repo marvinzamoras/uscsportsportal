@@ -18,4 +18,7 @@ a. git checkout yournamecopy
 5. git push --set-upstream origin yournamecopy
  (it will ask for your username and password)
 
-alji
+TO MERGE
+1. git checkout yournamecopy
+2. git pull
+3. git merge master
