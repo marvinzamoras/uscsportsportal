@@ -18,7 +18,7 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="input" name="news_title" value = "<?php echo $news_item['news_title'];?>" /><br />
+						    <input type="text" name="news_title" value = "<?php echo $news_item['news_title'];?>" size="50" placeholder=":focus" class="focus"/><br/>
 						    <br/>
 						    <br/>
 							<textarea name="news_content" class= "textarea" id = "mytextarea"><?php echo $news_item['news_content'];?></textarea><br/></br>
