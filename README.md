@@ -1,6 +1,9 @@
 # uscsportsportal
 Software Engineering project School Year 2015-2016
 
+
+a. git checkout yournamecopy
+
 1. git pull
 2. git status
 
@@ -12,5 +15,7 @@ Software Engineering project School Year 2015-2016
 
 4. git commit -m "your message"
 
-5. git push
+5. git push --set-upstream origin yournamecopy
  (it will ask for your username and password)
+
+alji
