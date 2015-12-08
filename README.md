@@ -1,10 +1,8 @@
 # uscsportsportal
 Software Engineering project School Year 2015-2016
 
-CREATE Branches
-a. git branch yournamecopy
-b. git checkout yournamecopy
 
+a. git checkout yournamecopy
 
 1. git pull
 2. git status
@@ -19,3 +17,8 @@ b. git checkout yournamecopy
 
 5. git push --set-upstream origin yournamecopy
  (it will ask for your username and password)
+
+TO MERGE
+1. git checkout yournamecopy
+2. git pull
+3. git merge master
