@@ -1,0 +1,13 @@
+INSTRUCTIONS:
+
+database name should be: uscsports
+
+1. Copy this entire folder (uscsportsportal) sa htdocs. Naay settings mn gud dnhi sa config sa tinymce/filemanager and other config settings sa CI nga kailangan ifollow ang source folder.
+
+2. As of 11/22/15 there are 2 admins (make sure to import the db file):
+	id number: 09307896 password: marvszam
+	id number: 09307891 password: marvszam
+
+3. When adding image or files (pdf) in your news/announcement:
+	A. sa text editor click lng sa 3rd row first column sa editor (folder nga naay magnifying lens).
+	B. if image ang iattached, once ma add na ninyo sa text editor, (kanang nainsert na jud cya sa text editor together with the rest of the contents sa news/announcement) right click the image (insert/edit image) then sa class nga option, click lng sa dropdown then select "POSTIMAGE
