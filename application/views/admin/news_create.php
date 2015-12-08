@@ -18,13 +18,11 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="input" name="news_title" /><br />
+						    <input type="text" name="news_title" size="50" class="focus" class="required_notification" required/><br />
 						    <br/>
-						    
+						<center>    
 						    <textarea name="news_content" class= "textarea" id = "mytextarea"></textarea><br/>
-						 <center>
 						   	<input class="EButton" type="submit" name="submit" value="Post" />
-						   
 						</center>
 
 					<?php echo form_close(); ?>
