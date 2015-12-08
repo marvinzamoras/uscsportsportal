@@ -1,7 +1,7 @@
 # uscsportsportal
 Software Engineering project School Year 2015-2016
 
-CREATE Branch
+CREATE Branches
 a. git branch yournamecopy
 b. git checkout yournamecopy
 
