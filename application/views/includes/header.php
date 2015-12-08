@@ -25,6 +25,8 @@
     <script type="text/javascript">
         tinymce.init({
         relative_urls: false,
+        height: 500,
+        width: 900,
         selector: "textarea",theme: "modern",
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
