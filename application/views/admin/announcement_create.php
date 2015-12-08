@@ -15,15 +15,12 @@
 					
 						
 							<br/>
-							<?php echo form_error('ann_title');?>	
-						    <label for="title">TITLE :</label>	
-						    <input type="input" name="ann_title" /><br />
+						    <label for="title">TITLE :</label>		
+						    <input type="text" name="ann_title" size="50" class="focus" required/><br />
 						    <br/>
-						    <?php echo form_error('ann_content');?>	
-						    <textarea name="ann_content" class= "textarea" id = "mytextarea"></textarea><br/>
-						 <center>
+						<center>
+						    <textarea name="ann_content" class= "textarea" id = "mytextarea" ></textarea><br/>
 						   	<input class="EButton" type="submit" name="submit" value="Post" />
-						   
 						</center>
 
 					<?php echo form_close(); ?>
