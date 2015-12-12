@@ -32,6 +32,22 @@ class Membership_model extends CI_Model{
 		return $insert;
 	}
 
+	function check_if_deleted(){
+		$id = $this->input->post('stud_id');		
+		$query = $this->db->get_where('user', array('stud_id' => $id));
+		if ($query->num_rows() > 0){
+		foreach ($query->result() as $row)
+			{
+   				   $status = $row->status;
+			}
+	    
+			if("Restore" == $status){
+				return TRUE; 
+		    }
+
+	    }
+	}
+
 
 	function check_if_username_exists($username){
 

@@ -1,4 +1,3 @@
-
 <section id="f-o-r-m">
 <div class="container">
 	<div class="col-2">
@@ -16,7 +15,11 @@
 			<center><h3>WELCOME TO USC SPORTS PORTAL</h3></center>
 			<?php if (isset($account_created)){ ?>
 			<center><h4><?php echo $account_created;?></h4></center>
-			<?php } else { ?>
+			<?php }elseif (isset($account_deleted)){ ?>
+			<center><h4><?php echo $account_deleted;?></h4></center>
+			<?php }elseif (isset($account_incorrect)){ ?>
+			<center><h4><?php echo $account_incorrect;?></h4></center>
+			<?php } else{ ?>
 			<center><h4>Login, please.</h4></center>
 			<?php } ?>
 			<?php

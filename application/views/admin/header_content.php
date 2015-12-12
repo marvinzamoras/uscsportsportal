@@ -7,7 +7,7 @@
 				  </div>
 					<nav id="top-menu">
 						<ul class="clearfix">
-							<li><a href="<?php echo base_url('users_admin/index');?>">Users</a></li>
+							<li><a href="<?php echo base_url('users_admin');?>">Users</a></li>
 							<li><a href="team.html">Teams</a></li>
 							<li><a href="video.html">Games</a></li>
 							<li><a href="<?php echo base_url('news_admin');?>">News and Updates</a></li>
