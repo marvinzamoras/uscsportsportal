@@ -4,15 +4,15 @@
 		<div class="contact-form">
 			<center><h4>PERSONAL INFORMATION</h4></center>
 			<?php
-				echo form_open('profile/edit');
-				echo form_input('fname',set_value('fname',''),'class="col-12" placeholder="First Name" type="text"');
+				echo form_open('profile/edit/'.$profile_item['stud_id']);
+				echo form_input('fname',set_value('fname',$profile_item['fname']),'class="col-12" placeholder="First Name" type="text"');
 				echo form_error('fname');
-				echo form_input('lname',set_value('lname',''),'class="col-12" placeholder="Last Name" type="text"');
+				echo form_input('lname',set_value('lname',$profile_item['lname']),'class="col-12" placeholder="Last Name" type="text"');
 				echo form_error('lname');
-				echo form_input('contact_no',set_value('contact_no',''),'class="col-12" placeholder="Contact No." type="text"');
-				echo form_input('email_address',set_value('email_address',''),'class="col-12" placeholder="Email Address" type="text"');
-				echo form_input('home_address',set_value('home_address',''),'class="col-12" placeholder="Home Address" type="text"');
-				echo form_input('school',set_value('school',''),'class="col-12" placeholder="School" type="text"');
+				echo form_input('contact_no',set_value('contact_no',$profile_item['contact_no']),'class="col-12" placeholder="Contact No." type="text"');
+				echo form_input('email_address',set_value('email_address',$profile_item['email_address']),'class="col-12" placeholder="Email Address" type="text"');
+				echo form_input('home_address',set_value('home_address',$profile_item['home_address']),'class="col-12" placeholder="Home Address" type="text"');
+				echo form_input('school',set_value('school',$profile_item['school']),'class="col-12" placeholder="School" type="text"');
 				echo '<div class ="bottom-form">';
 				
 				echo '</div>';	
@@ -23,9 +23,9 @@
 			echo '<center><h4>LOGIN CREDENTIALS</h4></center>';
 			echo '<form>';
 				//echo form_input('stud_id',set_value('stud_id',''),'class="col-12" placeholder="ID Number" type="text"');
-				echo form_input('username',set_value('username',''),'class="col-12" placeholder="Username" type="text"');
-				echo form_password('password','','class="col-12" placeholder="Password" type="password"');
-				echo form_password('password_confirm','','class="col-12" placeholder="Confirm Password" type="password"');
+				echo form_input('username',set_value('username',$profile_item['username']),'class="col-12" placeholder="Username" type="text"');
+				echo form_password('password',set_value('password',''),'class="col-12" placeholder="New Password" type="password"');
+				echo form_password('password_confirm',set_value('password',''),'class="col-12" placeholder="Confirm New Password" type="password"');
 				echo '<div class ="bottom-form">';
 				echo '<center>';
 				

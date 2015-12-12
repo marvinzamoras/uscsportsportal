@@ -18,7 +18,7 @@
 					<p class="detinfo"><span>Email Adress</span><?php echo $user_item['email_address'];?></p>
 					<p class="detinfo"><span>Home Adress</span><?php echo $user_item['home_address'];?></p>
 				</div>
-				<p><a href = "<?php echo base_url('profile/edit') ;?>"><input class='EButton' type ='button' value = 'Edit'/></a></p>
+				<p><a href = "<?php echo base_url('profile/edit/'.$user_item['stud_id']) ;?>"><input class='EButton' type ='button' value = 'Edit'/></a></p>
 			</div>
 			
 	</div>

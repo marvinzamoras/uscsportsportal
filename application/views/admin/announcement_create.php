@@ -16,7 +16,7 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="text" name="ann_title" size="50" class="focus" required/><br />
+						    <input type="text" name="ann_title" size="50" class="focus" /><br />
 						    <br/>
 						<center>
 						    <textarea name="ann_content" class= "textarea" id = "mytextarea" ></textarea><br/>
