@@ -113,14 +113,14 @@ class News_Admin extends MY_Controller {
             {
                 show_404();
             }
-
+             $this->form_validation->set_rules('news_title', 'Title', 'required');
+                $this->form_validation->set_rules('news_content', 'Content', 'required');
             $data['title'] = $data['news_item']['news_title'];
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-                $this->form_validation->set_rules('news_title', 'Title', 'required');
-                $this->form_validation->set_rules('news_content', 'Content', 'required');
+               
                 $this->load->helper('url');
                 $slug1 = url_title($this->input->post('news_title'), 'dash', TRUE);
                 $date =date('Y-m-d H:i:s');
