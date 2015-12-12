@@ -73,10 +73,10 @@ class Users_Admin extends MY_Controller {
         }
 
 
-        public function delete($id) {
-            $this->users_model->delete_user($id);
+        public function delete($id,$status) {
+            $this->users_model->delete_user($id,$status);
 
-            $data['usesr'] = $this->users_model->get_user();
+            $data['users'] = $this->users_model->get_user();
             $data['title'] = 'User deleted';
 
             $this->load->view('includes/header', $data);

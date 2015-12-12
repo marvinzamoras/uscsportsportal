@@ -36,14 +36,24 @@ class Users_Model extends CI_Model {
 	        return false;
 	   }
 
-	   public function delete_user($id)
+	   public function delete_user($id,$status)
 		{
+			if( "Restore" == $status){
 			$data = array(
-		        'status' => "Restore",
+		        'status' => "Delete",
+		        'button' => "DButton"
 		        
 		    );
-			 $this->db->where('user_id', $id);
-		    $this->db->update('user', $data);
+			}else{
+			$data = array(
+		        'status' => "Restore",
+		        'button' => "EButton");
+
+			}
+
+
+			 $this->db->where('user_id',$id);
+		    $this->db->update('user',$data);
 			
 			 redirect(base_url().'Users_Admin/index');
 		}

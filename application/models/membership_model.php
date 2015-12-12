@@ -7,9 +7,12 @@ class Membership_model extends CI_Model{
 		$this->db->where('stud_id',$stud_id);
 		$this->db->where('password',md5($this->input->post('password')));
 		$query = $this->db->get('user'); 
-		if($query->num_rows() == 1){
-			return true;
-		}
+		if($query->num_rows() == 1 ){
+
+	                	return true;
+	                }
+	      
+
 	}
 
 	function create_member(){
@@ -87,5 +90,29 @@ class Membership_model extends CI_Model{
 	}
 	
 	
+	function check_if_deleted(){
+		$id = $this->input->post('stud_id');		
+		$query = $this->db->get_where('user', array('stud_id' => $id));
+		if ($query->num_rows() > 0){
+		foreach ($query->result() as $row)
+			{
+   				   $status = $row->status;
+			}
+	    
+		if("Restore" == $status){
+
+
+	    	return TRUE; 
+	    }
+
+
+
+	    
+
+	    }
+
+	     
+
+	}
 
 }
