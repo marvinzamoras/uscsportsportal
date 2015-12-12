@@ -101,16 +101,8 @@ class Announcement_admin extends MY_Controller {
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-                //validation rules
-                $this->form_validation->set_rules('fname',' First Name','trim|required');
-                $this->form_validation->set_rules('lname','Last Name','trim|required');
-                $this->form_validation->set_rules('email_address','Email Address','trim|required|valid_email|callback_check_if_email_exists');
-                $this->form_validation->set_rules('contact_no','Contact No','trim|required|min_length[11]|max_length[11]');
-                $this->form_validation->set_rules('home_address','Home Address','trim|required');
-                $this->form_validation->set_rules('school','School','trim|required');
-                $this->form_validation->set_rules('username','Username','trim|required|callback_check_if_username_exists');
-                $this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[32]|required');
-                $this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[32]|required|matches[password]');
+                  $this->form_validation->set_rules('ann_title', 'Title', 'required|is_unique[announcements.ann_title]');
+            $this->form_validation->set_rules('ann_content', 'Content', 'required');
                 
                 $this->load->helper('url');
                
