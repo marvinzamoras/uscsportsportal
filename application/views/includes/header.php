@@ -9,7 +9,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/general.css">
     <!-- Google fonts -->
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic%7COswald:400,300,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>assets/css/fonts.css" rel="stylesheet" type="text/css">
     <!-- Font awesome -->
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/font-awesome.css">
     <!-- Modernizr -->
