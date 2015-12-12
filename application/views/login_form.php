@@ -1,3 +1,4 @@
+<link href="<?php echo base_url('/assets/css/login.css'); ?>" rel="stylesheet">
 <section id="f-o-r-m">
 <div class="container">
 	<div class="col-2">
@@ -22,6 +23,7 @@
 				echo form_open('login/validate_credentials');
 				echo form_input('stud_id',set_value('stud_id',''),'class="col-12" placeholder="id number" type="text"');
 				echo form_password('password','','class="col-12" placeholder="password" type="password"');
+				echo '<div class="error_text">'.$this->session->flashdata('error').'</div>';
 				echo '<div class ="bottom-form">';
 				echo '<center>';
 				echo form_submit('submit','Sign me in!','type="submit"');

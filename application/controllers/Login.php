@@ -35,7 +35,8 @@ class Login extends MY_Controller{
 			
 			redirect('site/home');
 		} else{
-			$this->index();
+			$this->session->set_flashdata('error','Wrong ID number, password combination.');
+            redirect('login/index','refresh');
 		}
 	}
 

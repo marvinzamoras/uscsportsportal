@@ -1,0 +1,36 @@
+input::-webkit-input-placeholder {
+    color: #fff;
+}
+input:focus::-webkit-input-placeholder {
+    color: #e2e2e2;
+}
+
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #fff;
+}
+input:focus:-moz-placeholder {
+    color: #e2e2e2;
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #fff;
+}
+input:focus::-moz-placeholder {
+    color: #e2e2e2;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #fff;
+}
+input:focus:-ms-input-placeholder {
+    color: #e2e2e2;
+}
+
+.error_text{
+	margin-top:1em;
+	text-align:center;
+	color:#f00;
+}
