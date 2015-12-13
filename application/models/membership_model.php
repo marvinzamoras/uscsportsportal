@@ -61,9 +61,35 @@ class Membership_model extends CI_Model{
 		}
 	}
 
+	function check_if_username_exists_profile($username){
+
+		$this->db->where('username',$username);
+		$this->db->where('stud_id !=',$this->session->userdata['stud_id']);
+		$result = $this->db->get('user');
+
+		if($result->num_rows()>0){
+			return FALSE;
+		} else{
+			return TRUE;
+		}
+	}
+
 	function check_if_email_exists($email){
 
 		$this->db->where('email_address',$email);
+		$result = $this->db->get('user');
+
+		if($result->num_rows()>0){
+			return FALSE;
+		} else{
+			return TRUE;
+		}
+	}
+
+	function check_if_email_exists_profile($email){
+
+		$this->db->where('email_address',$email);
+		$this->db->where('stud_id !=',$this->session->userdata['stud_id']);
 		$result = $this->db->get('user');
 
 		if($result->num_rows()>0){

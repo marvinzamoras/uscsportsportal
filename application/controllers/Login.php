@@ -111,6 +111,19 @@ class Login extends MY_Controller{
 		}
 	}
 
+	function check_if_email_exists_profile($requested_email){
+
+		$this->load->model('membership_model');
+
+		$email_available = $this->membership_model->check_if_email_exists_profile($requested_email);
+
+		if($email_available){
+			return TRUE;
+		} else{
+			return FALSE;
+		}
+	}
+
 	function check_if_id_number_exists($requested_id){
 
 		$this->load->model('membership_model');

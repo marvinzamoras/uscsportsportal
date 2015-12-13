@@ -69,3 +69,4 @@ $lang['form_validation_in_list']		= 'The {field} field must be one of: {param}.'
 $lang['check_if_username_exists'] = 'Sorry, that username already exists.';
 $lang['check_if_email_exists'] = 'Sorry, that email address already exists.';
 $lang['check_if_id_number_exists'] = 'Sorry, that ID number already exists.';
+$lang['check_if_email_number_exists_profile'] = 'Sorry, that email address is already used.';

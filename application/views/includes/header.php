@@ -15,7 +15,7 @@
     <!-- Modernizr -->
     <script type='text/javascript' src='<?php echo base_url(); ?>assets/js/libs/modernizr-2.5.3.min.js'></script>
     <!-- tinymce -->
-    
+    <link href="<?php echo base_url('/assets/css/login.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/general.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/fonts/fonts.css" type="text/css" rel="stylesheet">
