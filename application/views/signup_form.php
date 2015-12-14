@@ -15,7 +15,19 @@
 				echo form_error('email_address');
 				echo form_input('home_address',set_value('home_address',''),'class="col-12" placeholder="Home Address" type="text"');
 				echo form_error('home_address');
-				echo form_input('school',set_value('school',''),'class="col-12" placeholder="School" type="text"');
+				
+				$options = array(
+						''      								=> 'School',
+				        'School of Arts and Sciences'       	=> 'School of Arts and Sciences',
+				        'School of Engineering'         		=> 'School of Engineering',
+				        'School of Education'        			=> 'School of Education',
+				        'School of Healthcare Professions'  	=> 'School of Healthcare Professions',
+				        'School of Business and Economics'  	=> 'School of Business and Economics',
+				        'School of Law and Governance'      	=> 'School of Law and Governance',
+				        'School of Architecture and Fine Arts'  => 'School of Architecture and Fine Arts'
+				);
+				$extra_attributes1='class="col-12" id="dropy" style="background-color:#f4ab25; color:white; height:50px"';
+				echo form_dropdown('school', $options, 'school', $extra_attributes1);
 				echo form_error('school');
 				echo '<div class ="bottom-form">';
 				

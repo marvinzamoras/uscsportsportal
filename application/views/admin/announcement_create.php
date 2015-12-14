@@ -16,10 +16,10 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="text" name="ann_title" size="50" class="focus" /><br />
+						    <input type="text" name="ann_title" size="50" class="focus" class="required_notification" required/><br />
 						    <br/>
 						<center>
-						    <textarea name="ann_content" class= "textarea" id = "mytextarea" ></textarea><br/>
+						    <textarea name="ann_content" class= "textarea" id = "mytextarea" required></textarea><br/>
 						   	<input class="EButton" type="submit" name="submit" value="Post" />
 						</center>
 

@@ -21,7 +21,7 @@
 						    <input type="text" name="news_title" size="50" class="focus" class="required_notification" required/><br />
 						    <br/>
 						<center>    
-						    <textarea name="news_content" class= "textarea" id = "mytextarea"></textarea><br/>
+						    <textarea name="news_content" class= "textarea" id = "mytextarea" required></textarea><br/>
 						   	<input class="EButton" type="submit" name="submit" value="Post" />
 						</center>
 
