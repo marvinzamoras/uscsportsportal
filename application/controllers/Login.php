@@ -23,9 +23,11 @@ class Login extends MY_Controller{
 		$this->load->model('membership_model');
 		$query = $this->membership_model->validate();
 		$status = $this->membership_model->check_if_deleted();
+		$data['title'] = "Login";
 		
 		if($query){
 			if($status){
+
 				$data['account_deleted'] = 'Your account has been removed.<br>Please contact administration.';
 				$this->load->view('includes/header',$data);
 				$this->load->view('login_form',$data);
@@ -42,7 +44,7 @@ class Login extends MY_Controller{
 		 }else{
 			
 			$data['account_incorrect'] = 'Incorrect ID or Password!';
-				$this->load->view('includes/header');
+				$this->load->view('includes/header',$data);
 				$this->load->view('login_form',$data);
 				$this->load->view('includes/footer');
 		}

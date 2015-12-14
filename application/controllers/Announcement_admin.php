@@ -102,7 +102,7 @@ class Announcement_admin extends MY_Controller {
 
             if($this->input->post('submit')){
                   $this->form_validation->set_rules('ann_title', 'Title', 'required|is_unique[announcements.ann_title]');
-            $this->form_validation->set_rules('ann_content', 'Content', 'required');
+                 $this->form_validation->set_rules('ann_content', 'Content', 'required');
                 $this->load->helper('url');
                
                 if($this->form_validation->run() === FALSE)
