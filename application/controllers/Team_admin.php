@@ -62,10 +62,7 @@ class Team_admin extends MY_Controller {
             $this->form_validation->set_rules('team_name', 'Team Name', 'required');
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
              $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-             $this->form_validation->set_rules('school_id', 'School', 'required');
-             $this->form_validation->set_rules('wins', 'Wins', 'required');
-             $this->form_validation->set_rules('loss', 'Losses', 'required');
-             $this->form_validation->set_rules('rank', 'Rank', 'required');
+            
             if ($this->form_validation->run() === FALSE)
             {
                 //$this->load->view('templates/header');
@@ -98,9 +95,7 @@ class Team_admin extends MY_Controller {
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
              $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
              $this->form_validation->set_rules('school_id', 'School', 'required');
-             $this->form_validation->set_rules('wins', 'Wins', 'required');
-             $this->form_validation->set_rules('loss', 'Losses', 'required');
-             $this->form_validation->set_rules('rank', 'Rank', 'required');
+            
                 $this->load->helper('url');
                
                 if($this->form_validation->run() === FALSE)
@@ -112,10 +107,8 @@ class Team_admin extends MY_Controller {
                 'team_name' => $this->input->post('team_name'),
                 'team_cat' => $this->input->post('team_cat'),
                 'game_cat'=>$this->input->post('game_cat'),
-                'school_id' => $this->input->post('school_id'),
-                'wins' => $this->input->post('wins'),
-                'rank' => $this->input->post('rank'),
-                'loss' => $this->input->post('loss')
+                'school_id' => $this->input->post('school_id')
+                
 
             );
 

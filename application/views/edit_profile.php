@@ -43,7 +43,7 @@
 				echo '<br>';
 				
 				echo '<button class="btn-dflt btn-red"><a href = "';
-				echo site_url('/login');
+				echo site_url('/profile/view');
 				echo '">Cancel</a></button>';
 				echo '</center>';
 				echo '</div>';

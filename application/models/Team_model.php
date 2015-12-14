@@ -56,10 +56,8 @@ class Team_model extends CI_Model {
 		        'team_name' => $this->input->post('team_name'),
                 'team_cat' => $this->input->post('team_cat'),
                 'game_cat'=>$this->input->post('game_cat'),
-                'school_id' => $this->input->post('school_id'),
-                'wins' => $this->input->post('wins'),
-                'rank' => $this->input->post('rank'),
-                'loss' => $this->input->post('loss')
+                'school_id' => $this->input->post('school_id')
+               
 		    );
 		    return $this->db->insert('teams', $data);
 		}
