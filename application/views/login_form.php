@@ -33,7 +33,7 @@
 				echo validation_errors();
 				echo '<br>';
 				echo '<p>';
-				echo 'Dont have an account yet';
+				echo 'Dont have an account yet?';
 				echo '</p>';
 				echo '<p>';
 				echo anchor('login/signup','Sign Up');
