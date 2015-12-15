@@ -36,7 +36,7 @@
 							<td><?php echo $data->loss;?></td>
 							<td><?php echo $data->rank;?></td>
 							<?php echo form_hidden('team_id',$data->team_id); ?>
-							<td><a href = "<?php echo base_url('/team_admin/delete/'). '/'.$data->team_id ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
+							<td><a href = "<?php echo base_url('/team_admin/edit/'). '/'.$data->team_id ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
 							
 						</tr>
 						<?php endforeach;?>

@@ -62,6 +62,7 @@ class Team_admin extends MY_Controller {
             $this->form_validation->set_rules('team_name', 'Team Name', 'required');
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
              $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
+              $this->form_validation->set_rules('school_id', 'School', 'required');
             
             if ($this->form_validation->run() === FALSE)
             {
