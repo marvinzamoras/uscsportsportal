@@ -22,3 +22,7 @@ TO MERGE
 1. git checkout yournamecopy
 2. git pull
 3. git merge master
+
+CREATING A NEWE BRANCH
+1. git branch newbranchname
+2. git checkout newbranchname
