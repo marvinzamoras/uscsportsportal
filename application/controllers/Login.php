@@ -11,7 +11,7 @@ class Login extends MY_Controller{
 		$home = 'site/home';
 		if($is_logged_in==1)
 		{
-			redirect($dashboard);
+			redirect($home);
 		}
 		$this->load->view('includes/header',$data);
 		$this->load->view('login_form');
