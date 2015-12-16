@@ -2,9 +2,17 @@
 
 class Login extends MY_Controller{
 
+
+
 	public function index($page = 'login'){
 		$this->load->library('form_validation');
 		$data['title'] = ucfirst($page);
+		$is_logged_in = $this->session->userdata('is_logged_in');
+		$home = 'site/home';
+		if($is_logged_in==1)
+		{
+			redirect($dashboard);
+		}
 		$this->load->view('includes/header',$data);
 		$this->load->view('login_form');
 		$this->load->view('includes/footer');
