@@ -28,6 +28,7 @@
         height: 500,
         width: 900,
         selector: "textarea",theme: "modern",
+         menubar: false,
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",

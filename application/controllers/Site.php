@@ -21,7 +21,7 @@ class Site extends MY_Controller{
 			$config = array();
                 $config["base_url"] = base_url() . "/site/home";
                 $config["total_rows"] = $this->news_model->record_count();
-                $config["per_page"] = 3;
+                $config["per_page"] = 4;
                 $config["uri_segment"] = 3;
                 $choice = $config["total_rows"] / $config["per_page"];
                 $config["num_links"] = round($choice);

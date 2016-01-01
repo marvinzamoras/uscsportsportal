@@ -49,8 +49,8 @@ class Profile extends MY_Controller{
 				$this->form_validation->set_rules('home_address','Home Address','trim|required');
 				$this->form_validation->set_rules('school','School','trim|required');
 				$this->form_validation->set_rules('username','Username','trim|required|callback_check_if_username_exists_profile');
-				$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[32]');
-				$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[32]|matches[password]');
+				$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[8]');
+				$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[8]|matches[password]');
                 $this->load->helper('url');
                 if($this->form_validation->run() === FALSE)
                 {

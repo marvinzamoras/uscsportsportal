@@ -22,14 +22,14 @@
 				</div>
 				</div>
 			</div>
-			<div class="a-games">
+			<!--<div class="a-games">
 				<ul class="clearfix">
 					<li><span class="text-right">FC Bayern München</span><span class="d-g">14 Apr 21:45</span><span class="text-left">Borussia M'gladbach</span></li>
 					<li><span class="text-right">Eintracht Frankfurt</span><span class="d-g">14 Apr 21:45</span><span class="text-left">FC Bayern München</span></li>
 					<li><span class="text-right">FC Bayern München</span><span class="d-g">14 Apr 21:45</span><span class="text-left">Hoffenheim</span></li>
 					<li><span class="text-right">FC Bayern München</span><span class="d-g">14 Apr 21:45</span><span class="text-left">VfB Stuttgart</span></li>
 				</ul>
-			</div>
+			</div>-->
 		</div>
 		<div class="col-4">
 			<div class="tab">news</div>

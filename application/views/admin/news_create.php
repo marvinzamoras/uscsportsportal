@@ -18,11 +18,14 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="text" name="news_title" size="50" class="focus" class="required_notification" required/><br />
+
+						    <input type="text" name="news_title" size="50" class="focus" /><br />
+						   
 						    <br/>
 						<center>    
-						    <textarea name="news_content" class= "textarea" id = "mytextarea" required></textarea><br/>
-						   	<input class="EButton" type="submit" name="submit" value="Post" />
+						    <textarea name="news_content" class= "textarea" id = "mytextarea"></textarea><br/>
+
+						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to post this?');" />
 						</center>
 
 					<?php echo form_close(); ?>

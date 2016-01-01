@@ -22,7 +22,18 @@
 							<li><span><i class="fa fa-calendar"></i>Date Posted:</span><br><?php echo date("M d Y h:i A",strtotime($news_item['news_pub'])); ?></li>
 							
 						</ul>			
+						
 					</aside>
+					<br>
+					<div class="col-3">
+					<div class="social-icon">
+
+					<ul id="social">
+					<center><li><a href="javascript: history.back()"><img src="http://localhost/uscsportsportal/assets/css/images/back.png" alt=""/></a></li></center>
+
+					</ul>
+					</div>
+					</div>
 				</div>
 				<div class="col-9">
 					<div class="post-title">
