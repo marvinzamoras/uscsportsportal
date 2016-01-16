@@ -63,62 +63,7 @@
 		</div>
     </div>
 	</section>
-	<!-- section for teaser -->
-	<section >
-	  <div class="container">
-		<div id="teaser">
-		<h2>There are many variations of passages
-<span>of Lorem Ipsum available</span></h2>
-<p>If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.</p>
-<a href="club.html" class="btn btn-red">read more</a>
-	    </div>
-	  </div>
-	</section>
-	<section id="video">
-	<div class="container">
-		
-			<div id="v-tabs">
-			
-			<ul class="clearfix col-4">
-            <li><i class="fa fa-play"></i><a href="#section-1" >The title hunt in Europe's top leagues<span>14:59  |  Press conference</span></a></li>
-            <li><i class="fa fa-play"></i><a href="#section-2" >West Brom took a significant step towards survival by beating ...
-<span>14:59  |  Press conference</span></a></li>
-            <li><i class="fa fa-play"></i><a href="#section-3" >The title hunt in Europe's top leagues<span>14:59  |  Press conference</span></a></li>
-            <li><i class="fa fa-play"></i><a href="#section-4" >The title hunt in Europe's top leagues<span>14:59  |  Press conference</span></a></li>
-			</ul>
-			
-			
-			<div id="section-1" class="tab-content col-8"><iframe width="560" height="329" style="border:0;" src="http://www.youtube.com/embed/HHnsO_TnXPs"  allowfullscreen></iframe></div>
-			<div id="section-2" class="tab-content col-8"><iframe width="560" height="329" style="border:0;" src="http://www.youtube.com/embed/l_9zB6xEOMI"  allowfullscreen></iframe></div>
-			<div id="section-3" class="tab-content col-8"><iframe width="560" height="329" style="border:0;" src="http://www.youtube.com/embed/S4XXhMydY8o"  allowfullscreen></iframe></div>
-			<div id="section-4" class="tab-content col-8"><iframe width="560" height="329" style="border:0;" src="http://www.youtube.com/embed/0o29f4-qh5U"  allowfullscreen></iframe></div>
-			
-			</div>
-		<div class="players">
-			<div class="col-4">
-				<div class="our">
-					<h3><span>our</span> players</h3>
-				</div>
-				<div class="all-team">
-					<a href="team.html">View all team ›</a>
-				</div>
-			</div>
-			<div class="col-8">
-				<div class="slider1">
-				  <div class="slide col-4"><img src="<?php echo  base_url('/assets/css/images/player1.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Jan Kirchhoff</a><p>Defender</p></div></div>
-				  <div class="slide col-4"><img src="<?php echo  base_url('/assets/css/images/player2.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Jerome Boateng</a><p>Defender</p></div></div>
-				  <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player3.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Tom Starke</a><p>Goalkeeper</p></div></div>
-				  <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player4.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Philipp Lahm</a><p>Defender</p></div></div>
-                <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player1.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Jan Kirchhoff</a><p>Defender</p></div></div>
-                <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player2.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Jerome Boateng</a><p>Defender</p></div></div>
-                <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player3.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Tom Starke</a><p>Goalkeeper</p></div></div>
-                <div class="slide col-4"><img src="<?php  echo base_url('/assets/css/images/player4.jpg');?>" alt=""/><div class="player-name"><a href="team.html">Philipp Lahm</a><p>Defender</p></div></div>
-                </div>
-			</div>
-		</div>
-		
-	</div>
-	</section>
+	
 	<!-- twiter, blog, table -->
 	<section id="ttb">
 		<div class="container">

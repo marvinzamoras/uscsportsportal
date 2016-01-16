@@ -23,7 +23,7 @@
 							<td>School</td>
 							<td>Wins</td>
 							<td>Losses</td>
-							<td>Rank</td>
+							
 							<td>Edit</td>
 						</tr>
 						<?php if(count($teams)): foreach ($results as $data): ?>
@@ -34,7 +34,6 @@
 							<td><?php echo $data->school_id;?></td>
 							<td><?php echo $data->wins;?></td>
 							<td><?php echo $data->loss;?></td>
-							<td><?php echo $data->rank;?></td>
 							<?php echo form_hidden('team_id',$data->team_id); ?>
 							<td><a href = "<?php echo base_url('/team_admin/edit/'). '/'.$data->team_id ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
 							

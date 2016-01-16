@@ -9,7 +9,7 @@
 						<ul class="clearfix">
 							<li><a href="<?php echo base_url('users_admin');?>">Users</a></li>
 							<li><a href="<?php echo base_url('team_admin');?>">Teams</a></li>
-							<li><a href="video.html">Games</a></li>
+							<li><a href="<?php echo base_url('game_admin');?>">Games</a></li>
 							<li><a href="<?php echo base_url('news_admin');?>">News and Updates</a></li>
 							<li><a href="<?php echo base_url('announcement_admin');?>">Announcements</a></li>
 							<li class="dropdown"><a href="blog.html">Account</a>

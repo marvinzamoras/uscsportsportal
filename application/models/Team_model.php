@@ -62,6 +62,37 @@ class Team_model extends CI_Model {
 		    return $this->db->insert('teams', $data);
 		}
 
+		public function get_dropdown_list()
+		{
+			$this->db->from('school');
+			$this->db->order_by('school_name');
+			$result = $this->db->get();
+			$return = array();
+			if($result->num_rows() > 0) {
+				foreach($result->result_array() as $row) 
+				{
+					$return[$row['school_name']] = $row['school_name'];
+				}
+			}
+
+			return $return;
+		}
+
+		public function get_game()
+		{
+			$this->db->from('game');
+			$this->db->order_by('game_name');
+			$result = $this->db->get();
+			$return = array();
+			if($result->num_rows() > 0) {
+				foreach($result->result_array() as $row) 
+				{
+					$return[$row['game_name']] = $row['game_name'];
+				}
+			}
+
+			return $return;
+		}
 		
 
 }

@@ -28,7 +28,7 @@
         height: 500,
         width: 900,
         selector: "textarea",theme: "modern",
-         menubar: false,
+         //menubar: false,
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
@@ -37,8 +37,8 @@
         image_class_list: [
         {title: 'Post Image', value: 'post-img'}
         ],
-       toolbar1: "undo redo | bold italic underline| responsivefilemanager | link unlink | image media | print preview code ",
-       
+       toolbar2: "undo redo | responsivefilemanager | link unlink | image media | print preview code ",
+       toolbar1: "insertfile | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons",
        image_advtab: true ,
        
             external_filemanager_path:"<?php echo base_url();?>filemanager/",

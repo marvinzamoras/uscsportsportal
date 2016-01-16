@@ -1,11 +1,11 @@
 <?php
-class Team_admin extends MY_Controller {
+class Game_admin extends MY_Controller {
 
         public function __construct()
         {
                  parent::__construct();
                 date_default_timezone_set('Asia/Manila');
-                $this->load->model('team_model');
+                $this->load->model('game_model');
 
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
@@ -18,12 +18,12 @@ class Team_admin extends MY_Controller {
         public function index()
         {
             
-                $data['teams'] = $this->team_model->get_team();
-                $data['title'] ='Teams';
+                $data['games'] = $this->game_model->get_game();
+                $data['title'] ='Games';
 
                 $config = array();
-                $config["base_url"] = base_url() . "/team_admin/index";
-                $config["total_rows"] = $this->team_model->record_count();
+                $config["base_url"] = base_url() . "/game_admin/index";
+                $config["total_rows"] = $this->game_model->record_count();
                 $config["per_page"] = 10;
                 $config["uri_segment"] = 3;
                 $choice = $config["total_rows"] / $config["per_page"];
@@ -43,86 +43,76 @@ class Team_admin extends MY_Controller {
                 $this->pagination->initialize($config);
 
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-                $data["results"] = $this->team_model->
+                $data["results"] = $this->game_model->
                     fetch_team($config["per_page"], $page);
                 $data["links"] = $this->pagination->create_links();
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('admin/header_content', $data);
-                $this->load->view('admin/all_teams', $data);
+                $this->load->view('admin/all_games', $data);
                 $this->load->view('includes/footer');
             
         }
 
-        public function createTeam()
+        public function createGame()
         {
-            $data['title'] = 'Create Team';
+            $data['title'] = 'Create Game';
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
-            $this->form_validation->set_rules('team_name', 'Team Name', 'required');
-            $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
-            $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-            $this->form_validation->set_rules('school_id', 'School', 'required');
-            $data['school_list'] = $this->team_model->get_dropdown_list();
-            $data['game_list'] = $this->team_model->get_game();
+            $this->form_validation->set_rules('game_name', 'Game Name', 'required');
+            $this->form_validation->set_rules('game_desc', 'Game Description', 'required');
+            $data['game_list'] = $this->game_model->get_dropdown_list();
             
             if ($this->form_validation->run() === FALSE)
             {
                 //$this->load->view('templates/header');
-                $this->load->view('admin/team_create',$data);
+                $this->load->view('admin/game_create',$data);
                 $this->load->view('includes/footer');
             }
             else
             {
-                $this->team_model->set_team();
-                redirect(base_url().'team_admin/');
+                $this->game_model->set_game();
+                redirect(base_url().'game_admin/');
             }
         
         }
 
-        public function edit($team_id)
+        public function edit($game_id)
         {
-            $data['team_item'] = $this->team_model->get_team($team_id);
-            $data['school_list'] = $this->team_model->get_dropdown_list();
-            $data['game_list'] = $this->team_model->get_game();
+            $data['game_item'] = $this->game_model->get_game($game_id);
+            $data['game_list'] = $this->game_model->get_dropdown_list();
 
-            if (empty($data['team_item']))
+            if (empty($data['game_item']))
             {
                 show_404();
             }
 
-            $data['title'] = $data['team_item']['team_name'];
+            $data['title'] = $data['game_item']['game_name'];
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-                  $this->form_validation->set_rules('team_name', 'Team Name', 'required');
-            $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
-             $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-             $this->form_validation->set_rules('school_id', 'School', 'required');
+            $this->form_validation->set_rules('game_name', 'Game Name', 'required');
+            $this->form_validation->set_rules('game_desc', 'Game Description', 'required');
             
                 $this->load->helper('url');
                
                 if($this->form_validation->run() === FALSE)
                 {
-                    $this->load->view('admin/team_edit',$data);
+                    $this->load->view('admin/game_edit',$data);
                     $this->load->view('includes/footer');
                 }
                 $data = array(
-                'team_name' => $this->input->post('team_name'),
-                'team_cat' => $this->input->post('team_cat'),
-                'game_cat'=>$this->input->post('game_cat'),
-                'school_id' => $this->input->post('school_id')
-                
-
+                'game_name' => $this->input->post('game_name'),
+                'game_desc' => $this->input->post('game_desc')
             );
 
-                $this->db->where('team_id', $team_id);
-                 $this->db->update('teams', $data);
-                  redirect(base_url().'team_admin/');
+                $this->db->where('game_id', $game_id);
+                 $this->db->update('game', $data);
+                  redirect(base_url().'game_admin/');
             } else{
-                $data['team_item'] = $this->team_model->get_team($team_id);
-                $this->load->view('admin/team_edit',$data);
+                $data['game_item'] = $this->game_model->get_game($game_id);
+                $this->load->view('admin/game_edit',$data);
                 $this->load->view('includes/footer');
             }
            

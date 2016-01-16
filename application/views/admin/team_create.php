@@ -28,30 +28,23 @@
 					  </tr>
 					  <tr>
 					    <td> <label for="title">GAME CATEGORY :</label></td>
-					    <td><?php $options = array(
-							        'Badminton' => 'Badminton',
-							        'Tennis' => 'Tennis',
-							        'Basketball' => 'Basketball',
-							        
-							); 
+					    <td>
+					    	<?php 
+					    $game_name = "Basketball";
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-							echo form_dropdown('game_cat', $options, 'Singles',$extra_attributes1);?>	</td>		
+					    echo form_dropdown('game_cat', $game_list, set_value('game_cat', $game_name),$extra_attributes1); ?> 	
+					    </td>		
+					    </td>		
 					    
 					  </tr>
 					  <tr>
 					    <td> <label for="title">SCHOOL :</label>	</td>
-					    <td>    <?php $options = array(
-						''      								=> 'School',
-				        'School of Arts and Sciences'       	=> 'School of Arts and Sciences',
-				        'School of Engineering'         		=> 'School of Engineering',
-				        'School of Education'        			=> 'School of Education',
-				        'School of Healthcare Professions'  	=> 'School of Healthcare Professions',
-				        'School of Business and Economics'  	=> 'School of Business and Economics',
-				        'School of Law and Governance'      	=> 'School of Law and Governance',
-				        'School of Architecture and Fine Arts'  => 'School of Architecture and Fine Arts'
-				);
+					    <td>  
+					    <?php 
+					    $school_name = "School of Arts and Sciences";
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-							echo form_dropdown('school_id', $options, 'School of Arts and Sciences',$extra_attributes1);?>	</td>		
+					    echo form_dropdown('school_id', $school_list, set_value('school_id', $school_name),$extra_attributes1); ?> 	
+					    </td>		
 					    
 					  </tr>
 					 <tr>
