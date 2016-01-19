@@ -66,6 +66,7 @@ class Team_admin extends MY_Controller {
             $data['school_list'] = $this->team_model->get_dropdown_list();
             $data['game_list'] = $this->team_model->get_game();
             
+            
             if ($this->form_validation->run() === FALSE)
             {
                 //$this->load->view('templates/header');
@@ -85,6 +86,7 @@ class Team_admin extends MY_Controller {
             $data['team_item'] = $this->team_model->get_team($team_id);
             $data['school_list'] = $this->team_model->get_dropdown_list();
             $data['game_list'] = $this->team_model->get_game();
+           
 
             if (empty($data['team_item']))
             {

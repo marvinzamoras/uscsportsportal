@@ -55,6 +55,7 @@ $route['news/index'] = 'news/index';
 //$route['announcement_admin/edit/(:any)'] = 'announcement_admin/edit/$1';
 $route['users_admin/index'] = 'users_admin/index';
 $route['game_admin/index'] = 'game_admin/index';
+$route['match_admin/index'] = 'match_admin/index';
 $route['team_admin/index'] = 'team_admin/index';
 $route['news_admin/index'] = 'news_admin/index';
 $route['news_admin/delete/(:any)'] = 'news_admin/delete/$1';

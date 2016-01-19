@@ -50,7 +50,7 @@
 					  </tr>
 					 <tr>
 					    <td>  <label for="title">NAME :</label></td>
-					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52" placeholder=":focus" class="focus"/>	</td>		
+					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52" placeholder="<?php echo $team_item['team_name'];?>" class="focus"/>	</td>		
 					    
 					  </tr>
 					</table>
