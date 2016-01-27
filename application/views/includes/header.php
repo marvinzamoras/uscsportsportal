@@ -15,6 +15,9 @@
     <!-- Modernizr -->
     <script type='text/javascript' src='<?php echo base_url(); ?>assets/js/libs/modernizr-2.5.3.min.js'></script>
     <!-- tinymce -->
+    <link href="https://cdn.datatables.net/1.10.1/css/jquery.dataTables.css" rel ="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script>
     <link href="<?php echo base_url('/assets/css/login.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/general.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/font-awesome.css" rel="stylesheet">
@@ -47,6 +50,8 @@
 
          });
     </script>
+
+     
     <style>
       label {
         color: #f8f8f8;

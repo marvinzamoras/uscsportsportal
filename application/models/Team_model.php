@@ -10,7 +10,13 @@ class Team_model extends CI_Model {
 		{
 		        if ($team_id === FALSE)
 		        {
-		                $query = $this->db->get('teams');
+		        		$this->db->select("*");
+						$this->db->from('teams');
+						$this->db->join('school', 'school.school_id = teams.school_id');
+						$this->db->join('game', 'game.game_id = teams.game_cat');
+						$this->db->join('category', 'category.cat_id = teams.team_cat');
+						$query = $this->db->get();
+		                //$query = $this->db->get('teams');
 		                return $query->result_array();
 		        }
 
@@ -71,7 +77,7 @@ class Team_model extends CI_Model {
 			if($result->num_rows() > 0) {
 				foreach($result->result_array() as $row) 
 				{
-					$return[$row['school_name']] = $row['school_name'];
+					$return[$row['school_id']] = $row['school_name'];
 				}
 			}
 
@@ -87,7 +93,7 @@ class Team_model extends CI_Model {
 			if($result->num_rows() > 0) {
 				foreach($result->result_array() as $row) 
 				{
-					$return[$row['game_name']] = $row['game_name'];
+					$return[$row['game_id']] = $row['game_name'];
 				}
 			}
 

@@ -41,12 +41,38 @@
     </footer>
 
     <!-- Libs -->
-    <script src="<?php echo base_url('/assets/js/libs/jquery-1.10.2.min.js');?>"></script>
+    <
     <script type='text/javascript' src='<?php echo base_url('/assets/js/libs/jquery.flexslider-min.js');?>'></script>
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="<?php echo base_url('/assets/js/jquery.bxslider.min.js');?>"></script>
 
     <!-- Custom -->
     <script src="<?php echo base_url('/assets/js/scripts.js');?>"></script>
+    <script>
+            $(document).ready(function() {
+        $('#example').DataTable();
+} );
+        </script>
+        <script>
+            $(document).ready(function() {
+    $('#example1').DataTable( {
+        "order": [[ 1, "dsc" ]]
+    } );
+} );
+        </script>
+        <script>
+            $(document).ready(function() {
+    $('#example2').DataTable( {
+        "order": [[ 1, "dsc" ]]
+    } );
+} );
+        </script>
+        <script>
+            $(document).ready(function() {
+    $('#example3').DataTable( {
+        "order": [[ 1, "asc" ]]
+    } );
+} );
+        </script>
 </body>
 </html>

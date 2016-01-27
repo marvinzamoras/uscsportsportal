@@ -30,7 +30,7 @@
 					    <td> <label for="title">GAME CATEGORY :</label></td>
 					    <td>
 					    	<?php 
-					    $game_name = "Basketball";
+					    $game_name = 1;
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
 					    echo form_dropdown('game_cat', $game_list, set_value('game_cat', $game_name),$extra_attributes1); ?> 	
 					    </td>		
@@ -41,7 +41,7 @@
 					    <td> <label for="title">SCHOOL :</label>	</td>
 					    <td>  
 					    <?php 
-					    $school_name = "School of Arts and Sciences";
+					    $school_name = "1";
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
 					    echo form_dropdown('school_id', $school_list, set_value('school_id', $school_name),$extra_attributes1); ?> 	
 					    </td>		
@@ -49,7 +49,7 @@
 					  </tr>
 					 <tr>
 					    <td>  <label for="title">NAME :</label></td>
-					    <?php echo form_error('team_name');?
+					    <?php echo form_error('team_name');?>
 					    <td><input type="text" name="team_name" size="52" placeholder="" class="focus"/>	</td>		
 					    
 					  </tr>

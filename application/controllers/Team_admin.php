@@ -21,7 +21,7 @@ class Team_admin extends MY_Controller {
                 $data['teams'] = $this->team_model->get_team();
                 $data['title'] ='Teams';
 
-                $config = array();
+                /*$config = array();
                 $config["base_url"] = base_url() . "/team_admin/index";
                 $config["total_rows"] = $this->team_model->record_count();
                 $config["per_page"] = 10;
@@ -45,7 +45,7 @@ class Team_admin extends MY_Controller {
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
                 $data["results"] = $this->team_model->
                     fetch_team($config["per_page"], $page);
-                $data["links"] = $this->pagination->create_links();
+                $data["links"] = $this->pagination->create_links();*/
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('admin/header_content', $data);

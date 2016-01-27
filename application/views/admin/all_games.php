@@ -16,37 +16,34 @@
 
 					
 					<!-- TABLE STRIPED -->
-					 <table class="table-striped-dflt">
+					 <table class="table-striped-dflt" id = "example">
+					 <thead>
 						<tr class="tr-head">
-							<td>Game Name</td>
-							<td>View</td>
-							<td>Edit</td>
+							<th>Game Name</th>
+							<th>View</th>
+							<th>Edit</th>
 							
 						</tr>
-
-						<?php if(count($games)): foreach ($results as $data): ?>
+					</thead>
+						<?php if(count($games)): foreach ($games as $d): ?>
 						<tr>
-							<td class="td-head"><?php echo $data->game_name;?></td>
-							<?php echo form_hidden('game_id',$data->game_id); 
-							$game =$data->game_id; ?>
+							<td class="td-head"><?php echo $d['game_name'];?></td>
+							<?php echo form_hidden('game_id',$d['game_id']); 
+							$game =$d['game_id']; ?>
 
-							<td><a href = "<?php echo base_url('/match_admin/index/'). '/'.$game.'/'.$data->game_name;?>"><input class='EButton' type ='button' value = 'View'/></a></td>
-							<td><a href = "<?php echo base_url('/game_admin/edit/'). '/'.$data->game_id ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='DButton' type ='button' value = 'Edit'/></a></td>
+							<td><a href = "<?php echo base_url('/match_admin/index/'). '/'.$game.'/'.$d['game_name'];?>"><input class='EButton' type ='button' value = 'View'/></a></td>
+							<td><a href = "<?php echo base_url('/game_admin/edit/'). '/'.$d['game_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='DButton' type ='button' value = 'Edit'/></a></td>
 							
 						</tr>
 						<?php endforeach;?>
 						<?php else:?>
 						<tr>
-							<td colspan="3">We could not find any games.</td>
+							<td>We could not find any games.</td>
 						</tr>
 						<?php endif;?>
 					 </table>
 					 <p></p>
-					<div class="pagination">
-					<ul>
-					<?php echo $links; ?>
-					</ul>
-					</div>
+					
 					
 				
 

@@ -21,7 +21,7 @@ class Announcement_admin extends MY_Controller {
                 $data['announcements'] = $this->announcement_model->get_announcement();
                 $data['title'] ='Announcements';
 
-                $config = array();
+               /* $config = array();
                 $config["base_url"] = base_url() . "/announcement_admin/index";
                 $config["total_rows"] = $this->announcement_model->record_count();
                 $config["per_page"] = 10;
@@ -45,7 +45,7 @@ class Announcement_admin extends MY_Controller {
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
                 $data["results"] = $this->announcement_model->
                     fetch_announcement($config["per_page"], $page);
-                $data["links"] = $this->pagination->create_links();
+                $data["links"] = $this->pagination->create_links();*/
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('admin/header_content', $data);
