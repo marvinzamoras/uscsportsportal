@@ -917,12 +917,14 @@ input[type="text"]:hover {
 /* TABLE */
 table.table-striped-dflt {
   width: 100%;
+  padding: 1px 0px 30px 40px;
   background: #f7f7f7;
   border-collapse: collapse;
   border-spacing: 0;
 }
 table.table-striped-dflt tr {
   color: #7f7f7f;
+  padding: 1px 0px 30px 40px;
   text-align: center;
   line-height: 45px;
 }
@@ -1411,6 +1413,70 @@ span.result b {
   background: #e9ecef;
 }
 /*right col news*/
+.r-box-m {
+  background: #db9921;
+  padding: 1px 0px 30px 40px;
+  min-height: 440px;
+  overflow: hidden;
+}
+.r-box-m article {
+  padding: 30px 0 5px 90px;
+  border-left: 1px solid #e8ebee;
+  position: relative;
+}
+.r-box-m article h3 {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 400;
+  text-transform: initial;
+  padding-right: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin: 0px 0px 10px 0px;
+}
+.r-box-m article p {
+  color: #fff;
+  margin: 0px;
+  padding: 0px 10px 0px 0px;
+}
+.r-box-m article a {
+  color: #0f314d;
+  text-transform: none;
+}
+.r-box-m article span.date-n {
+  color: #63b141;/*#8d9daa;*/
+  padding: 10px;
+  position: absolute;
+  background: #fff;
+  left: -30px;
+  top: 30px;
+}
+.r-box-m > article > h3:hover {
+  border-right: 6px solid #da0040;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.r-box-m > article > h3 > a:hover {
+  text-decoration: underline;
+  color: #da0040;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+
+
+
 .r-box-n {
   background: #fff;
   padding: 1px 0px 30px 40px;
@@ -1423,7 +1489,7 @@ span.result b {
   position: relative;
 }
 .r-box-n article h3 {
-  color: #0f314d;
+  color: #fff;
   font-size: 19px;
   font-weight: 400;
   text-transform: initial;
@@ -1436,7 +1502,7 @@ span.result b {
   margin: 0px 0px 10px 0px;
 }
 .r-box-n article p {
-  color: #8d9daa;
+  color: #fff;
   margin: 0px;
   padding: 0px 10px 0px 0px;
 }
@@ -1657,7 +1723,7 @@ span.result b {
 }
 /*#############  twiter, blog, table ###############*/
 .twiter {
-  background: #143655;
+  background: #db9921;
   border-bottom: 3px solid #5ad2ff;
 }
 .twiter h3 {
@@ -1688,7 +1754,7 @@ ul.t-post li a span {
   color: #466787;
 }
 .bl-title {
-  background: #081d2f;
+  background: #4e8c33;
 }
 .bl-title h3 {
   color: #fff;
@@ -1731,7 +1797,7 @@ ul.t-post li a span {
   transition: all 0.5s ease-in-out;
 }
 .s-post a span:hover {
-  background-color: #da0040;
+  background-color: #db9921;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -1750,10 +1816,13 @@ ul.t-post li a span {
 }
 .table-striped {
   width: 100%;
+  padding: 1px 0px 30px 40px;
+  min-height: 471px;
+  overflow: hidden;
   border-collapse: collapse;
   border-spacing: 0;
-  font-size: 12px;
-  background: #081d2f;
+  font-size: 15px;
+  background: #db9921;
 }
 .table-striped tr {
   line-height: 32px;
@@ -1772,7 +1841,7 @@ ul.t-post li a span {
   padding: 0px 20px;
 }
 .table-striped tr:nth-child(2n) {
-  background: #0d2840;
+  background: #e4ae4b;
 }
 /* ########### partner ####################*/
 .p-l {

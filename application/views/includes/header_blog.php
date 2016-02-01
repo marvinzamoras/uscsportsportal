@@ -4,7 +4,7 @@
 			<div class="container">
 				<div class="col-12">
 				  <div class="col-2">
-					<div class="logo"><img src="<?php  echo base_url('/assets/css/images/logo1.png');?>" alt=""/></div>
+					<div class="logo"><img src="<?php  echo base_url('/assets/css/images/logo2.png');?>" alt=""/></div>
 				  </div>
 					<nav id="top-menu">
 						<ul class="clearfix">

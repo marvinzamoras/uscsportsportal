@@ -15,13 +15,15 @@ class Site extends MY_Controller{
 	function home($page = 'home'){
 		
 			$this->load->model('news_model');
+			$this->load->model('announcement_model');
 			$data['news'] = $this->news_model->get_news();
+			$data['announcement'] = $this->announcement_model->get_announcement();
 			$data['title'] = ucfirst($page);
 
 			$config = array();
                 $config["base_url"] = base_url() . "/site/home";
                 $config["total_rows"] = $this->news_model->record_count();
-                $config["per_page"] = 4;
+                $config["per_page"] = 5;
                 $config["uri_segment"] = 3;
                 $choice = $config["total_rows"] / $config["per_page"];
                 $config["num_links"] = round($choice);
@@ -42,6 +44,8 @@ class Site extends MY_Controller{
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
                 $data["results"] = $this->news_model->
                     fetch_news($config["per_page"], $page);
+                $data["results_ann"] = $this->announcement_model->
+                    fetch_announcement($config["per_page"], $page);
                 $data["links"] = $this->pagination->create_links();
                 
 			
