@@ -12,7 +12,7 @@
 							<li><a href="<?php echo base_url('game_admin');?>">Games</a></li>
 							<li><a href="<?php echo base_url('news_admin');?>">News and Updates</a></li>
 							<li><a href="<?php echo base_url('announcement_admin');?>">Announcements</a></li>
-							<li class="dropdown"><a href="blog.html">Account</a>
+							<li class="dropdown"><a href="">Account</a>
 								<ul class="dropdown-menu">
 									<li><a href="<?php echo base_url('profile/view');?>">View Profile</a></li>
 									<?php

@@ -62,10 +62,10 @@ class Team_admin extends MY_Controller {
             $this->form_validation->set_rules('team_name', 'Team Name', 'required');
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
             $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-            $this->form_validation->set_rules('school_id', 'School', 'required');
+            $this->form_validation->set_rules('FKschool_id', 'School', 'required');
             $data['school_list'] = $this->team_model->get_dropdown_list();
             $data['game_list'] = $this->team_model->get_game();
-            
+            $data['cat_list'] = $this->team_model->get_team_category();
             
             if ($this->form_validation->run() === FALSE)
             {
@@ -86,8 +86,8 @@ class Team_admin extends MY_Controller {
             $data['team_item'] = $this->team_model->get_team($team_id);
             $data['school_list'] = $this->team_model->get_dropdown_list();
             $data['game_list'] = $this->team_model->get_game();
-           
-
+            $data['cat_list'] = $this->team_model->get_team_category();
+            
             if (empty($data['team_item']))
             {
                 show_404();
@@ -101,7 +101,7 @@ class Team_admin extends MY_Controller {
                   $this->form_validation->set_rules('team_name', 'Team Name', 'required');
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
              $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-             $this->form_validation->set_rules('school_id', 'School', 'required');
+             $this->form_validation->set_rules('FKschool_id', 'School', 'required');
             
                 $this->load->helper('url');
                
@@ -114,7 +114,7 @@ class Team_admin extends MY_Controller {
                 'team_name' => $this->input->post('team_name'),
                 'team_cat' => $this->input->post('team_cat'),
                 'game_cat'=>$this->input->post('game_cat'),
-                'school_id' => $this->input->post('school_id')
+                'FKschool_id' => $this->input->post('FKschool_id')
                 
 
             );
