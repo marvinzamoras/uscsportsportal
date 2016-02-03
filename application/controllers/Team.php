@@ -1,7 +1,7 @@
 <?php
 class Team extends MY_Controller {
 
-	public function __construct()
+    public function __construct()
         {
                 parent::__construct();
                 $this->load->model('membership_model');
@@ -12,15 +12,24 @@ class Team extends MY_Controller {
 
     public function index(){
 
-    	 //$data['teams'] = $this->team_model->display_team();
+         //$data['teams'] = $this->team_model->display_team();
         $data['title'] ='Teams';
 
-    	$results= $this->team_model->display_team();
-    	//print_r($results);
-    	$data = array('results' => $results, 'title'=>'Teams');
-    	$this->load->view('includes/header', $data);
+        $results= $this->team_model->display_team();
+        //print_r($results);
+        $data = array('results' => $results, 'title'=>'Teams');
+        $this->load->view('includes/header', $data);
         $this->load->view('includes/header_content', $data);
         $this->load->view('view_all_teams', $data);
 
+    }
+
+    public function view($school_id){
+        $results = $this->team_model->view_team($school_id);
+        $data['title'] ='Teams';
+        $this->load->view('includes/header', $data);
+        $this->load->view('includes/header_content', $data);
+        $data = array('results' => $results, 'title'=>'Teams');
+        $this->load->view('view_team', $data);
     }
 }

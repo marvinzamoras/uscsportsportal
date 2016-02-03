@@ -125,4 +125,20 @@ class Team_model extends CI_Model {
 		}
 
 
+		public function view_team($school_id){
+		        
+		        		$this->db->select("*");
+						$this->db->from('teams');
+						$this->db->where('FKschool_id',$school_id);
+						
+						$query = $this->db->get()->result();
+						$query1 = $this->db->get('game')->result();
+						$query4 = $this->db->get('category')->result();
+		                //$query = $this->db->get('teams');
+		                //return $query->result_array();
+		        	return array('team'=>$query,'games'=>$query1,'category'=>$query4);
+
+		        
+		}
+
 }

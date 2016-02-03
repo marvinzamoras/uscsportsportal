@@ -4,12 +4,12 @@
 			<div class="container">
 				<div class="col-12">
 				  <div class="col-2">
-					<div class="logo"><img src="<?php  echo base_url('/assets/css/images/logo1.png');?>" alt=""/></div>
+					<div class="logo"><img src="<?php  echo base_url('/assets/css/images/logo2.png');?>" alt=""/></div>
 				  </div>
 					<nav id="top-menu">
 						<ul class="clearfix">
 							<li class="active"><a href="<?php echo base_url('site/home');?>">Home</a></li>
-							<li><a href="team.html">Team</a></li>
+							<li><a href="<?php echo base_url('home/index');?>">Team</a></li>
 							<li><a href="video.html">video</a></li>
 							<li class="dropdown"><a href="blog.html">blog</a>
 								<ul class="dropdown-menu">

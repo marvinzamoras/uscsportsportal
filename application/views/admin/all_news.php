@@ -12,7 +12,7 @@
 			<div class="tab">news and updates</div>
 			<div class="match">
 				<div class ="bottom-form">
-				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/news_admin/createNews');?>">ADD A NEWS</a></button>
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/news_admin/createNews');?>">ADD NEWS AND UPDATES</a></button>
 				</div>
 
 					
