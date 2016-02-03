@@ -18,10 +18,10 @@ class Users_Admin extends MY_Controller {
                 $data['users'] = $this->users_model->get_users();
                 $data['title'] ='Users';
 
-                /*$config = array();
+                $config = array();
                 $config["base_url"] = base_url() . "/Users_Admin/index";
                 $config["total_rows"] = $this->users_model->record_count();
-                $config["per_page"] = 5;
+               $config["per_page"] = 5;
                 $config["uri_segment"] = 3;
                 $choice = $config["total_rows"] / $config["per_page"];
                 $config["num_links"] = round($choice);
@@ -42,7 +42,7 @@ class Users_Admin extends MY_Controller {
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
                 $data["results"] = $this->users_model->
                     fetch_users($config["per_page"], $page);
-                $data["links"] = $this->pagination->create_links();*/
+                $data["links"] = $this->pagination->create_links();
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('admin/header_content', $data);

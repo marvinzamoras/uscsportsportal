@@ -12,8 +12,11 @@
 			<div class="col-12">
 			<div class="tab">games</div>
 			<div class="match">
-				<?php echo anchor('/game_admin/createGame', '<h3> <u> Add Game </u> </h3>' ); ?>
-
+				
+				
+				<div class ="bottom-form">
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/game_admin/createGame');?>">ADD A GAME</a></button>
+				</div>
 					
 					<!-- TABLE STRIPED -->
 					 <table class="table-striped-dflt" id = "example">

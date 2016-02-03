@@ -11,8 +11,10 @@
 			<div class="col-12">
 			<div class="tab">announcements</div>
 			<div class="match">
-				<?php echo anchor('/announcement_admin/createAnnouncement', '<h3> <u> Add Announcement </u> </h3>' ); ?>
-
+				<div class ="bottom-form">
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/announcement_admin/createAnnouncement');?>">ADD ANNOUNCEMENT</a></button>
+				</div>
+				
 					
 					<!-- TABLE STRIPED -->
 					  <table id = "example2" class = "table-striped-dflt">

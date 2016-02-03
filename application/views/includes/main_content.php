@@ -80,17 +80,16 @@
 					<div class="tab"><h3>ranking</h3></div>
 					
 					<table class="table-striped">
-						<tr class="t-h"><td class="t-c">Pos</td><td>Club</td><td>Pld</td><td>Pts</td></tr>
-						<tr><td class="t-c">1</td><td>FC Bayern München</td><td>36</td><td>81</td></tr>
-						<tr><td class="t-c">2</td><td>Borussia Dortmund</td><td>36</td><td>76</td></tr>
-						<tr><td class="t-c">3</td><td>FC Schalke 04</td><td>34</td><td>74</td></tr>
-						<tr><td class="t-c">4</td><td>Bayer 04 Leverkusen</td><td>35</td><td>70</td></tr>
-						<tr><td class="t-c">5</td><td>VfL Wolfsburg</td><td>36</td><td>69</td></tr>
-						<tr><td class="t-c">6</td><td>FSV Mainz</td><td>36</td><td>66</td></tr>
-						<tr><td class="t-c">7</td><td>Borussia M.</td><td>35</td><td>60</td></tr>
-						<tr><td class="t-c">8</td><td>FC Augsburg</td><td>35</td><td>52</td></tr>
-						<tr><td class="t-c">9</td><td>1899 Hoffenheim</td><td>35</td><td>46</td></tr>
-						<tr><td class="t-c">10</td><td>Hertha Berlin</td><td>35</td><td>44</td></tr>
+
+						<tr class="t-h"><td class="t-c">Pos</td><td>School</td><td class="t-c">Pts</td></tr>
+						<tr><td class="t-c">1</td><td>School of Arts and Sciences</td><td class="t-c">81</td></tr>
+						<tr><td class="t-c">2</td><td>School of Engineering</td><td class="t-c">76</td></tr>
+						<tr><td class="t-c">3</td><td>School of Architecture and Fine Arts</td><td class="t-c">74</td></tr>
+						<tr><td class="t-c">4</td><td>School of Healthcare Professions</td><td class="t-c">70</td></tr>
+						<tr><td class="t-c">5</td><td>School of Business and Economics</td><td class="t-c">69</td></tr>
+						<tr><td class="t-c">6</td><td>School of Law and Governance</td><td class="t-c">66</td></tr>
+						<tr><td class="t-c">7</td><td>School of Education</td><td class="t-c">60</td></tr>
+
 					</table>
 					
 			</div>
@@ -107,7 +106,9 @@
 					<div class="bl-title"><h3>announcements</h3></div>
 					<?php if(count($announcement)): foreach ($results_ann as $data): ?>
 					<div class="s-post">
-						<div class="post-img"><img src="<?php echo  base_url('/assets/css/images/slider.jpg');?>" alt=""/></div>
+
+						<div class="post-img"><img src="<?php echo  base_url('/assets/css/images/slider2.jpg');?>" alt=""/></div>
+
 						<h3><a href="<?php echo site_url('announcement/'.$data->slug); ?>"><span><?php echo $data->ann_title; ?></span></a></h3>
 					</div>
 

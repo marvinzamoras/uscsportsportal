@@ -11,7 +11,9 @@
 			<div class="col-12">
 			<div class="tab">news and updates</div>
 			<div class="match">
-				<?php echo anchor('/news_admin/createNews', '<h3> <u> Add News and Updates </u> </h3>' ); ?>
+				<div class ="bottom-form">
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/news_admin/createNews');?>">ADD NEWS AND UPDATES</a></button>
+				</div>
 
 					
 					<!-- TABLE STRIPED -->

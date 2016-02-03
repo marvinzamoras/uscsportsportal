@@ -16,14 +16,10 @@
 					 <table style="width:75%">
 					  <tr>
 					    <td><label for="title">TEAM CATEGORY :</label>	</td>
-					    <td><?php $options = array(
-							        'Singles' => 'Singles',
-							        'Doubles' => 'Doubles',
-							        'Groups' => 'Groups',
-							        
-							); 
+					    <td><?php 
+					    $cat_name = 1;
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-							echo form_dropdown('team_cat', $options, 'Singles',$extra_attributes1);?></td>		
+							echo form_dropdown('team_cat', $cat_list, set_value('cat_name', $cat_name),$extra_attributes1);?></td>		
 					    
 					  </tr>
 					  <tr>
@@ -41,9 +37,9 @@
 					    <td> <label for="title">SCHOOL :</label>	</td>
 					    <td>  
 					    <?php 
-					    $school_name = "1";
+					    $school_name = 1;
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-					    echo form_dropdown('school_id', $school_list, set_value('school_id', $school_name),$extra_attributes1); ?> 	
+					    echo form_dropdown('FKschool_id', $school_list, set_value('FKschool_id', $school_name),$extra_attributes1); ?> 	
 					    </td>		
 					    
 					  </tr>
