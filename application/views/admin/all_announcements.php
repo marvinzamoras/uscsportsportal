@@ -12,7 +12,7 @@
 			<div class="tab">announcements</div>
 			<div class="match">
 				<div class ="bottom-form">
-				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/announcement_admin/createAnnouncement');?>">ADD AN ANNOUNCMENT</a></button>
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/announcement_admin/createAnnouncement');?>">ADD ANNOUNCEMENT</a></button>
 				</div>
 				
 					

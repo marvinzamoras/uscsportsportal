@@ -9,7 +9,7 @@
 					<nav id="top-menu">
 						<ul class="clearfix">
 							<li class="active"><a href="<?php echo base_url('site/home');?>">Home</a></li>
-							<li><a href="team.html">Team</a></li>
+							<li><a href="<?php echo base_url('home/index');?>">Team</a></li>
 							<li><a href="video.html">video</a></li>
 							<li class="dropdown"><a href="blog.html">blog</a>
 								<ul class="dropdown-menu">

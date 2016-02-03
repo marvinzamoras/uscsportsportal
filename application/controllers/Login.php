@@ -15,7 +15,7 @@ class Login extends MY_Controller{
 		}
 		$this->load->view('includes/header',$data);
 		$this->load->view('login_form');
-		$this->load->view('includes/footer');
+		//$this->load->view('includes/footer');
 	}
 
  	function signup($page = 'signup'){
