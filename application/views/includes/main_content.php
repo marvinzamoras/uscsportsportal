@@ -113,7 +113,7 @@
 					<?php if(count($announcement)): foreach ($results_ann as $data): ?>
 
 					<article>
-						<h3><a href="<?php echo site_url('announcements/'.$data->slug); ?>"><?php echo $data->ann_title; ?></a></h3>
+						<h3><a href="<?php echo site_url('announcement/'.$data->slug); ?>"><?php echo $data->ann_title; ?></a></h3>
 						<p><?php 
 
 						$excerpt = explode(' ', strip_tags($data->ann_content), 11);
