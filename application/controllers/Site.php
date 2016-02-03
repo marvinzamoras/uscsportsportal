@@ -16,8 +16,10 @@ class Site extends MY_Controller{
 		
 			$this->load->model('news_model');
 			$this->load->model('announcement_model');
+			$this->load->model('ranking_model');
 			$data['news'] = $this->news_model->get_news();
 			$data['announcement'] = $this->announcement_model->get_announcement();
+			$data['school'] = $this->ranking_model->get_school();
 			$data['title'] = ucfirst($page);
 
 			$config = array();
@@ -46,6 +48,8 @@ class Site extends MY_Controller{
                     fetch_news($config["per_page"], $page);
                 $data["results_ann"] = $this->announcement_model->
                     fetch_announcement($config["per_page"], $page);
+                 $data["results_school"] = $this->ranking_model->
+                    fetch_school(7, $page);
                 $data["links"] = $this->pagination->create_links();
                 
 			

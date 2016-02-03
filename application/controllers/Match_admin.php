@@ -113,6 +113,8 @@ class Match_admin extends MY_Controller {
             $data['team'] = $this->match_model->get_teams($game_id);
             $data['name'] = $game_name;
             $data['game_id'] = $game_id;
+            $data['match_id'] = $match_id;
+
             $data['team1'] = $this->match_model->view_team1($match_id);
             $data['team2'] = $this->match_model->view_team2($match_id);
             $data['school1'] = $this->match_model->view_school1($match_id);
@@ -120,8 +122,8 @@ class Match_admin extends MY_Controller {
 
             if (empty($data['match']))
             {
-               echo $game_id;
-                //show_404();
+              
+                show_404();
             }
 
             $data['title'] = "Match Up";
@@ -131,16 +133,13 @@ class Match_admin extends MY_Controller {
             if($this->input->post('submit')){
                 $this->form_validation->set_rules('team1', 'Team 1', 'required');
                 $this->form_validation->set_rules('team2', 'Team 2', 'required');
-               // $this->form_validation->set_rules('game', 'Game Category', 'required');
                 $this->form_validation->set_rules('category', 'Category', 'required');
-               // $this->form_validation->set_rules('school1', 'School 1', 'required');
-                //$this->form_validation->set_rules('school2', 'School 2', 'required');
                 $this->form_validation->set_rules('time', 'Time', 'required');
                 $this->form_validation->set_rules('date', 'Date', 'required');
                 $this->form_validation->set_rules('team1_score', 'Team 1 Score', 'required');
                 $this->form_validation->set_rules('team2_score', 'Team 2 Score', 'required');
-                $this->form_validation->set_rules('team1_res', 'Team 1 Result', 'required');
-                $this->form_validation->set_rules('team2_res', 'Team 2 Result', 'required');
+                $this->form_validation->set_rules('winner', 'Winner', 'required');
+              
                 
             
                 $this->load->helper('url');
@@ -154,14 +153,10 @@ class Match_admin extends MY_Controller {
                 'team1' => $this->input->post('team1'),
                 'team2' => $this->input->post('team2'),
                 'game'=>$this->input->post('game'),
-                'school1' => $this->input->post('school1'),
-                'school2' => $this->input->post('school2'),
                 'time' => $this->input->post('time'),
                 'date' => $this->input->post('date'),
                 'team1_score'=>$this->input->post('team1_score'),
                 'team2_score' => $this->input->post('team2_score'),
-                'team1_res' => $this->input->post('team1_res'),
-                'team2_res' => $this->input->post('team2_res'),
                 'category'=>$this->input->post('category')
                 
                 
@@ -170,19 +165,19 @@ class Match_admin extends MY_Controller {
 
                 $this->db->where('match_id', $match_id);
                 $this->db->update('matchup', $data);
-                $res1 = $this->input->post('team1_res');
-                //$res2 = $this->input->post('team2_res');
+                $res1 = $this->input->post('winner');
                 $team1 = $this->input->post('team1');
                 $team2 =  $this->input->post('team2');
                 $this->match_model->points($res1,$team1,$team2);
-                  redirect(base_url().'match_admin/');
+                $name = $data['name']; 
+                $id =  $data['game_id'];
+                $match_id = $data['match_id'];
+                $this->match_model->result($res1,$match_id);
+
+                redirect(base_url().'match_admin/index/'.$id.'/'.$name);
                 }
     
-                //$data['match'] = $this->match_model->view_match($match_id);
-               //$data['team2'] = $this->match_model->team2($data['match']);
-                //$data['school1'] = $this->match_model->school1($data['match']);
-                //$data['school2'] = $this->match_model->school2($data['match']);
-               // $data['category'] = $this->match_model->get_category(); 
+               
                 $this->load->view('admin/match_edit',$data);
                 $this->load->view('includes/footer');
             }
