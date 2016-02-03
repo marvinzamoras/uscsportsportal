@@ -11,7 +11,7 @@
             <div class="col-12">
                 <div class="match">
 
-					<?php echo form_open('match_admin/createMatch'); ?>
+					<?php echo form_open('match_admin/edit'.'/'.$match_id,$name,$game_id); ?>
 					 <table style="width:75%">
 
 					 <tr> <h2><?php  echo "Edit  Match";?></h2></tr>
@@ -62,7 +62,7 @@
 					    <td>  <label for="title"> CATEGORY :</label></td>
 					   <td>  <select name="category"  class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $matchup->cat_name;?>">
                				<?php for($i=0; $i<sizeof($category); $i++)  { ?>
-              				<option value="<?php echo $category[$i]['cat_id'];?>"><?php echo $category[$i]['cat_name'];?></option>
+              				<option <?php echo ($category[$i]['cat_id'] == $match['category'])?'selected="selected"':''; ?> value="<?php echo $category[$i]['cat_id'];?>"><?php echo $category[$i]['cat_name'];?></option>
                				 <?php }?>
          				 </select>	</td> 	
 					    
@@ -70,14 +70,14 @@
 
 					   <tr>
 					    <td>  <label for="title"> TIME :</label></td>
-					   <td>  <input  type="time" name="time" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%">
+					   <td>  <input  type="time" name="time" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" value="<?php echo $match['time']; ?>"">
          				 </input>	</td> 	
 					    
 					  </tr>
 
 					  <tr>
 					    <td>  <label for="title"> DATE :</label></td>
-					   <td>  <input  type="date" name="date" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" min="<?php echo date("Y-m-d"); ?>" >
+					   <td>  <input  type="date" name="date" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $match['date']; ?>" >
          				 </input>	</td> 	
 					    
 					  </tr>
@@ -97,31 +97,22 @@
 					  </tr>
 
 					  <tr>
-					    <td>  <label for="title"> Result 1 :</label></td>
+					    <td>  <label for="title"> Winner :</label></td>
 					    <td>
-         				 	<input type="radio" name="team_res1" value="W" checked> Win<br>
-  							<input type="radio" name="team_res1" value="L"> Loss<br>	
+         				 	<input type="radio" name="winner" value="team1" > Team 1<br>
+  							<input type="radio" name="winner" value="team2"> Team 2<br>	
 					    </td>
 					  </tr>
 
-					  <tr>
-					    <td>  <label for="title"> <br>Result 2 :</label></td>
-					   <td> <br>
-					   		<input type="radio" name="team_res2" value="W" checked> Win<br>
-  							<input type="radio" name="team_res2" value="L"> Loss<br>	
-         				</td> 	
-					    
-					  </tr>
+					 
 
 
 
 					</table>
 						
-						  
-						<?php echo form_hidden('team1_score',0); ?>
-						<?php echo form_hidden('team2_score',0); ?>
-						<?php echo form_hidden('team1_res',"Default"); ?>
-						<?php echo form_hidden('team2_res',"Default"); ?>
+						 
+						
+						<?php echo form_hidden('match_id',$match_id); ?>
 						<?php echo form_hidden('game',$game_id); ?>
 						<?php echo form_hidden('name',$name); ?>
 						<br>

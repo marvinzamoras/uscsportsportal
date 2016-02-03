@@ -1,20 +1,20 @@
 <?php
-class School_model extends CI_Model {
+class Ranking_model extends CI_Model {
 
         public function __construct()
         {
                 $this->load->database();
         }
 
-        public function get_school($slug = FALSE)
+        public function get_school($school_id = FALSE)
 		{
-		        if ($slug === FALSE)
+		        if ($school_id === FALSE)
 		        {
-		                $query = $this->db->get('announcements');
+		                $query = $this->db->get('school');
 		                return $query->result_array();
 		        }
 
-		        $query = $this->db->get_where('announcements', array('slug' => $slug));
+		        $query = $this->db->get_where('school', array('school_id' => $school_id));
 		        return $query->row_array();
 		}
 
@@ -22,10 +22,10 @@ class School_model extends CI_Model {
 	        return $this->db->count_all("announcements");
 	    }
 
-	    public function fetch_announcement($limit, $start) {
+	    public function fetch_school($limit, $start) {
 	        $this->db->limit($limit, $start);
-	        $this->db->order_by('ann_pub','DESC');
-	        $query = $this->db->get("announcements");
+	        
+	        $query = $this->db->get("school");
 
 	        if ($query->num_rows() > 0) {
 	            foreach ($query->result() as $row) {

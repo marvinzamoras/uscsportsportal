@@ -36,6 +36,8 @@
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
 /* Grid System 12 Columns
 /* ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## */
+/* teaser*/
+
 .container {
   margin-left: auto;
   margin-right: auto;
@@ -1457,29 +1459,67 @@ span.result b {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-/* teaser*/
-#teaser {
+
+.teaser {
   background: url(images/teaser.jpg) no-repeat;
-  text-align: center;
-  padding: 100px 18% 60px;
+  /*background: #fff;*/
+  padding: 1px 0px 30px 40px;
+  min-height: 440px;
+  overflow: hidden;
 }
-#teaser h2 {
-  font-size: 24px;
+.teaser article {
+  padding: 30px 0 5px 90px;
+  border-left: 1px solid #e8ebee;
+  position: relative;
+}
+.teaser article h3 {
+  color: #fff;
+  font-size: 19px;
   font-weight: 400;
-  margin-bottom: 35px;
+  text-transform: initial;
+  padding-right: 10px;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  margin: 0px 0px 10px 0px;
+}
+.teaser article p {
+  color: #fff;
+  margin: 0px;
+  padding: 0px 10px 0px 0px;
+}
+.teaser article a {
+  color: #0f314d;
   text-transform: none;
 }
-#teaser h2 span {
-  font-weight: 700;
-  display: block;
-  text-transform: none;
+.teaser article span.date-n {
+  color: #63b141;/*#8d9daa;*/
+  padding: 10px;
+  position: absolute;
+  background: #fff;
+  left: -30px;
+  top: 30px;
 }
-#teaser p {
-  font-size: 14px;
-  color: #617e94;
-  text-align: center;
-  margin-bottom: 35px;
+.teaser > article > h3:hover {
+  border-right: 6px solid #da0040;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
+.teaser > article > h3 > a:hover {
+  text-decoration: underline;
+  color: #da0040;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 /* VIDEO*/
 #v-tabs {
   overflow: hidden;

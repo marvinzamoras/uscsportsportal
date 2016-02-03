@@ -28,26 +28,18 @@ class Match_model extends CI_Model {
 //edit match
 		public function view_match($id)
 		{
-
-
-		   	$this->db->SELECT('*');
+			$this->db->SELECT('*');
 		    $this->db->FROM('matchup');
 		    $this->db->JOIN('category', 'category.cat_id = matchup.category');
-		    $this->db->JOIN('teams', 'teams.team_id = matchup.team1');
-		    $this->db->JOIN('school', 'school.school_id = teams.FKschool_id');
 		    $this->db->JOIN('game', 'game.game_id = matchup.game');
+		    $this->db->join('teams as t1', 'matchup.team1 = t1.team_id');
+		    $this->db->join('teams as t2', 'matchup.team2 = t2.team_id');
 		    $this->db->WHERE('match_id',$id);
-
-
-		    
-		    $result = $this->db->get();
-				 if ($result->num_rows() > 0) {
-	            return $result->row();
+		 
+			$result = $this->db->get();
+		    return $result->row_array();
 				 
-				}else return False;
-
-
-		}	
+		   }	
 //edit match
 		public function view_team1($id)
 		{
@@ -343,7 +335,7 @@ class Match_model extends CI_Model {
 				}
 
 
-			if($res1 == 'W'){
+			if($res1 == 'team1'){
 				    $wins1= $wins1 +1;
 				    $loss2=$loss2 +1;
 					$data = array(
@@ -375,9 +367,40 @@ class Match_model extends CI_Model {
 
 		}
 		
-		
+		public function result($res,$match_id)
+		{
 
+			if ($res =="team1")
+			
+
+			{	
+				  $data = array(
+                'team1_res' => 'W',
+                'team2_res' => 'L'
+                
+               );
+
+
+	         
+	    }else{
+
+	    	{	
+				  $data = array(
+                'team1_res' => 'L',
+                'team2_res' => 'W'
+                
+                
+
+            );
+
+
+	    }
+                $this->db->where('match_id', $match_id);
+                $this->db->update('matchup', $data);
+	}
+			
 		
+	}	
 		//for all match ups
 		public function record_count($game_id) {
 			$this->db->get_where('matchup', array('game' => $game_id));
@@ -483,4 +506,3 @@ class Match_model extends CI_Model {
 
 		
 		
-
