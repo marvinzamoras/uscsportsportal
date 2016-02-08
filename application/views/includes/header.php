@@ -54,11 +54,11 @@
 
      
     <style>
-      label {
+     label {
         color: #f8f8f8;
         font-family: 'Ubuntu', serif;
         font-size: 20px;
-        text-shadow: 4px 4px 4px #aaa;
+        /*text-shadow: 4px 4px 4px #aaa;*/
       }
     </style>
     <style>
