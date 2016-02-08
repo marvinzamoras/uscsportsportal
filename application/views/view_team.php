@@ -1,36 +1,46 @@
-<tr>
-<table class = "table-striped-dflt">
-<col>
-<colgroup span="1"></colgroup>
-<colgroup span="1"></colgroup>
-<tr class="tr-head">
-<td rowspan="1"></td>
-<?php foreach($results['category'] as $c):?>
-<th colspan="1" scope="colgroup"><?php echo $c->cat_name;?></th>
-<?php endforeach;?>
-</tr>
-<tr>
-<?php for($ctr=0; $ctr<count($results['games']);$ctr++){
+<section id="bc-t">
+		<div class="container">
+		
+		
+		<h1 class="blog-title">Teams</h1>
+		</div>
+	</section>
+<section id="blog-single">
+		<div class="container">
+			<!-- BLOG POST SINGLE -->
+			<div class="col-12">
+			<div class="tab"><?php echo $results['school'] ;?></div>
+			<div class="match">
+				
+				
+					<?php foreach($results['games'] as $g):?>
 
-echo "<tr><th scope='row'>".$results['games'][$ctr]->game_name."</th>";
- 
- for($count=0;$count<count($results['team']);$count++){
- 	for($cnt=0;$cnt<count($results['category']);){
- 	if($results['team'][$count]->game_cat==$results['games'][$ctr]->game_id && $results['team'][$count]->team_cat==$results['category'][$cnt]->cat_id)
- 	echo "<td>".$results['team'][$count]->team_name."</td>";
- 	$cnt++;
- 	}
- }
+					<!-- TABLE STRIPED -->
+					<div class="col-12">
+					  <table class = "table-striped-dflt">
+					  <thead>
+						<tr class="tr-head">
+							<th><?php echo $g->game_name;?></th>
+						</tr>
+					   </thead>
+					   <tbody>
+						<?php foreach($results['team'] as $t):?>
+						<tr>
+						<td><?php if($g->game_id == $t->game_cat) echo $t->team_name." (".$t->cat_name.")";?></td>
+						<tr>
+					<?php endforeach;?>
+						</tbody>
+					 </table>
+					 <p></p>
+					</div>
+				<?php endforeach;?>
+					
+					
+				
 
-echo "</tr>";
-}
-;?>
-
-</table>
-
-<tr>
-<th></th>
-<?php foreach ($results['category'] as $c): ?>
-<?php echo "<th>".$c->cat_name."</th>"; ?>
-<?php endforeach;?>
-</tr>
+			</div>
+			
+		</div>
+			
+		</div>
+	</section>

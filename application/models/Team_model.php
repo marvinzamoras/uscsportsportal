@@ -130,13 +130,16 @@ class Team_model extends CI_Model {
 		        		$this->db->select("*");
 						$this->db->from('teams');
 						$this->db->where('FKschool_id',$school_id);
+						$this->db->join('category', 'category.cat_id = teams.team_cat');
 						
 						$query = $this->db->get()->result();
 						$query1 = $this->db->get('game')->result();
 						$query4 = $this->db->get('category')->result();
+						$output = $this->db->query("SELECT school_name FROM school WHERE school_id='$school_id'")->row()->school_name;
+
 		                //$query = $this->db->get('teams');
 		                //return $query->result_array();
-		        	return array('team'=>$query,'games'=>$query1,'category'=>$query4);
+		        	return array('team'=>$query,'games'=>$query1,'category'=>$query4,'school'=>$output);
 
 		        
 		}
