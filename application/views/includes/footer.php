@@ -53,5 +53,23 @@
     } );
 } );
         </script>
+
+        <script>
+            $(document).ready(function() {
+    $('#example4').DataTable( {
+        "order": [[ 3, "dsc" ]]
+    } );
+} );
+        </script>
+
+         <script>
+            $(document).ready(function() {
+    $('#example5').DataTable( {
+        "order": [[ 3, "asc" ]]
+    } );
+} );
+        </script>
+
+
 </body>
 </html>

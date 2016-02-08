@@ -5,6 +5,7 @@ class Site extends MY_Controller{
 	public function __construct() {
 	    parent::__construct();
 	    $this->load->model('membership_model');
+	    $this->load->model('match_model');
 	    $this->load->library("pagination");
 	    $this->load->helper('url_helper');
 		$this->is_logged_in();
@@ -14,6 +15,7 @@ class Site extends MY_Controller{
 
 	function home($page = 'home'){
 		
+			$this->load->model('match_model');
 			$this->load->model('news_model');
 			$this->load->model('announcement_model');
 			$this->load->model('ranking_model');
@@ -21,6 +23,9 @@ class Site extends MY_Controller{
 			$data['announcement'] = $this->announcement_model->get_announcement();
 			$data['school'] = $this->ranking_model->get_school();
 			$data['title'] = ucfirst($page);
+			$this->match_model->rank();
+			$data['rank'] = $this->ranking_model->get_rank();
+			
 
 			$config = array();
                 $config["base_url"] = base_url() . "/site/home";

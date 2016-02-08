@@ -28,6 +28,7 @@ class Match_admin extends MY_Controller {
                 $data['team2'] = $this->match_model->team2($data['match']);
                 $data['school1'] = $this->match_model->school1($data['match']);
                 $data['school2'] = $this->match_model->school2($data['match']);
+               
 
                 /*$config = array();
                 $config["base_url"] = base_url() . "/match_admin/index";
@@ -64,6 +65,11 @@ class Match_admin extends MY_Controller {
             
         }
 
+
+
+
+        
+        
         public function createMatch($game_name,$game_id)
         {
             $data['title'] = 'Create Match';
@@ -72,7 +78,7 @@ class Match_admin extends MY_Controller {
             $data['team'] = $this->match_model->get_teams($game_id);
             $data['name'] = $game_name;
             $data['gameid'] = $game_id;
-            
+           
             
 
 
@@ -85,12 +91,16 @@ class Match_admin extends MY_Controller {
             $this->form_validation->set_rules('time', 'Time', 'required');
             $this->form_validation->set_rules('date', 'Date', 'required');
             $data['school_list'] = $this->match_model->get_dropdown_list();
+
+             
+                
             //s$data['game_list'] = $this->match_model->get_game();
             
             
-            if ($this->form_validation->run() === FALSE)
+            if ($this->input->post('team1') == $this->input->post('team2')||$this->form_validation->run() === FALSE)
             {
-                //$this->load->view('templates/header');
+                $data['same_team']= "Cannot match the same team";
+                redirect(base_url().'match_admin/createMatch/'.$data['name'].'/'.$data['gameid'] );
                 $this->load->view('admin/match_create',$data);
                 $this->load->view('includes/footer');
             }
@@ -146,9 +156,11 @@ class Match_admin extends MY_Controller {
                
                 if($this->form_validation->run() === FALSE)
                 {
-                    $this->load->view('admin/match_edit',$data);
+                    $this->load->view('admin/match_edit',$date_default_timezone_set);
                     $this->load->view('includes/footer');
                 }
+
+                
                 $data = array(
                 'team1' => $this->input->post('team1'),
                 'team2' => $this->input->post('team2'),
@@ -165,20 +177,82 @@ class Match_admin extends MY_Controller {
 
                 $this->db->where('match_id', $match_id);
                 $this->db->update('matchup', $data);
-                $res1 = $this->input->post('winner');
-                $team1 = $this->input->post('team1');
-                $team2 =  $this->input->post('team2');
-                $this->match_model->points($res1,$team1,$team2);
-                $name = $data['name']; 
-                $id =  $data['game_id'];
-                $match_id = $data['match_id'];
-                $this->match_model->result($res1,$match_id);
+                $data['matchup'] = $this->match_model->view_match($match_id); 
+               
 
-                redirect(base_url().'match_admin/index/'.$id.'/'.$name);
+                redirect(base_url().'match_admin/index/'.$data['matchup']['game_id'].'/'.$data['matchup']['game_name']);
                 }
     
                
                 $this->load->view('admin/match_edit',$data);
+                $this->load->view('includes/footer');
+            }
+
+
+
+            public function update($match_id)
+        {
+
+            $data['match'] = $this->match_model->view_match($match_id); 
+            $data['match_id'] = $match_id;
+
+            $data['team1'] = $this->match_model->view_team1($match_id);
+            $data['team2'] = $this->match_model->view_team2($match_id);
+            $data['school1'] = $this->match_model->view_school1($match_id);
+            $data['school2'] = $this->match_model->view_school2($match_id);
+
+            if (empty($data['match']))
+            {
+              
+                show_404();
+            }
+
+            $data['title'] = "Match Up";
+            $this->load->view('includes/header', $data);
+            $this->load->view('admin/header_content');
+
+            if($this->input->post('submit')){
+               
+                $this->form_validation->set_rules('team1_score', 'Team 1 Score', 'required');
+                $this->form_validation->set_rules('team2_score', 'Team 2 Score', 'required');
+                $this->form_validation->set_rules('winner', 'Winner', 'required');
+              
+                
+            
+                $this->load->helper('url');
+               
+                if($this->form_validation->run() === FALSE)
+                {
+                    $this->load->view('admin/match_update',$data);
+                    $this->load->view('includes/footer');
+                }
+                $data = array(
+                
+                'team1_score'=>$this->input->post('team1_score'),
+                'team2_score' => $this->input->post('team2_score'),
+                
+                
+                
+
+            );
+
+                $this->db->where('match_id', $match_id);    
+                $this->db->update('matchup', $data);
+                $data['matchup'] = $this->match_model->view_match($match_id); 
+                $res1 = $this->input->post('winner');
+                $team1 = $data['matchup']['team1'];
+                $team2 = $data['matchup']['team2'];
+
+                $this->match_model->points($res1,$team1,$team2);
+               
+                $this->match_model->result($res1,$match_id);
+                $this->match_model->rank();
+
+                redirect(base_url().'match_admin/index/'.$data['matchup']['game_id'].'/'.$data['matchup']['game_name']);
+                }
+    
+               
+                $this->load->view('admin/match_update',$data);
                 $this->load->view('includes/footer');
             }
            

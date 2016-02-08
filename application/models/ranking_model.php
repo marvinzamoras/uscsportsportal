@@ -72,4 +72,14 @@ class Ranking_model extends CI_Model {
 		 return $query->row_array();
 	}
 
+	public function get_rank() {
+		  	
+				$this->db->from("school");
+				$this->db->order_by("points", "desc"); 
+				$query=$this->db->get();
+				 return $query->result_array();
+
+		}
+	    
+
 }
