@@ -2,7 +2,7 @@
 	<section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
-			<li><a href="#">Homepage</a></li><li><span class="sep">   →   </span></li><li><?php echo anchor('news','News and Updates');?></li>
+			<li><a href="#">Homepage</a></li><li><span class="sep">   →   </span></li><li><?php echo anchor('announcement ','Announcements');?></li>
 		</ul>
 		
 		<h1 class="blog-title">Announcements</h1>
