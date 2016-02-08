@@ -73,11 +73,11 @@
 					<div class="tab"><h3>ranking</h3></div>
 					
 					<table class="table-striped">
-
+					<?php $index=0; ?>
 						<tr class="t-h"><td class="t-c">Pos</td><td>School</td><td class="t-c">Pts</td></tr>
-						<?php if(count($school)): foreach ($results_school as $data): ?>
-
-						<tr><td class="t-c">1</td><td><?php echo $data->school_name; ?></td><td class="t-c">81</td></tr>
+						<?php if(count($rank)): foreach ($rank as $data): ?>
+						<?php $index=$index+1;?>	
+						<tr><td class="t-c"><?php echo $index; ?></td><td><?php echo $data['school_name']; ?></td><td class="t-c"><?php echo $data['points']; ?></td></tr>
 
 						<?php endforeach; ?>
 					<?php else:?>

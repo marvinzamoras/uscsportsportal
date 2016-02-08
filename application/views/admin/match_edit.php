@@ -49,13 +49,15 @@
 					  </tr>
 
 					   <tr>
+					   
 					    <td>  <label for="title"> TEAM 2 :</label></td>
 					   <td> <select name="team2" class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $team2->team_name;?>">
                				<?php for($i=0; $i<sizeof($team); $i++)  { ?>
               				<option <?php echo ($team[$i]['team_id'] == $team2['team_id'])?'selected="selected"':''; ?> value="<?php echo $team[$i]['team_id'];?>"><?php echo $team[$i]['team_name'];?></option>
                				 <?php }?>
          				 </select>	</td> 	
-					    
+					    	<?php if (isset($same_team)){ 
+							 echo $$same_team; }?>
 					  </tr>
 
 					   <tr>
@@ -70,40 +72,15 @@
 
 					   <tr>
 					    <td>  <label for="title"> TIME :</label></td>
-					   <td>  <input  type="time" name="time" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" value="<?php echo $match['time']; ?>"">
-         				 </input>	</td> 	
+					   <td>  <input  type="time" name="time" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:60%" value="<?php echo $match['time']; ?>">
+         					</td> 	
 					    
 					  </tr>
 
 					  <tr>
 					    <td>  <label for="title"> DATE :</label></td>
-					   <td>  <input  type="date" name="date" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $match['date']; ?>" >
-         				 </input>	</td> 	
-					    
-					  </tr>
-
-					  <tr>
-					    <td>  <label for="title"> Score 1 :</label></td>
-					   <td>  <input  type="text" name="team1_score" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" min="<?php echo date("Y-m-d"); ?>" >
-         				 </input>	</td> 	
-					    
-					  </tr>
-
-					  <tr>
-					    <td>  <label for="title"> Score 2 :</label></td>
-					   <td>  <input  type="text" name="team2_score" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%" min="<?php echo date("Y-m-d"); ?>" >
-         				 </input>	</td> 	
-					    
-					  </tr>
-
-					  <tr>
-					    <td>  <label for="title"> Winner :</label></td>
-					    <td>
-         				 	<input type="radio" name="winner" value="team1" > Team 1<br>
-  							<input type="radio" name="winner" value="team2"> Team 2<br>	
-					    </td>
-					  </tr>
-
+					   <td>  <input  type="date" name="date" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:60%" min="<?php echo date("Y-m-d"); ?>" value="<?php echo $match['date']; ?>" >
+         					</td> 	
 					 
 
 

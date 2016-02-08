@@ -72,7 +72,8 @@
               				<option value="<?php echo $team[$i]['team_id'];?>"><?php echo $team[$i]['team_name'];?></option>
                				 <?php }?>
          				 </select>	</td> 	
-					    
+					    <?php if (isset($same_team)){ ?>
+							 <td><?php echo $same_team; }?></td>
 					  </tr>
 
 					   <tr>
@@ -109,32 +110,3 @@
             </div>
         </div>
 	</section>
-<script>
-$('#team1, #team1_content').hide();
-$('#school1').change(function(){
-    var category = $('#category').val();
-    var school1 = $('#school1').val();
-    if (school1 != ""){
-        var post_url = "uscsportsportal/match_admin/get_team1" + school1 + category;
-        $.ajax({
-            type: "POST",
-             url: post_url,
-             success: function(team1) //we're calling the response json array 'cities'
-              {
-                $('#team1').empty();
-                $('#team1, #team1_content').show();
-                   $.each(team1,function(id,name) 
-                   {
-                    var opt = $('<option />'); // here we're creating a new select option for each group
-                      opt.val(id);
-                      opt.text(city);
-                      $('#team1').append(opt); 
-                });
-               } //end success
-         }); //end AJAX
-    } else {
-        $('#team1').empty();
-        $('#team1, #team1_content').hide();
-    }//end if
-}); //end change
-</script> 

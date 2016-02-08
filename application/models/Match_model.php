@@ -11,17 +11,51 @@ class Match_model extends CI_Model {
 		{
 
 
-		   $this->db->SELECT('*');
-		    $this->db->FROM('matchup');
-		    $this->db->WHERE('game',$game_id);
+		   	$this->db->SELECT('*');
+		    $this->db->FROM('matchup'); 
 		    $this->db->JOIN('category', 'category.cat_id = matchup.category');
-
+			$this->db->WHERE('game',$game_id);
 		    
 		    $result = $this->db->get();
 				 if ($result->num_rows() > 0) {
-	            return $result->result_array();
-				 
-				}else return False;
+	            $match= $result->result_array();
+	           
+
+	        $count = count($match);
+
+	        for($i=0;$i<$count;$i++){
+
+	        	$this->db->SELECT('*');
+		    	$this->db->FROM('teams');
+		    	$this->db->WHERE('team_id',$match[$i]['team1']);
+		 		$result = $this->db->get();
+		  		$match[$i]['t1']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('school');
+		    	$this->db->WHERE('school_id',$match[$i]['t1']['FKschool_id']);
+		 		$result = $this->db->get();
+		  		$match[$i]['s1']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('teams');
+		    	$this->db->WHERE('team_id',$match[$i]['team2']);
+		 		$result = $this->db->get();
+		  		$match[$i]['t2']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('school');
+		    	$this->db->WHERE('school_id',$match[$i]['t2']['FKschool_id']);
+		 		$result = $this->db->get();
+		  		$match[$i]['s2']=$result->row_array();
+
+
+
+
+	        	}
+	        	return $match; 
+
+			}else return False;
 
 
 		}
@@ -305,6 +339,7 @@ class Match_model extends CI_Model {
 		}
 
 
+//para update
 
 		public function points($res1,$team1,$team2){
 		
@@ -366,7 +401,10 @@ class Match_model extends CI_Model {
 	            }
 
 		}
-		
+
+
+
+//para update		
 		public function result($res,$match_id)
 		{
 
@@ -375,8 +413,8 @@ class Match_model extends CI_Model {
 
 			{	
 				  $data = array(
-                'team1_res' => 'W',
-                'team2_res' => 'L'
+                'team1_res' => "Win",
+                'team2_res' => "Loss"
                 
                );
 
@@ -386,8 +424,8 @@ class Match_model extends CI_Model {
 
 	    	{	
 				  $data = array(
-                'team1_res' => 'L',
-                'team2_res' => 'W'
+                'team1_res' => "Loss",
+                'team2_res' => "Win"
                 
                 
 
@@ -398,11 +436,10 @@ class Match_model extends CI_Model {
                 $this->db->where('match_id', $match_id);
                 $this->db->update('matchup', $data);
 	}
-			
-		
-	}	
+	
+	}
 		//for all match ups
-		public function record_count($game_id) {
+		public function upcomming($game_id) {
 			$this->db->get_where('matchup', array('game' => $game_id));
 	        return $this->db->count_all_results();
 	    }
@@ -492,9 +529,61 @@ class Match_model extends CI_Model {
 		}
 
 
-//para edit ang naay view na tags
-		
+//ranks
+		public function rank()
+		{
+			
+			
+			$count=$this->db->count_all('school');
+			
 
+			for($i=1,$wins=0,$loss=0,$rate=0;$i<=$count;$i++)
+			{
+				$this->db->select_sum('wins');
+				$this->db->where('FKschool_id',$i);
+				$result = $this->db->get('teams');
+				 if ($result->num_rows() > 0) {
+	            foreach ($result->result() as $row) {
+	                $wins = $row->wins;
+	                
+	            }
+				 
+				} 
+
+
+				$this->db->select_sum('loss');
+				$this->db->where('FKschool_id',$i);
+				$result = $this->db->get('teams');
+				if ($result->num_rows() > 0) {
+	            foreach ($result->result() as $row) {
+	                $loss  = $row->loss;
+	               
+	            }
+				 
+				} 
+
+				if($wins==0){
+
+					$rate=0;
+				}else{
+
+					$rate=($wins/($wins+$loss))*100;
+				}
+				
+
+
+				$data = array(
+               	'points' => $rate);
+				$this->db->where('school_id', $i);
+                $this->db->update('school', $data);
+
+			
+			}
+
+
+			
+		
+		}
 		
 
 		
