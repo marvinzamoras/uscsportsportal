@@ -106,7 +106,7 @@
 
 							<?php if($j==0){ ?>
 
-							<h3>Up comming matches</h3>				
+							<h3>Upcoming matches</h3>				
 					 	<thead>
 							<tr class='tr-head'>
 							<td>School</td>
