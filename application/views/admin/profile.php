@@ -18,7 +18,7 @@
 					<p class="detinfo"><span>Email Adress</span><?php echo $user_item['email_address'];?></p>
 					<p class="detinfo"><span>Home Adress</span><?php echo $user_item['home_address'];?></p>
 					<p class="detinfo"><span>Stud ID</span><?php echo $user_item['stud_id'];?></p>
-					<p class="detinfo"><span>School</span><?php echo $user_item['school'];?></p>
+					<p class="detinfo"><span>School</span><?php echo $user_item['school_name'];?></p>
 				</div>
 				<p><a href = "<?php echo base_url('users_admin/index') ;?>"><input class='EButton' type ='button' value = 'Back'/></a></p>
 			</div>
