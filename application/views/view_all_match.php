@@ -110,11 +110,7 @@
 
 							<?php if($j==0){ ?>
 
-<<<<<<< HEAD
 										
-=======
-							<h3>Upcoming matches</h3>				
->>>>>>> 197eef9c2950570b6cd9c1f59ac73836161b7e71
 					 	<thead>
 							<tr class='tr-head'>
 							
