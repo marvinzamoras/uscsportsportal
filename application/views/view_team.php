@@ -8,12 +8,17 @@
 <section id="blog-single">
 		<div class="container">
 			<!-- BLOG POST SINGLE -->
-			<div class="col-12">
-			<div class="tab"><?php echo $results['school'] ;?></div>
-			<div class="match">
-				
-				
-					<?php foreach($results['games'] as $g):?>
+			
+			<article class="blog-post">
+				<div class="post-img"><?php echo $results['school_logo'];?>
+				</div>
+				<div class="col-12">
+					<div class="post-title">
+							<h1><?php echo $results['school'] ;?></h1>
+							<p><?php echo $results['school_desc'] ;?></p>
+					</div>
+					<div class ="post-content">
+						<?php foreach($results['games'] as $g):?>
 
 					<!-- TABLE STRIPED -->
 					<div class="col-12">
@@ -34,13 +39,11 @@
 					 <p></p>
 					</div>
 				<?php endforeach;?>
-					
-					
-				
-
-			</div>
-			
+					</div>
+				</div>
+						
+			</article>
 		</div>
 			
-		</div>
+		
 	</section>
