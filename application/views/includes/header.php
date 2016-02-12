@@ -33,6 +33,13 @@
         width: 900,
         selector: "textarea",theme: "modern",
          //menubar: false,
+         style_formats: [
+        {
+         title: 'Custom Bullet',
+             selector: 'ul', 
+             classes: 'markered'
+         }
+        ],
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",

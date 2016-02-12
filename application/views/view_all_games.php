@@ -21,7 +21,14 @@
 					<?php echo form_hidden('game_id',$d['game_id']); ?>
 					<?php $game =$d['game_id']; ?>
 					<div class="col-6">
-					<center><a href="<?php echo base_url('/match/index/'). '/'.$game.'/'.$d['game_name'];?>" class="btn btn-bordered"><?php echo $d['game_name'];?></a></center>
+						
+					<center><a href="<?php echo base_url('/match/index/'). '/'.$game.'/'.$d['game_name'];?>" class="btn btn-bordered"><img src="
+					<?php $string = $d['game_desc'];
+						preg_match('@src="([^"]+)"@', $string, $match);
+						$src = array_pop($match);
+						echo $src;
+					;?>"/>
+					</a></center>
 					</div>
 				<?php endforeach;?>
 			<?php endif;?>

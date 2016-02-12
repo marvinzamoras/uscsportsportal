@@ -1,21 +1,38 @@
 <section id="bc-t">
 		<div class="container">
+		<ul class="breadcrumb">
+			<li><a href="#">Homepage</a></li><li><span class="sep">   →   </span></li><li><?php echo anchor('game/index','Game and Matches');?></li>
+		</ul>
 		
-		
-		<h1 class="blog-title"><?php echo $name; ?></h1>
+		<h1 class="blog-title">Game and Matches</h1>
 		</div>
 	</section>
-<section id="blog-single">
+    <!-- Content Section. If need sidebars use the tag: <aside>. If articles use tag: <article> -->
+    <section id="club">
 		<div class="container">
-			<!-- BLOG POST SINGLE -->
-			<div class="col-12">
-			<div class="tab"><?php echo  $name; ?> </div>
-			<div class="match">
-				
-			<div><h4><?php   echo $game['game_desc']; ?></h4></div>
-					<!-- TABLE STRIPED -->
+			<!-- POST -->
+			<article class="club-post">
+				<div class="club-content">
+					<div class="img-wrap col-3">
+						<div class="bot-name">
+						<h3><?php echo $name; ?></h3>
+						</div>
+					</div>
+					<p class="col-9">
+					<?php echo $game['game_desc'];?>
+					</p>
 					
-					<table   class="table-striped-dflt" >
+				<!-- TABS -->
+					<div id="tab" class="tabs">
+			<ul class="clearfix">
+            <li><a href="#section-1" >Current Matches</a></li>
+            <li><a href="#section-2" >Upcoming Matches</a></li>
+           
+			</ul>
+			
+			
+			<div id="section-1" class="tab-content ">
+				<table  class="table-striped-dflt" >
 
 						
 						
@@ -29,27 +46,27 @@
 							<?php if($j==0){ ?>
  					
 							<tr class='tr-head'>
-							<td>School</td>
+							
 							<td>Score</td>
 							<td>Team</td>
 							<td>Date</td>
 							<td>Time</td>
 							<td>Team</td>
 							<td>Score</td>
-							<td>School</td>
+							
 							<td>Category</td></tr>
 							<?php $j++;} ?>
 							
 							
 						<tr>
-							<td ><?php echo $match[$i]['s1']['school_name'];?> </td>
-							<td ><?php echo $match[$i]['team1_score'];?></td>
+							
+							<td ><h3><b><?php echo $match[$i]['team1_score'];?><b></h3></td>
 							<td ><?php echo $match[$i]['t1']['team_name'];?></td>
 							<td ><?php $date=date_create($match[$i]['date']); echo date_format($date, 'm/d/Y');?></td>
 							<td ><?php $date=date_create($match[$i]['time']); echo date_format($date, 'g:i A');?></td>
 							<td ><?php echo $match[$i]['t2']['team_name'];?></td>
-							<td ><?php echo $match[$i]['team2_score'];?></td>
-							<td ><?php echo $match[$i]['s2']['school_name'];?> </td>
+							<td ><h3><b><?php echo $match[$i]['team2_score'];?></b></h3></td>
+							
 							<td ><?php echo $match[$i]['cat_name'];?></td>
 							
 							
@@ -63,14 +80,14 @@
 						<?php }?>
 						<?php }else{?>
 							<tr class='tr-head'>
-							<td>School</td>
+							
 							<td>Score</td>
 							<td>Team</td>
 							<td>Date</td>
 							<td>Time</td>
 							<td>Team</td>
 							<td>Score</td>
-							<td>School</td>
+							
 							<td>Category</td></tr>
 						<tr>
 							<td colspan="3">We could not find any matches.</td>
@@ -78,21 +95,8 @@
 						<?php }?>
 					 </table>
 
-					 <p></p>
-					<div class="pagination">
-					<ul>
-					
-					</ul>
-					</div>
-					
-				
-
 			</div>
-
-			<div class="match">
-				
-
-					<table    class="table-striped-dflt" >
+			<div id="section-2" class="tab-content "><table    class="table-striped-dflt" >
 
 					
 
@@ -106,31 +110,31 @@
 
 							<?php if($j==0){ ?>
 
-							<h3>Up comming matches</h3>				
+										
 					 	<thead>
 							<tr class='tr-head'>
-							<td>School</td>
+							
 							<td>Score</td>
 							<td>Team</td>
 							<td>Date</td>
 							<td>Time</td>
 							<td>Team</td>
 							<td>Score</td>
-							<td>School</td>
+							
 							<td>Category</td></tr>
 						</thead>	
 							<?php $j++;} ?>
 
 					</tbody>		
 						<tr>
-							<td ><?php echo $school1[$i];?> </td>
-							<td ><?php echo $match[$i]['team1_score'];?></td>
+							
+							<td ><h3><b><?php echo $match[$i]['team1_score'];?></b></h3></td>
 							<td ><?php echo $team1[$i];?></td>
 							<td ><?php $date=date_create($match[$i]['date']); echo date_format($date, 'm/d/Y');?></td>
 							<td ><?php $date=date_create($match[$i]['time']); echo date_format($date, 'g:i A');?></td>
 							<td ><?php echo $team2[$i];?></td>
-							<td ><?php echo $match[$i]['team2_score'];?></td>
-							<td ><?php echo $school2[$i];?></td>
+							<td ><h3><b><?php echo $match[$i]['team2_score'];?></b></h3></td>
+							
 							<td ><?php echo $match[$i]['cat_name'];?></td>
 							
 							
@@ -147,15 +151,14 @@
 						
 					<?php }?>
 					 </table>
-
-					 <p></p>
-					
-					
-				
-
-			</div>
+</div>
 			
-		</div>
+					</div>
+				
+				
+				</div>
+			</article>
 			
 		</div>
 	</section>
+	
