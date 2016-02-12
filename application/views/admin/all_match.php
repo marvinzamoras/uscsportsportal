@@ -28,7 +28,7 @@
 							<td>Score</td>
 							<td>School</td>
 							<td>Category</td>
-							<td>Update</td>
+							<td>Update Score</td>
 							<td>Edit</td>
 							
 							

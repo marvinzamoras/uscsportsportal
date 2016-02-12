@@ -37,6 +37,7 @@
 							
 							
 							<?php 
+							echo sizeof($match);
 							if($match!=False){ 
 								$size=sizeof($match);
 								for($j=0,$i=0; $i< $size; $i++){?>
@@ -102,6 +103,7 @@
 
 							
 						 	<?php 
+						 
 							if($match!=False){
 								$size=sizeof($match);
 								for($j=0,$i=0; $i< $size; $i++){?>
@@ -149,7 +151,21 @@
 							
 							<?php }?>
 							
-						<?php }?>
+						<?php }else{?>
+								<tr class='tr-head'>
+								
+								<td>Score</td>
+								<td>Team</td>
+								<td>Date</td>
+								<td>Time</td>
+								<td>Team</td>
+								<td>Score</td>
+								
+								<td>Category</td></tr>
+							<tr>
+								<td colspan="3">We could not find any matches.</td>
+							</tr>
+							<?php }?>
 						 </table>
 				</div>
 				</div>
