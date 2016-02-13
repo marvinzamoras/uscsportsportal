@@ -21,7 +21,7 @@ class Game_admin extends MY_Controller {
                 $data['games'] = $this->game_model->get_game();
                 $data['title'] ='Games';
 
-                $config = array();
+                /*$config = array();
                 $config["base_url"] = base_url() . "/game_admin/index";
                 $config["total_rows"] = $this->game_model->record_count();
                 $config["per_page"] = 10;
@@ -45,7 +45,7 @@ class Game_admin extends MY_Controller {
                 $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
                 $data["results"] = $this->game_model->
                     fetch_team($config["per_page"], $page);
-                $data["links"] = $this->pagination->create_links();
+                $data["links"] = $this->pagination->create_links();*/
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('admin/header_content', $data);

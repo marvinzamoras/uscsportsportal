@@ -1,4 +1,5 @@
 <!-- Breadcrumb and title -->
+<input type="hidden" id="page-identifier" value="page-news"/>
 	<section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
@@ -22,7 +23,6 @@
 							<li><span><i class="fa fa-calendar"></i>Date Posted:</span><br><?php echo date("M d Y h:i A",strtotime($news_item['news_pub'])); ?></li>
 							
 						</ul>			
-						
 					</aside>
 					<br>
 					<div class="col-3">
@@ -34,6 +34,7 @@
 					</ul>
 					</div>
 					</div>
+					
 				</div>
 				<div class="col-9">
 					<div class="post-title">
@@ -42,6 +43,8 @@
 					<div class="post-content">
 						<?php echo html_entity_decode($news_item['news_content']);?>
 					</div>
+
+				
 						<!-- ######################################################################################################## -->
 						
 						

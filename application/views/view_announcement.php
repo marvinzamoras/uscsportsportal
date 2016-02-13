@@ -1,4 +1,5 @@
 <!-- Breadcrumb and title -->
+<input type="hidden" id="page-identifier" value="page-ann"/>
 	<section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
@@ -23,6 +24,16 @@
 							
 						</ul>			
 					</aside>
+					<br>
+					<div class="col-3">
+					<div class="social-icon">
+
+					<ul id="social">
+					<center><li><a href="javascript: history.back()"><img src="http://localhost/uscsportsportal/assets/css/images/back.png" alt=""/></a></li></center>
+
+					</ul>
+					</div>
+					</div>
 				</div>
 				<div class="col-9">
 					<div class="post-title">

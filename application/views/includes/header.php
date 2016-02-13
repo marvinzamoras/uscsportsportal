@@ -15,6 +15,10 @@
     <!-- Modernizr -->
     <script type='text/javascript' src='<?php echo base_url(); ?>assets/js/libs/modernizr-2.5.3.min.js'></script>
     <!-- tinymce -->
+    <link href="https://cdn.datatables.net/1.10.1/css/jquery.dataTables.css" rel ="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.1/js/jquery.dataTables.js"></script>
     <link href="<?php echo base_url('/assets/css/login.css'); ?>" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/general.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/font-awesome.css" rel="stylesheet">
@@ -29,6 +33,13 @@
         width: 900,
         selector: "textarea",theme: "modern",
          //menubar: false,
+         style_formats: [
+        {
+         title: 'Custom Bullet',
+             selector: 'ul', 
+             classes: 'markered'
+         }
+        ],
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
@@ -47,12 +58,14 @@
 
          });
     </script>
+
+     
     <style>
-      label {
+     label {
         color: #f8f8f8;
         font-family: 'Ubuntu', serif;
         font-size: 20px;
-        text-shadow: 4px 4px 4px #aaa;
+        /*text-shadow: 4px 4px 4px #aaa;*/
       }
     </style>
     <style>
@@ -99,4 +112,14 @@
     </style>
    
 </head>
+<script type="text/javascript">
+  $(document).ready(function () {
+     var page = $('#page-identifier').val();
+      $('input[type=radio]').change(function() {
+          $('input[type=radio]:checked').not(this).prop('checked', false);
+      });
+      $('#'+page).addClass('active')
+
+  });
+</script>
 <body>

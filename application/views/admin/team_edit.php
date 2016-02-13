@@ -1,4 +1,4 @@
-
+<input type="hidden" id="page-identifier" value="page-teams"/>
 
 <section id="bc-t">
 		<div class="container">
@@ -18,14 +18,9 @@
 					<table style="width:75%">
 					  <tr>
 					    <td><label for="title">TEAM CATEGORY :</label>	</td>
-					    <td><?php $options = array(
-							        'Singles' => 'Singles',
-							        'Doubles' => 'Doubles',
-							        'Groups' => 'Groups',
-							        
-							); 
+					    <td><?php 
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-							echo form_dropdown('team_cat', $options, $team_item['team_cat'],$extra_attributes1);?></td>		
+							echo form_dropdown('team_cat', $cat_list, $team_item['team_cat'],$extra_attributes1);?></td>		
 					    
 					  </tr>
 					  <tr>
@@ -44,7 +39,7 @@
 					    <?php 
 					    
 					    $extra_attributes1='class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%"';
-					    echo form_dropdown('school_id', $school_list, set_value('school_id', $team_item['school_id']),$extra_attributes1); ?> 	   
+					    echo form_dropdown('FKschool_id', $school_list, set_value('FKschool_id', $team_item['FKschool_id']),$extra_attributes1); ?> 	   
 					    </td>		
 					    
 					  </tr>

@@ -15,13 +15,14 @@ class Login extends MY_Controller{
 		}
 		$this->load->view('includes/header',$data);
 		$this->load->view('login_form');
-		$this->load->view('includes/footer');
+		//$this->load->view('includes/footer');
 	}
 
  	function signup($page = 'signup'){
+ 		$data['school_list'] = $this->membership_model->get_dropdown_list();
  		$data['title'] = ucfirst($page);
 		$this->load->view('includes/header',$data);
-		$this->load->view('signup_form');
+		$this->load->view('signup_form',$data);
 		$this->load->view('includes/footer');
 	}
 
@@ -49,13 +50,21 @@ class Login extends MY_Controller{
 			$this->session->set_userdata($data);
 			
 			redirect('site/home');}
-		 }else{
+		 }else
+		 if(empty($this->input->post('stud_id'))||empty($this->input->post('password')))
+		 {
 			
-			$data['account_incorrect'] = 'Incorrect ID or Password!';
+			$data['account_incorrect'] = 'The username and/or password should not be empty. Please try again.';
 				$this->load->view('includes/header',$data);
 				$this->load->view('login_form',$data);
 				$this->load->view('includes/footer');
-		}
+		 }
+		 else{
+		 	$data['account_incorrect'] = 'Incorrect ID or Password!';
+				$this->load->view('includes/header',$data);
+				$this->load->view('login_form',$data);
+				$this->load->view('includes/footer');
+		 }
 	}
 
 	function create_member(){
@@ -73,7 +82,7 @@ class Login extends MY_Controller{
 		$this->form_validation->set_rules('username','Username','trim|required|callback_check_if_username_exists');
 		$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[32]|required');
 		$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[32]|required|matches[password]');
-
+		$data['school_list'] = $this->membership_model->get_dropdown_list();
 		if($this->form_validation->run() == FALSE){
 			$this->load->view('includes/header',$data);
 			$this->load->view('signup_form',$data);
