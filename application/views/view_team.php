@@ -1,7 +1,8 @@
 <section id="bc-t">
 		<div class="container">
-		
-		
+		<ul class="breadcrumb">
+			<li><a href="#">Homepage</a></li><li><span class="sep">   →   </span></li><li><?php echo anchor('team/index','Teams');?></li>
+		</ul>
 		<h1 class="blog-title">Teams</h1>
 		</div>
 	</section>
@@ -40,6 +41,12 @@
 					</div>
 				<?php endforeach;?>
 					</div>
+
+
+					
+					
+
+					
 				</div>
 						
 			</article>
