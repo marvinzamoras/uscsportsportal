@@ -16,7 +16,9 @@
 
 					
 					<!-- TABLE STRIPED -->
+
 					 <table id = "example9" class = "table-striped-dflt">
+
 					 	<thead>
 						<tr class="tr-head">
 							<td>Student ID</td>

@@ -36,7 +36,6 @@
 						echo $src;
 					;?>"/><?php echo $d['game_name'];?>
 					</a></center>
-
 					</div>
 				<?php endforeach;?>
 			<?php endif;?>

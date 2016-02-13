@@ -72,8 +72,6 @@
 
 <!-- R A N K I N G -->
 		<div class="col-4">
-			
-
 					<div class="tab"><h3>rankings</h3></div>
 					
 					<table class="table-striped">
