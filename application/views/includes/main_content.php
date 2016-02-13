@@ -1,4 +1,7 @@
  <!-- Content Section. If need sidebars use the tag: <aside>. If articles use tag: <article> -->
+
+<input type="hidden" id="page-identifier" value="page-home"/>
+
  <div class="slider">
 		<div class="flexslider">
 			<ul class="slides">
@@ -70,11 +73,13 @@
 <!-- R A N K I N G -->
 		<div class="col-4">
 			
-					<div class="tab"><h3>ranking</h3></div>
+
+					<div class="tab"><h3>rankings</h3></div>
 					
 					<table class="table-striped">
 					<?php $index=0; ?>
-						<tr class="t-h"><td class="t-c">Pos</td><td>School</td><td class="t-c">Pts</td></tr>
+						<tr class="t-h"><td class="t-c">Position</td><td>School</td><td class="t-c">Pts</td></tr>
+
 						<?php if(count($rank)): foreach ($rank as $data): ?>
 						<?php $index=$index+1;?>	
 						<tr><td class="t-c"><?php echo $index; ?></td><td><?php echo $data['school_name']; ?></td><td class="t-c"><?php echo $data['points']; ?></td></tr>

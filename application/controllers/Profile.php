@@ -39,6 +39,7 @@ class Profile extends MY_Controller{
                 show_404();
             }
          $data['title'] = "Edit Profile";
+         $data['school_list'] = $this->membership_model->get_dropdown_list();
          $this->load->view('includes/header', $data);
          $this->load->view('includes/header_content', $data);
          //validation rules

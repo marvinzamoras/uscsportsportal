@@ -128,6 +128,20 @@ class Membership_model extends CI_Model{
 		 return $query->row_array();
 	}
 	
-	
+	public function get_dropdown_list()
+		{
+			$this->db->from('school');
+			$this->db->order_by('school_name');
+			$result = $this->db->get();
+			$return = array();
+			if($result->num_rows() > 0) {
+				foreach($result->result_array() as $row) 
+				{
+					$return[$row['school_id']] = $row['school_name'];
+				}
+			}
+
+			return $return;
+		}
 
 }

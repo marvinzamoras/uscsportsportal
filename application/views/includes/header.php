@@ -33,6 +33,13 @@
         width: 900,
         selector: "textarea",theme: "modern",
          //menubar: false,
+         style_formats: [
+        {
+         title: 'Custom Bullet',
+             selector: 'ul', 
+             classes: 'markered'
+         }
+        ],
         plugins: [
              "advlist autolink link image charmap preview hr pagebreak",
              "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
@@ -105,4 +112,14 @@
     </style>
    
 </head>
+<script type="text/javascript">
+  $(document).ready(function () {
+     var page = $('#page-identifier').val();
+      $('input[type=radio]').change(function() {
+          $('input[type=radio]:checked').not(this).prop('checked', false);
+      });
+      $('#'+page).addClass('active')
+
+  });
+</script>
 <body>

@@ -858,8 +858,8 @@ table.table-striped-dflt tr {
   line-height: 45px;
 }
 table.table-striped-dflt tr td:first-child {
-  text-align: left;
-  padding-left: 40px;
+  text-align: center;
+  
 }
 table.table-striped-dflt tr td {
   border: 1px solid #ebebeb;
@@ -1519,6 +1519,7 @@ span.result b {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
+
 
 /* VIDEO*/
 #v-tabs {

@@ -137,9 +137,19 @@ class Team_model extends CI_Model {
 						$query4 = $this->db->get('category')->result();
 						$output = $this->db->query("SELECT school_name FROM school WHERE school_id='$school_id'")->row()->school_name;
 
+
 		                //$query = $this->db->get('teams');
 		                //return $query->result_array();
-		        	return array('team'=>$query,'games'=>$query1,'category'=>$query4,'school'=>$output);
+
+		        	//return array('team'=>$query,'games'=>$query1,'category'=>$query4,'school'=>$output);
+
+						$output2 = $this->db->query("SELECT school_desc FROM school WHERE school_id='$school_id'")->row()->school_desc;
+						$output3 = $this->db->query("SELECT school_logo FROM school WHERE school_id='$school_id'")->row()->school_logo;
+
+		                //$query = $this->db->get('teams');
+		                //return $query->result_array();
+		        	return array('team'=>$query,'games'=>$query1,'category'=>$query4,'school'=>$output,'school_desc'=>$output2,'school_logo'=>$output3);
+
 
 		        
 		}

@@ -1,4 +1,4 @@
-
+<input type="hidden" id="page-identifier" value="page-teams"/>
 
 <section id="bc-t">
 		<div class="container">

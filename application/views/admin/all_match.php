@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-games"/>
 <section id="bc-t">
 		<div class="container">
 		
@@ -11,7 +12,13 @@
 			<div class="col-12">
 			<div class="tab"><?php echo  $name; ?> </div>
 			<div class="match" >
-				<?php echo anchor('/match_admin/createMatch'. '/'.$name. '/'.$gameid , '<h3> <u> Add Match </u> </h3>' ); ?>
+
+				<div class ="bottom-form">
+				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/match_admin/createMatch');?>">ADD MATCH</a></button>
+				</div>
+
+				<!-- <?php echo anchor('/match_admin/createMatch'. '/'.$name. '/'.$gameid , '<h3> <u> Add Match </u> </h3>' ); ?> -->
+
 
 					
 					<!-- TABLE STRIPED -->
@@ -28,9 +35,8 @@
 							<td>Score</td>
 							<td>School</td>
 							<td>Category</td>
-							<td>Update</td>
+							<td>Update Score</td>
 							<td>Edit</td>
-							
 							
 						</tr>
 						</thead>
