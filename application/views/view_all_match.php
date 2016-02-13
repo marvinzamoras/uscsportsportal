@@ -173,4 +173,3 @@
 			</article>
 		</div>
 	</section>
-	

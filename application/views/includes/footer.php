@@ -70,6 +70,15 @@
 } );
         </script>
 
+        <script>
+            $(document).ready(function() {
+                $('#example9').DataTable( {
+                    "order": [[ 1, "asc" ]]
+                } );
+            } );
+        </script>
+
+
 
 </body>
 </html>

@@ -7,20 +7,22 @@
 				  </div>
 					<nav id="top-menu">
 						<ul class="clearfix">
-							<li class="active"><a href="<?php echo base_url('site/home');?>">Home</a></li>
-							<li><a href="<?php echo base_url('team/index');?>">Teams</a></li>
-							<li><a href="<?php echo base_url('game/index');?>">Games</a></li>
-							<li><a href="<?php echo base_url('news');?>">News and Updates</a></li>
-							<li><a href="<?php echo base_url('announcement');?>">Announcements</a></li>
+
+							<li id="page-home"><a href="<?php echo base_url('site/home');?>">Home</a></li>
+							<li id="page-teams"><a href="<?php echo base_url('team/index');?>">Teams</a></li>
+							<li id="page-games"><a href="<?php echo base_url('game/index');?>">Games</a></li>
+							<li id="page-news"><a href="<?php echo base_url('news');?>">News and Updates</a></li>
+							<li id="page-ann"><a href="<?php echo base_url('announcement');?>">Announcements</a></li>
 							
-							<li class="dropdown"><a href=""><i class="fa fa-user"></i> Account</a>
+							<li id="page-acc" class="dropdown"><a href=""><i class="fa fa-user"></i> Account</a>
+
 								<ul class="dropdown-menu">
 									<li><a href="<?php echo base_url('profile/view');?>">View Profile</a></li>
 									<?php
 										$this->load->model('membership_model');
 										if($this->membership_model->check_if_admin()){
 											echo '<li><a href="';
-											echo base_url('admin/home');
+											echo base_url('users_admin');
 											echo '">Admin Panel</a></li>';
 										}
 									;?>

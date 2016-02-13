@@ -112,4 +112,14 @@
     </style>
    
 </head>
+<script type="text/javascript">
+  $(document).ready(function () {
+     var page = $('#page-identifier').val();
+      $('input[type=radio]').change(function() {
+          $('input[type=radio]:checked').not(this).prop('checked', false);
+      });
+      $('#'+page).addClass('active')
+
+  });
+</script>
 <body>
