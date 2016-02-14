@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-news"/>
 <section id="bc-t">
 		<div class="container">
 		

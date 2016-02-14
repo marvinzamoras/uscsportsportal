@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-users"/>
 <section id="bc-t">
 		<div class="container">
 		
@@ -15,7 +16,9 @@
 
 					
 					<!-- TABLE STRIPED -->
-					 <table id = "example" class = "table-striped-dflt">
+
+					 <table id = "example9" class = "table-striped-dflt">
+
 					 	<thead>
 						<tr class="tr-head">
 							<td>Student ID</td>

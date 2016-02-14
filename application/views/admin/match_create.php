@@ -1,5 +1,4 @@
-
-
+<input type="hidden" id="page-identifier" value="page-games"/>
 <section id="bc-t">
 		<div class="container">
 		
