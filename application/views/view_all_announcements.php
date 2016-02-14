@@ -31,9 +31,9 @@
 
 						echo $excerpt . '...';
 						echo "</p>";
-						echo "<a href=";
+						echo "<b><a href=";
 						echo site_url('announcement/'.$data->slug); 
-						echo '>Read More</a>';
+						echo '>Read More</a></b>';
 						 ?>
 						<span class="date-n"><?php echo date("M d Y",strtotime($data->ann_pub)); ?></span>
 					</article>

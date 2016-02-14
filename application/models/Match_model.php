@@ -13,6 +13,8 @@ class Match_model extends CI_Model {
 
 		   	$this->db->SELECT('*');
 		    $this->db->FROM('matchup'); 
+		    $this->db->order_by('date','desc');
+		    $this->db->order_by('time','desc');
 		    $this->db->JOIN('category', 'category.cat_id = matchup.category');
 			$this->db->WHERE('game',$game_id);
 		    

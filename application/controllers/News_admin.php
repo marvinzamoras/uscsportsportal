@@ -90,7 +90,7 @@ class News_Admin extends MY_Controller {
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
             $this->form_validation->set_rules('news_title', 'Title', 'required|is_unique[news.news_title]');
-            $this->form_validation->set_rules('news_content', 'Text', 'required');
+            $this->form_validation->set_rules('news_content', 'News content', 'required');
             if ($this->form_validation->run() === FALSE)
             {
                 //$this->load->view('templates/header');

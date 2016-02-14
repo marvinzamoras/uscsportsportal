@@ -81,7 +81,7 @@
 
 						<?php endforeach; ?>
 					<?php else:?>
-					<article><p>We could not find any news and or updates.</p></article>
+					<article><p>No Rankings available yet</p></article>
 						
 					<?php endif;?>
 

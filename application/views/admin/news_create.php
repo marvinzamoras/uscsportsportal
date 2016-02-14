@@ -17,14 +17,15 @@
 					
 						
 							<br/>
+							<?php echo form_error('news_title');?>
 						    <label for="title">TITLE :</label>		
-
-						    <input type="text" name="news_title" size="50" class="focus" /><br />
+						    
+						    <input type="text" name="news_title" size="50"/><br />
 						   
 						    <br/>
 						<center>    
 						    <textarea name="news_content" class= "textarea" id = "mytextarea"></textarea><br/>
-
+<?php echo form_error('news_content');?>
 						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to post this?');" />
 						</center>
 

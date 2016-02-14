@@ -23,6 +23,7 @@
 					<?php echo $game['game_desc'];?>
 					</p>
 					</div>
+					
 				<!-- TABS -->
 			<div id="tab" class="tabs">
 				<ul class="clearfix">

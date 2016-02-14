@@ -30,11 +30,12 @@
 						<?php if(count($news)): foreach ($news as $data): ?>
 					
 						<tr>
-							<td class="td-head"><?php echo $data['news_title'];?></td>
-							<td><?php echo date("M d Y h:i:s A",strtotime($data['news_pub']));?></td>
 							<?php echo form_hidden('slug',$data['slug']); ?>
 							<?php echo form_hidden('news_id',$data['news_id']); ?>
 
+							<td class="td-head"><a href = "<?php echo base_url('/news_admin/edit/'). '/'.$data['slug'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><?php echo $data['news_title'];?></a></td>
+							<td><?php echo date("M d Y h:i:s A",strtotime($data['news_pub']));?></td>
+							
 							<td><a href = "<?php echo base_url('/news_admin/edit/'). '/'.$data['slug'] ;?>"><input class='EButton' type ='button' value = 'Edit'/></a></td>
 							<td><a href = "<?php echo base_url('/news_admin/delete/'). '/'.$data['news_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to delete this?');"><input class='DButton' type ='button' value = 'Delete'/></a></td>
 							
