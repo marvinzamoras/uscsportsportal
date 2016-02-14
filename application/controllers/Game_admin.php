@@ -86,14 +86,15 @@ class Game_admin extends MY_Controller {
             {
                 show_404();
             }
-
+            
+            $this->form_validation->set_rules('game_name', 'Game Name', 'required');
+            $this->form_validation->set_rules('game_desc', 'Game Description', 'required');
             $data['title'] = $data['game_item']['game_name'];
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-            $this->form_validation->set_rules('game_name', 'Game Name', 'required');
-            $this->form_validation->set_rules('game_desc', 'Game Description', 'required');
+           
             
                 $this->load->helper('url');
                
