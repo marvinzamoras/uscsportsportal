@@ -19,7 +19,7 @@
 							<br/>
 						    <label for="title">GAME NAME :</label>	
 						    <?php echo form_error('game_name');?>	
-						    <input type="text" name="game_name" value = "<?php echo $game_item['game_name'];?>" size="50"  class="focus" required /><br/>
+						    <input type="text" name="game_name" value = "<?php echo set_value('game_name',$game_item['game_name']) ;?>" size="50"  class="focus" required /><br/>
 						    <br/>
 						    <br/>
 						<center>
