@@ -22,7 +22,7 @@
 					<?php $game =$d['game_id']; ?>
 					<div class="col-4">
 						
-					<center><a href="<?php echo base_url('/match/index/'). '/'.$game.'/'.$d['game_name'];?>" class="btn btn-bordered"><img src="
+					<center><a href="<?php echo base_url('/match/index/'). '/'.$game;?>" class="btn btn-bordered"><img src="
 					<?php $string = $d['game_desc'];
 						preg_match('@src="([^"]+)"@', $string, $match);
 						$src = array_pop($match);

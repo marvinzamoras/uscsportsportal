@@ -55,275 +55,62 @@ class Match_model extends CI_Model {
 	        	}
 	        	return $match; 
 
-			}else return False;
+			}else {return False;}
 
 
 		}
 //edit match
-		public function view_match($id)
+		public function view_match($match_id)
 		{
-			$this->db->SELECT('*');
-		    $this->db->FROM('matchup');
+
+
+		   	$this->db->SELECT('*');
+		    $this->db->FROM('matchup'); 
 		    $this->db->JOIN('category', 'category.cat_id = matchup.category');
-		    $this->db->JOIN('game', 'game.game_id = matchup.game');
-		    $this->db->join('teams as t1', 'matchup.team1 = t1.team_id');
-		    $this->db->join('teams as t2', 'matchup.team2 = t2.team_id');
-		    $this->db->WHERE('match_id',$id);
-		 
-			$result = $this->db->get();
-		    return $result->row_array();
-				 
-		   }	
+		    $this->db->JOIN('game', 'game_id = matchup.game');
+			$this->db->WHERE('match_id', $match_id);
+		    
+		    	$result = $this->db->get();
+				 if ($result->num_rows() > 0) {
+	            $match= $result->row_array();
+	           
+
+	        	$this->db->SELECT('*');
+		    	$this->db->FROM('teams');
+		    	$this->db->WHERE('team_id',$match['team1']);
+		 		$result = $this->db->get();
+		  		$match['team1']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('school');
+		    	$this->db->WHERE('school_id',$match['team1']['FKschool_id']);
+		 		$result = $this->db->get();
+		  		$match['s1']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('teams');
+		    	$this->db->WHERE('team_id',$match['team2']);
+		 		$result = $this->db->get();
+		  		$match['team2']=$result->row_array();
+
+		  		$this->db->SELECT('*');
+		    	$this->db->FROM('school');
+		    	$this->db->WHERE('school_id',$match['team2']['FKschool_id']);
+		 		$result = $this->db->get();
+		  		$match['s2']=$result->row_array();
+
+
+
+
+	        	
+	        	return $match; }
+
+			else {return False;}
+}
+
+
 //edit match
-		public function view_team1($id)
-		{
-		     if ($id === FALSE)
-		        {
-		                $query = $this->db->get('teams');
-		                return $query->result_array();
-		        }
-
-		    $this->db->select('*');
-		    $this->db->from('matchup');
-		    $this->db->join('teams', 'matchup.team1 = teams.team_id');
-		    $this->db->where('matchup.match_id', $id);
-		    
-		    $query = $this->db->get();
-		    return $query->row_array();
-		}
-
-		//edit match
-		public function view_team2($id)
-		{
-		     if ($id === FALSE)
-		        {
-		                $query = $this->db->get('teams');
-		                return $query->result_array();
-		        }
-
-		    $this->db->select('*');
-		    $this->db->from('matchup');
-		    $this->db->join('teams', 'matchup.team2 = teams.team_id');
-		    $this->db->where('matchup.match_id', $id);
-		    
-		    $query = $this->db->get();
-		    return $query->row_array();
-		}
-
-		//edit match
-
-		public function view_school1($id)
-		{
-		     if ($id === FALSE)
-		        {
-		                $query = $this->db->get('school');
-		                return $query->result_array();
-		        }
-
-		    $this->db->select('*');
-		    $this->db->from('matchup');
-		    $this->db->join('teams', 'matchup.team1 = teams.team_id');
-		    $this->db->join('school', 'school.school_id = teams.FKschool_id');
-		    $this->db->where('matchup.match_id', $id);
-		    
-		    $query = $this->db->get();
-		    return $query->row_array();
-		}
-
-
-
-		//edit match
-		public function view_school2($id)
-		{
-		     if ($id === FALSE)
-		        {
-		                $query = $this->db->get('school');
-		                return $query->result_array();
-		        }
-
-		    $this->db->select('*');
-		    $this->db->from('matchup');
-		    $this->db->join('teams', 'matchup.team2 = teams.team_id');
-		    $this->db->join('school', 'school.school_id = teams.FKschool_id');
-		    $this->db->where('matchup.match_id', $id);
-		    
-		    $query = $this->db->get();
-		    return $query->row_array();
-		}
-
-//para view all 
-
-		public function team1($match)
-		{
-
-			if ($match==False){
-
-				return False;
-			}
-			elseif(sizeof($match)>0)
-		     {
-		     	for($i=0; $i< sizeof($match); $i++)
-
-			{	
-				 $this->db->select('team_name');
-				 $this->db->from('teams');
-				 $this->db->where('team_id',$match[$i]['team1']);
-				 $result = $this->db->get();
-				 if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $name = $row->team_name;
-	            }
-				 
-				}
-
-				$team1[$i]=$name;
-				
-	           
-
-	        }
-
-	         return $team1;
-	    }
-			
-		}
-
-//para view all 
-
-		public function team2($match)
-		{
-			if ($match==False){
-
-				return False;
-			}
-			elseif(sizeof($match)>0){
-			 for($i=0; $i< sizeof($match); $i++)
-
-			{	
-				 $this->db->select('team_name');
-				 $this->db->from('teams');
-				 $this->db->where('team_id',$match[$i]['team2']);
-				 $result = $this->db->get();
-				  if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $name = $row->team_name;
-	            }
-				 
-				}else{
-					return NULL;
-				}
-				$team2[$i]=$name;
-				}
-				 return $team2;
-				}
-	           
-
-
-			
-		}
-//para view all 
-
-		public function school1($match)
-		{
-			if ($match==False){
-
-				return False;
-			}
-			elseif(sizeof($match)>0)
-				{
-					for($i=0; $i< sizeof($match); $i++)
-
-			{	
-				 $this->db->select('FKschool_id');
-				 $this->db->from('teams');
-				 $this->db->where('team_id',$match[$i]['team1']);
-				 $result = $this->db->get();
-				 if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $id = $row->FKschool_id;
-	            }
-				 
-				}else{
-					return NULL;
-				}
-
-				 $this->db->select('school_name');
-				 $this->db->from('school');
-				 $this->db->where('school_id',$id);
-				 $result = $this->db->get();
-				 if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $name = $row->school_name;
-	            }
-				 
-				} else{
-					return NULL;
-				}
-
-				 $school1[$i]=$name;
-
-
-				}
-				return $school1;
-
-	           }
-
-
-	            
-
-			
-		}
-
-//para view all
-
-		public function school2($match)
-		{
-			if ($match==False){
-
-				return False;
-			}
-			elseif(sizeof($match)>0)
-				{
-					for($i=0; $i< sizeof($match); $i++)
-
-			{	
-				 $this->db->select('FKschool_id');
-				 $this->db->from('teams');
-				 $this->db->where('team_id',$match[$i]['team2']);
-				 $result = $this->db->get();
-				if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $id = $row->FKschool_id;
-	            }
-				 
-				}else{
-					return NULL;
-				}
-
-				 $this->db->select('school_name');
-				 $this->db->from('school');
-				 $this->db->where('school_id',$id);
-				 $result = $this->db->get();
-				if ($result->num_rows() > 0) {
-	            foreach ($result->result() as $row) {
-	                $name = $row->school_name;
-	            }
-				 
-				}else{
-					return NULL;
-				}
-
-				$school2[$i]=$name;
-				}
-				 return $school2;
-
-	           }
-
-
-	           
-
-			
-		}
-
+		
 
 		
 
@@ -439,44 +226,16 @@ class Match_model extends CI_Model {
 	
 	}
 		//for all match ups
-		public function upcomming($game_id) {
-			$this->db->get_where('matchup', array('game' => $game_id));
-	        return $this->db->count_all_results();
-	    }
-	    //for finished game match
-	    public function count_finished($game_id) {
-	        $this->db->get_where('matchup', array('game' => $game_id && 'teamres1' <> "Default"));
-			return $this->db->count_all_results();    
-	    }
-
-	    //for upcoming matches
-	    public function count_upcoming($game_id) {
-	        $this->db->query('SELECT * From "matchup" where game => $game_id && teamres1 = "Default" ');
-			return $this->db->count_all_results();    
-	    }
-
-	    public function fetch_match($limit, $start,$game_id) {
-	        $this->db->limit($limit, $start);
-	        $query = $this->db->get_where('matchup', array('game' => $game_id));
-
-	        if ($query->num_rows() > 0) {
-	            foreach ($query->result() as $row) {
-	                $data[] = $row;
-	            }
-	            return $data;
-	        }
-	        return false;
-	   }
-
+		
 	   
-		public function set_match()
+		public function set_match($t1,$t2)
 		{ 
 		    $this->load->helper('url');
 		    //$slug = url_title($this->input->post('ann_title'), 'dash', TRUE);
 		   // $date =date('Y-m-d H:i:s');
 		    $data = array(
-		        'team1' => $this->input->post('team1'),
-                'team2' => $this->input->post('team2'),
+		        'team1' => $t1,
+                'team2' => $t2,
                 'game'=>$this->input->post('game'),
                 'time' => $this->input->post('time'),
                 'date' => $this->input->post('date'),
@@ -491,33 +250,70 @@ class Match_model extends CI_Model {
 
 		}
 
+		public function edit_match($m,$t1,$t2)
+		{ 
+		    $this->load->helper('url');
+		    //$slug = url_title($this->input->post('ann_title'), 'dash', TRUE);
+		   // $date =date('Y-m-d H:i:s');
+		    $data = array(
+		        'team1' => $t1,
+                'team2' => $t2,
+                //'game'=>$this->input->post('game'),
+                'time' => $this->input->post('time'),
+                'date' => $this->input->post('date'),
+               // 'team1_score'=>$this->input->post('team1_score'),
+                //'team2_score' => $this->input->post('team2_score'),
+                //'team1_res' => $this->input->post('team1_res'),
+                //'team2_res' => $this->input->post('team2_res'),
+                //'category'=>$this->input->post('category')
+               
+		    );
+		     $this->db->where('match_id', $m);
+			return $this->db->update('matchup', $data); 
 
-		
 
-		
-
-		public function get_dropdown_list()
-		{
-			$this->db->from('school');
-			$this->db->order_by('school_name');
-			$result = $this->db->get();
-			$return = array();
-			if($result->num_rows() > 0) {
-				foreach($result->result_array() as $row) 
-				{
-					$return[$row['school_name']] = $row['school_name'];
-				}
-			}
-
-			return $return;
 		}
 
-		public function get_teams($game)
+		public function cancel_match($m,$stat)
+		{ 
+		    
+		    //$slug = url_title($this->input->post('ann_title'), 'dash', TRUE);
+		   // $date =date('Y-m-d H:i:s');
+
+			 
+
+		    if($stat == "Official"){
+		    $data = array(
+		        'status' => "Cancelled");
+			}else{
+
+				 $data = array(
+		        'status' => "Official");
+			}
+                
+		     $this->db->where('match_id', $m);
+			 $this->db->update('matchup', $data); 
+
+			  
+
+
+		}
+
+
+
+		
+
+		
+
+		
+		
+
+		public function men($game)
 		{
 			$this->db->SELECT('*');
 		    $this->db->FROM('teams');
-		    $array = array( 'game_cat' => $game);
-			$this->db->WHERE($array);
+			$this->db->WHERE('game_cat',$game);
+			$this->db->WHERE('team_cat', '1');
 		    //$this->db->JOIN('category', 'category.cat_id = matchup.category');
 
 		    
@@ -525,8 +321,43 @@ class Match_model extends CI_Model {
 				 if ($result->num_rows() > 0) {
 	            return $result->result_array();
 				 
-				}else return False;
+				}else {return False;
 		}
+	}
+
+		public function women($game)
+		{
+			$this->db->SELECT('*');
+		    $this->db->FROM('teams');
+		  $this->db->WHERE('game_cat',$game);
+			$this->db->WHERE('team_cat', '2');
+		    //$this->db->JOIN('category', 'category.cat_id = matchup.category');
+
+		    
+		    $result = $this->db->get();
+				 if ($result->num_rows() > 0) {
+	            return $result->result_array();
+				 
+				}else {return False;
+		}
+	}
+
+		public function mixed($game)
+		{
+			$this->db->SELECT('*');
+		    $this->db->FROM('teams');
+		   $this->db->WHERE('game_cat',$game);
+			$this->db->WHERE('team_cat', '2');
+		    //$this->db->JOIN('category', 'category.cat_id = matchup.category');
+
+		    
+		    $result = $this->db->get();
+				 if ($result->num_rows() > 0) {
+	            return $result->result_array();
+				 
+				}else {return False;
+		}
+	}
 
 
 //ranks

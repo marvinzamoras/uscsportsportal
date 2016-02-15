@@ -17,17 +17,14 @@ class Match extends MY_Controller {
 
         }
 
-        public function index($game_id,$game_name)
+        public function index($game_id)
         {
                
                 //$game_name = $this->match_model->get_game($game_id);
                 
                 $data['match'] = $this->match_model->get_match($game_id);
                 $data['title'] ='Match Up';
-                $data['team1'] = $this->match_model->team1($data['match']);
-                $data['team2'] = $this->match_model->team2($data['match']);
-                $data['school1'] = $this->match_model->school1($data['match']);
-                $data['school2'] = $this->match_model->school2($data['match']);
+                
                 $data['rank'] = $this->match_model->rank(); 
                 $data['game'] = $this->game_model->get_game($game_id);
 
@@ -56,8 +53,7 @@ class Match extends MY_Controller {
                 $data["results"] = $this->match_model->
                     fetch_match($config["per_page"], $page, $game_name);
                 $data["links"] = $this->pagination->create_links();*/
-                $data['name'] = $game_name;
-                $data['gameid'] = $game_id;
+                
 
                 $this->load->view('includes/header', $data);
                 $this->load->view('includes/header_content', $data);

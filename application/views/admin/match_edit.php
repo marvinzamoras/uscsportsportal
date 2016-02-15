@@ -1,9 +1,48 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+                
 
+      var cat=<?php echo json_encode($match['category']); ?>;
+     
+    
+               if(cat== '1'){
+               		$(".1 td").show();
+                    $(".2 td").hide();
+                    $(".3 td").hide();
+                 } else if(cat == '2') {
+                         $(".1 td").hide();
+                         $(".2 td").show();
+                         $(".3 td").hide();
+                 }else {
+                         $(".1 td").hide();
+                         $(".2 td").hide();
+                         $(".3 td").show();
+                    }
+
+                $('#category').change(function () {
+                    var val = $(this).val();
+                    if (val == '1') {
+                         $(".1 td").show();
+                         $(".2 td").hide();
+                         $(".3 td").hide();
+
+                    } else if(val == '2') {
+                         $(".1 td").hide();
+                         $(".2 td").show();
+                         $(".3 td").hide();
+                    }else {
+                         $(".1 td").hide();
+                         $(".2 td").hide();
+                         $(".3 td").show();
+                    }
+                    });
+                });
+    </script>
 <section id="bc-t">
 		<div class="container">
 		
 		
-		<h1 class="blog-title"><?php echo $name; ?></h1>
+		<h1 class="blog-title"><?php echo $game['game_name']; ?></h1>
 		</div>
 	</section>
 	<section>
@@ -11,64 +50,116 @@
             <div class="col-12">
                 <div class="match">
 
-					<?php echo form_open('match_admin/edit'.'/'.$match_id,$name,$game_id); ?>
+					<?php echo form_open('match_admin/edit'.'/'.$match['match_id'].'/'.$game['game_id']); ?>
 					 <table style="width:75%">
 
-					 <tr> <h2><?php  echo "Edit  Match";?></h2></tr>
+					 <tr> <h2><?php  echo "Edit ".$game['game_name']." Match";?></h2></tr>
 					
-					  <tr>
-					    <td> <label for="title">SCHOOL 1:</label>	</td>
-					    <td>  
-					    <select name="school1" class="col-12" id="dropy"  style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $school1->school_name;?>">
-               				<?php for($i=0; $i<sizeof($school); $i++)  { ?>
-              				<option <?php echo ($school[$i]['school_id'] == $school1['school_id'])?'selected="selected"':''; ?> value="<?php echo $school[$i]['school_id'];?>"><?php echo $school[$i]['school_name'];?></option>
-               				 <?php }?>
-         				 </select>
-					    </td>		
-					    
-					  </tr>
-					 <tr>
-					    <td>  <label for="title"> TEAM 1 :</label></td>
-					    <td>
-					    <select name="team1" class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $team1->team_name;?>">
-               				<?php for($i=0; $i<sizeof($team); $i++)  { ?>
-              				<option <?php echo ($team[$i]['team_id'] == $team1['team_id'])?'selected="selected"':''; ?> value="<?php echo $team[$i]['team_id'];?>"><?php echo $team[$i]['team_name'];?></option>
-               				 <?php }?>
-         				 </select>		
-					    </td>
-					  </tr>
-
-					   <tr>
-					    <td>  <label for="title"> SCHOOL 2 :</label></td>
-					   		<td> <select name="school2" class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $school2->school_name;?>">
-               				<?php for($i=0; $i<sizeof($school); $i++)  { ?>
-              				<option <?php echo ($school[$i]['school_id'] == $school2['school_id'])?'selected="selected"':''; ?> value="<?php echo $school[$i]['school_id'];?>"><?php echo $school[$i]['school_name'];?>
-               				 <?php }?>
-         				 </select>	</td>		
-					    
-					  </tr>
-
-					   <tr>
-					   
-					    <td>  <label for="title"> TEAM 2 :</label></td>
-					   <td> <select name="team2" class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $team2->team_name;?>">
-               				<?php for($i=0; $i<sizeof($team); $i++)  { ?>
-              				<option <?php echo ($team[$i]['team_id'] == $team2['team_id'])?'selected="selected"':''; ?> value="<?php echo $team[$i]['team_id'];?>"><?php echo $team[$i]['team_name'];?></option>
-               				 <?php }?>
-         				 </select>	</td> 	
-					    	<?php if (isset($same_team)){ 
-							 echo $$same_team; }?>
-					  </tr>
-
-					   <tr>
+					 
+					<tr>
 					    <td>  <label for="title"> CATEGORY :</label></td>
-					   <td>  <select name="category"  class="col-12" id="dropy" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $matchup->cat_name;?>">
+					   <td>  <select name="category"  class="col-12" id="category" style="background-color:#ffffff; color:black; height:45px; width:90%" placeholder="<?php echo $matchup->cat_name;?>">
                				<?php for($i=0; $i<sizeof($category); $i++)  { ?>
               				<option <?php echo ($category[$i]['cat_id'] == $match['category'])?'selected="selected"':''; ?> value="<?php echo $category[$i]['cat_id'];?>"><?php echo $category[$i]['cat_name'];?></option>
                				 <?php }?>
          				 </select>	</td> 	
 					    
+					  </tr> 
+
+
+ 					<tr class="1">
+					    <td>  <label for="title"> TEAM 1 :</label></td>
+					    <td>
+					    <select name="team11" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php if($men!=False){  
+               					$size=sizeof($men);
+               					for($i=0; $i<$size; $i++){ ?>
+              				<option 
+              				<?php if ($men[$i]['team_id'] == $match['team1']) echo 'selected="selected"';?>value="<?php echo $men[$i]['team_id'];?>"><?php echo $men[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else { echo "<option>No men's team</option>";}?>
+         				 </select>		
+					    </td>
 					  </tr>
+					  
+					   <tr class="2">
+					    <td>  <label for="title"> TEAM 1 :</label></td>
+					    <td>
+					    <select name="team12" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php if($women!=False){ 
+               					$size=sizeof($women);
+               					for($i=0; $i<$size; $i++){ ?>
+              				<option <?php echo ($women[$i]['team_id']== $match['team1'])?'selected="selected"':'';?>value="<?php echo $women[$i]['team_id'];?>"><?php echo $women[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else{ echo "<option>No women's team</option>";}?>
+         				 </select>		
+					    </td>
+					  </tr>
+
+
+					   <tr class="3">
+					    <td>  <label for="title"> TEAM 1 :</label></td>
+					    <td >
+					    <select name="team13" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php  if($mixed!=False){ 
+               					$size=sizeof($mixed);
+               					for($i=0; $i<$size; $i++)  { ?>
+              				<option <?php echo($mixed[$i]['team_id']== $match['team1'])?'selected="selected"':'';?>value="<?php echo $mixed[$i]['team_id'];?>"><?php echo $mixed[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else { echo "<option>No mixed team</option>";}?>
+         				 </select>		
+					    </td>
+					  </tr>
+
+					   <tr class="1">
+					    <td>  <label for="title"> TEAM 2 :</label></td>
+					    <td>
+					    <select name="team21" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php if($men!=False){  
+               					$size=sizeof($men);
+               					for($i=0; $i<$size; $i++){ ?>
+              				<option <?php echo ($men[$i]['team_id']== $match['team2'])?'selected="selected"':'';?>value="<?php echo $men[$i]['team_id'];?>"><?php echo $men[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else { echo "<option>No men's team</option>";}?>
+         				 </select>		
+					    </td>
+					  </tr>
+					  
+					   <tr class="2">
+					    <td>  <label for="title"> TEAM 2 :</label></td>
+					    <td>
+					    <select name="team22" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php if($women!=False){ 
+               					$size=sizeof($women);
+               					for($i=0; $i<$size; $i++){ ?>
+              				<option <?php echo ($women[$i]['team_id']== $match['team2'])?'selected="selected"':'';?>value="<?php echo $women[$i]['team_id'];?>"><?php echo $women[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else{ echo "<option>No women's team</option>";}?>
+         				 </select>		
+					    </td>
+					  </tr>
+
+
+					   <tr class="3">
+					    <td>  <label for="title"> TEAM 2 :</label></td>
+					    <td >
+					    <select name="team23" class="col-12"  id="droppy"  style="background-color:#ffffff; color:black; height:45px; width:90%;">
+               				
+               				<?php  if($mixed!=False){ 
+               					$size=sizeof($mixed);
+               					for($i=0; $i<$size; $i++)  { ?>
+              				<option <?php echo ($mixed[$i]['team_id']== $match['team2'])?'selected="selected"':'';?>value="<?php echo $mixed[$i]['team_id'];?>"><?php echo $mixed[$i]['team_name'];?></option>
+               				 <?php }?>
+               				 <?php }else { echo "<option>No mixed team</option>";}?>
+         				 </select>		
+					    </td>
+					  </tr>
+					   
 
 					   <tr>
 					    <td>  <label for="title"> TIME :</label></td>
@@ -89,9 +180,9 @@
 						
 						 
 						
-						<?php echo form_hidden('match_id',$match_id); ?>
-						<?php echo form_hidden('game',$game_id); ?>
-						<?php echo form_hidden('name',$name); ?>
+						<?php echo form_hidden('match_id',$match['match_id']); ?>
+						
+						
 						<br>
 						<center><input class="EButton" type="submit" name="submit" value="Edit" /></center>
 					<?php echo form_close(); ?>

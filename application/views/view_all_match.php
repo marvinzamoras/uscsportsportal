@@ -15,7 +15,7 @@
 				<div class="club-content">
 					<div class="img-wrap col-3">
 						<div class="bot-name">
-						<h3><?php echo $name; ?></h3>
+						<h3><?php echo  $game['game_name']; ?></h3>
 						</div>
 					</div>
 					<div class="post-content">
@@ -26,25 +26,16 @@
 				<!-- TABS -->
 			<div id="tab" class="tabs">
 				<ul class="clearfix">
-	            <li><a href="#section-1" >Current Matches</a></li>
+	            <li><a href="#section-1" >Recent Matches</a></li>
 	            <li><a href="#section-2" >Upcoming Matches</a></li>
 				</ul>
 			
 			
 				<div id="section-1" class="tab-content ">
-					<table  class="table-striped-dflt" >
-
+					
+					<div><h2 style="color:black;">Recent Matches</h2></div>
+						<table  class="table-striped-dflt" >	
 							
-							
-							<?php 
-							echo sizeof($match);
-							if($match!=False){ 
-								$size=sizeof($match);
-								for($j=0,$i=0; $i< $size; $i++){?>
-								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
-								<?php if($date<date('Y-m-d')  ){?>
-								
-								<?php if($j==0){ ?>
 	 					
 								<tr class='tr-head'>
 								
@@ -54,12 +45,23 @@
 								<td>Time</td>
 								<td>Team</td>
 								<td>Score</td>
+								<td>Category</td>
+								<td>Status</td></tr>
 								
-								<td>Category</td></tr>
-								<?php $j++;} ?>
 								
-								
+							
+
 							<tr>
+
+							<?php 
+							$j=0;
+							if($match!=False){ 
+							 $size=sizeof($match);
+							 for($i=0; $i< $size; $i++){?>
+								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
+								<?php if($date<date('Y-m-d')){ $j=1;?>
+								
+								
 								
 								<td ><h3><b><?php echo $match[$i]['team1_score'];?><b></h3></td>
 								<td ><?php echo $match[$i]['t1']['team_name'];?></td>
@@ -69,27 +71,18 @@
 								<td ><h3><b><?php echo $match[$i]['team2_score'];?></b></h3></td>
 								
 								<td ><?php echo $match[$i]['cat_name'];?></td>
+								<td ><?php echo $match[$i]['status'];?></td>
 								
 								
 								<?php echo form_hidden('match_id',$match[$i]['match_id']); ?>
-								<?php echo form_hidden('game_name',$name); ?>
-								<?php echo form_hidden('gameid',$gameid); ?>
+								
+								<?php echo form_hidden('gameid',$game['game_id']); ?>
 								
 							</tr>
 							<?php }?>
 							
 							<?php }?>
-							<?php }else{?>
-								<tr class='tr-head'>
-								
-								<td>Score</td>
-								<td>Team</td>
-								<td>Date</td>
-								<td>Time</td>
-								<td>Team</td>
-								<td>Score</td>
-								
-								<td>Category</td></tr>
+							<?php }elseif($j==0){?>
 							<tr>
 								<td colspan="3">We could not find any matches.</td>
 							</tr>
@@ -97,24 +90,14 @@
 						 </table>
 
 				</div>
-				<div id="section-2" class="tab-content "><table    class="table-striped-dflt" >
+				<div id="section-2" class="tab-content ">
+				
+						<div><h2 style="color:black;">Upcoming Matches</h2></div>
 
-						
-
-							
-						 	<?php 
-						 
-							if($match!=False){
-								$size=sizeof($match);
-								for($j=0,$i=0; $i< $size; $i++){?>
-								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
-								<?php if($date>date('Y-m-d') ){?>
-
-								<?php if($j==0){ ?>
+						<table  class="table-striped-dflt" >
 
 											
-						 	<thead>
-								<tr class='tr-head'>
+						 		<tr class='tr-head'>
 								
 								<td>Score</td>
 								<td>Team</td>
@@ -122,49 +105,47 @@
 								<td>Time</td>
 								<td>Team</td>
 								<td>Score</td>
+								<td>Category</td>
+								<td>Status</td></tr>
 								
-								<td>Category</td></tr>
-							</thead>	
-								<?php $j++;} ?>
+						 	<?php 
+						    $j=0;
+							if($match!=False){
+								$size=sizeof($match);
+								for($i=0; $i< $size; $i++){?>
+								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
+								<?php if($date>date('Y-m-d') ){ $j=1;?>
 
-						</tbody>		
 							<tr>
 								
 								<td ><h3><b><?php echo $match[$i]['team1_score'];?></b></h3></td>
-								<td ><?php echo $team1[$i];?></td>
+								<td ><?php echo $match[$i]['t1']['team_name'];?></td>
 								<td ><?php $date=date_create($match[$i]['date']); echo date_format($date, 'm/d/Y');?></td>
 								<td ><?php $date=date_create($match[$i]['time']); echo date_format($date, 'g:i A');?></td>
-								<td ><?php echo $team2[$i];?></td>
+								<td ><?php echo $match[$i]['t2']['team_name'];?></td>
 								<td ><h3><b><?php echo $match[$i]['team2_score'];?></b></h3></td>
 								
 								<td ><?php echo $match[$i]['cat_name'];?></td>
+								<td ><?php echo $match[$i]['status'];?></td>
 								
 								
 								<?php echo form_hidden('match_id',$match[$i]['match_id']); ?>
-								<?php echo form_hidden('game_name',$name); ?>
-								<?php echo form_hidden('gameid',$gameid); ?>
+								
+								<?php echo form_hidden('gameid',$game['game_id']); ?>
 								
 							</tr>
-							</tbody>
-							<?php }?>
+							
+							<?php } }?>
 						
 							
-							<?php }?>
 							
-						<?php }else{?>
-								<tr class='tr-head'>
+							
+						<?php }elseif($j==0){?>
 								
-								<td>Score</td>
-								<td>Team</td>
-								<td>Date</td>
-								<td>Time</td>
-								<td>Team</td>
-								<td>Score</td>
-								
-								<td>Category</td></tr>
 							<tr>
 								<td colspan="3">We could not find any matches.</td>
 							</tr>
+							
 							<?php }?>
 						 </table>
 				</div>
