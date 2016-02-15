@@ -1,4 +1,4 @@
-
+<input type="hidden" id="page-identifier" value="page-teams"/>
 
 <section id="bc-t">
 		<div class="container">
@@ -54,7 +54,7 @@
 						  
 						
 						<br>
-						<center><input class="EButton" type="submit" name="submit" value="Post" /></center>
+						<center><input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to edit this?');" /></center>
 					<?php echo form_close(); ?>
 
 

@@ -1,4 +1,5 @@
 <!-- Breadcrumb and title -->
+<input type="hidden" id="page-identifier" value="page-ann"/>
 	<section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">

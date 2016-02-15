@@ -40,7 +40,7 @@
 				echo '<div class ="bottom-form">';
 				echo '<center>';
 				echo '<br>';
-				echo form_submit('submit','Submit Information');
+				echo form_submit('submit','Submit Information','onclick="javascript:return confirm(\'Are you sure you want to save this?\')"');
 				echo form_close();
 				echo '<br>';
 				echo '<br>';

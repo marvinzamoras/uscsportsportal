@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-teams"/>
 <section id="bc-t">
 		<div class="container">
 		
@@ -31,7 +32,7 @@
 					 <tbody>
 						<?php if(count($teams)): foreach ($teams as $d): ?>
 						<tr> 
-							<td class="td-head"><?php echo $d['team_name'];?></td>
+							<td class="td-head"><a href = "<?php echo base_url('/team_admin/edit/'). '/'.$d['team_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><?php echo $d['team_name'];?><a></td>
 							<td><?php echo $d['cat_name'];?></td>
 							<td><?php echo $d['game_name'];?></td>
 							<td><?php echo $d['school_name'];?></td>

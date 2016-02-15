@@ -15,7 +15,8 @@
 				echo form_error('email_address');
 				echo form_input('home_address',set_value('home_address',$profile_item['home_address']),'class="col-12" placeholder="Home Address" type="text"');
 				echo form_error('home_address');
-				echo form_input('school',set_value('school',$profile_item['school']),'class="col-12" placeholder="School" type="text"');
+				$extra_attributes1='class="col-12" id="dropy" style="background-color:#f4ab25; color:black; height:50px"';
+				echo form_dropdown('school', $school_list, set_value('school',$profile_item['school']), $extra_attributes1);
 				echo form_error('school');
 				echo '<div class ="bottom-form">';
 				
@@ -37,7 +38,7 @@
 				echo '<center>';
 				
 				echo '<p>For other concerns regarding your account, you may contact or approach any USC Sports Portal administrator.</p>';
-				echo form_submit('submit','Submit Information');
+				echo form_submit('submit','Submit Information', 'onclick="javascript:return confirm(\'Are you sure you want to save this?\')"');  
 				echo form_close();
 				echo '<br>';
 				echo '<br>';

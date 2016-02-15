@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-users"/>
 <section id="bc-t">
 		<div class="container">
 		
@@ -15,7 +16,9 @@
 
 					
 					<!-- TABLE STRIPED -->
-					 <table id = "example" class = "table-striped-dflt">
+
+					 <table id = "example9" class = "table-striped-dflt">
+
 					 	<thead>
 						<tr class="tr-head">
 							<td>Student ID</td>
@@ -29,7 +32,7 @@
 						<?php if(count($users)): foreach ($users as $data): ?>
 						<tr>
 							<td class="td-head"><?php echo $data['stud_id'];?></td>
-							<td><?php echo $data['lname'].", ".$data['fname'];?></td>
+							<td><a href = "<?php echo base_url('/users_admin/view/'). '/'.$data['user_id'];?>"  onclick = "javascript:return confirm('Are you sure you want to edit this?');"  ><?php echo $data['lname'].", ".$data['fname'];?></a></td>
 							<?php echo form_hidden('status',$data['status']); ?>
 							<?php echo form_hidden('user_id',$data['user_id']); ?>
 							<td><?php echo $data['school_name'];?></td>

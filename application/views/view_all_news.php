@@ -1,4 +1,5 @@
 <!-- Breadcrumb and title -->
+<input type="hidden" id="page-identifier" value="page-news"/>
 	<section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
@@ -31,9 +32,9 @@
 
 						echo $excerpt . '...';
 						echo "</p>";
-						echo "<a href=";
+						echo "<b><a href=";
 						echo site_url('news/'.$data->slug); 
-						echo '>Read More</a>';
+						echo '>Read More</a></b>';
 						 ?>
 						<span class="date-n"><?php echo date("M d Y",strtotime($data->news_pub)); ?></span>
 					</article>

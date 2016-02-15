@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <script type="text/javascript">
 	$(document).ready(function() {
                 
@@ -38,6 +39,9 @@
                     });
                 });
     </script>
+=======
+<input type="hidden" id="page-identifier" value="page-games"/>
+>>>>>>> bf1688afb62f7ca5297b732518d3723e5f15fae2
 <section id="bc-t">
 		<div class="container">
 		

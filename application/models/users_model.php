@@ -10,16 +10,20 @@ class Users_Model extends CI_Model {
 		{
 		        if ($id === FALSE)
 		        {
+
 		        		$this->db->select("*");
+
 		        		$this->db->from('user');
 		        		$this->db->join('school', 'school.school_id = user.school');
 		                $query = $this->db->get();
 		                return $query->result_array();
 		        }
 
+
 		        		$this->db->select("*");
 		        		$this->db->from('user');
 		        		$this->db->where('user_id',$id);
+
 		        		$this->db->join('school', 'school.school_id = user.school');
 		        $query =  $this->db->get();
 		        return $query->row_array();
