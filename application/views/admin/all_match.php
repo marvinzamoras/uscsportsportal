@@ -13,13 +13,20 @@
 			<div class="col-12">
 			<div class="tab"><?php echo  $game['game_name']; ?> </div>
 			<div class="match" >
-				
-				<div class ="bottom-form">
+			
+
+			<div class ="bottom-form">
 				&nbsp&nbsp&nbsp<button class="btn-dflt btn-red"><a href = "<?php echo base_url('/match_admin/createMatch/'.$game['game_id']);?>">ADD MATCH</a></button>
-				</div>
+			</div>
 
 					
+					<div id="tab" class="tabs">
+						<ul class="clearfix">
+			            <li><a href="#section-1" >Recent Matches</a></li>
+			            <li><a href="#section-2" >Upcoming Matches</a></li>
+						</ul>
 					<!-- TABLE STRIPED -->
+					<div id="section-2" class="tab-content ">
 					 <table class="table-striped-dflt"  style="width:100%;">
 						
 					
@@ -33,7 +40,7 @@
 								<?php if($date>date('Y-m-d')){?>
 								
 								<?php if($j==0){ ?>
-								<div><h2 style="color:black;">Upcomming Matches</h2></div>
+								<div><h2 style="color:black;">Upcoming Matches</h2></div>
 	 					
 								<tr class='tr-head'>
 								
@@ -104,9 +111,9 @@
 						</tbody>
 						<?php }?>
 					 </table>
-
-					 <br></br>
-					
+					</div>
+					 
+					<div id="section-1" class="tab-content ">
 					<table class="table-striped-dflt"  style="width:100%;">
 						
 					
@@ -169,8 +176,8 @@
 						
 						<?php }}}?>
 					 </table>
-					
-				
+					 </div>
+					</div>
 
 			</div>
 			

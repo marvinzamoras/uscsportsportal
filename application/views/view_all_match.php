@@ -35,7 +35,7 @@
 			
 				<div id="section-1" class="tab-content ">
 					
-					<div><h2 style="color:black;">Recent Matches</h2></div>
+					
 						<table  class="table-striped-dflt" >	
 							
 	 					
@@ -94,7 +94,7 @@
 				</div>
 				<div id="section-2" class="tab-content ">
 				
-						<div><h2 style="color:black;">Upcoming Matches</h2></div>
+						
 
 						<table  class="table-striped-dflt" >
 
