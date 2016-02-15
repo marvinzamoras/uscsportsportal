@@ -20,12 +20,9 @@
     </footer>
 
     <!-- Libs -->
-<<<<<<< HEAD
-    
+
     <script type='text/javascript' src='<?php echo base_url('/assets/js/libs/jquery.flexslider-min.js');?>'></script>
-=======
-        <script type='text/javascript' src='<?php echo base_url('/assets/js/libs/jquery.flexslider-min.js');?>'></script>
->>>>>>> bf1688afb62f7ca5297b732518d3723e5f15fae2
+
 	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 	<script src="<?php echo base_url('/assets/js/jquery.bxslider.min.js');?>"></script>
 

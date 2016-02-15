@@ -1,3 +1,4 @@
+<input type="hidden" id="page-identifier" value="page-games"/>
 <section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
@@ -51,11 +52,11 @@
 								
 								
 							
-
+								<?php $j=0;?>
 							<tr>
 
 							<?php 
-							$j=0;
+							
 							if($match!=False){ 
 							 $size=sizeof($match);
 							 for($i=0; $i< $size; $i++){?>
@@ -108,16 +109,18 @@
 								<td>Score</td>
 								<td>Category</td>
 								<td>Status</td></tr>
+								<?php $k=0;?>
+							<tr>
 								
 						 	<?php 
-						    $j=0;
+						    
 							if($match!=False){
 								$size=sizeof($match);
 								for($i=0; $i< $size; $i++){?>
 								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
-								<?php if($date>date('Y-m-d') ){ $j=1;?>
+								<?php if($date>date('Y-m-d') ){ $k=1;?>
 
-							<tr>
+							
 								
 								<td ><h3><b><?php echo $match[$i]['team1_score'];?></b></h3></td>
 								<td ><?php echo $match[$i]['t1']['team_name'];?></td>
@@ -141,7 +144,7 @@
 							
 							
 							
-						<?php }elseif($j==0){?>
+						<?php }elseif($k==0){?>
 								
 							<tr>
 								<td colspan="3">We could not find any matches.</td>
