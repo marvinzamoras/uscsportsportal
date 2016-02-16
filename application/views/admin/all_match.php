@@ -30,19 +30,7 @@
 					 <table class="table-striped-dflt"  style="width:100%;">
 						
 					
-
-						<?php 
-
-						if($match!=False){
-							$size=sizeof($match);$j=0;
-							for($i=0; $i< $size; $i++){?>
-						    <?php $d=date_create($match[$i]['date']); $date = date_format($d,'Y-m-d');?>
-								<?php if($date>date('Y-m-d')){?>
-								
-								<?php if($j==0){ ?>
-								<div><h2 style="color:black;">Upcoming Matches</h2></div>
-	 					
-								<tr class='tr-head'>
+					 	<tr class='tr-head'>
 								
 								<td>Score</td>
 								<td>Team</td>
@@ -54,14 +42,17 @@
 								<td>Update Score</td>
 								<td>Edit</td>
 								<td>Cancel</td>
+						</tr>
+						<?php 
 
-
-
-
-
-								</tr>
-						<?php $j++;} ?>
-						</tbody>
+						if($match!=False){
+							$size=sizeof($match);$j=0;
+							for($i=0; $i< $size; $i++){?>
+						    <?php $d=date_create($match[$i]['date']); $date = date_format($d,'Y-m-d');?>
+								<?php if($date>date('Y-m-d')){$j=1;?>
+								
+								
+						
 						<tr>
 							
 							<td ><?php echo $match[$i]['team1_score'];?></td>
@@ -83,53 +74,27 @@
 							
 							<td><a href = "<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"><input class='<?php if($match[$i]['status']== "Official") {echo "DButton";}else {echo "EButton";}?>' type ='button'  value = '<?php if($match[$i]['status']== "Official") {echo "Cancel";}else {echo "Undo";}?>'/></a></td>
 						</tr>
-						</tbody>
 						
-						<?php } }}else{?>
+						
+						<?php } }
+						if($j==0){?>
+							<tr>
+							<td colspan="3">We could not find upcomming matches.</td>
+							</tr>
+
+						<?php	}}else{?>
 								
-								<tr class='tr-head'>
-								
-								<td>Score</td>
-								<td>Team</td>
-								<td>Date</td>
-								<td>Time</td>
-								<td>Team</td>
-								<td>Score</td>
-								<td>Category</td>
-								<td>Update Score</td>
-								<td>Edit</td>
-								<td>Cancel</td>
-
-
-
-
-
-								</tr>
-						<tbody><tr>
+								<tr>
 							<td colspan="3">We could not find any matches.</td>
 						</tr>
-						</tbody>
-						<?php }?>
+												<?php }?>
 					 </table>
 					</div>
 					 
 					<div id="section-1" class="tab-content ">
 					<table class="table-striped-dflt"  style="width:100%;">
 						
-					
-
-						<?php 
-
-						if($match!=False){ 
-							$size=sizeof($match);$j=0;
-							for($i=0; $i< $size; $i++){ ?>
-						    <?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
-								<?php if($date<date('Y-m-d')  ){?>
-								
-								<?php if($j==0){ ?>
-								<div><h2 style="color:black;">Recent Matches</h2></div>
-	 					
-								<tr class='tr-head'>
+					<tr class='tr-head'>
 
 								
 								<td>Score</td>
@@ -142,14 +107,17 @@
 								<td>Update Score</td>
 								<td>Edit</td>
 								<td>Cancel</td>
+						</tr>
 
+						<?php 
 
-
-
-
-								</tr>
-						<?php $j++;} ?>
-						</tbody>
+						if($match!=False){ 
+							$size=sizeof($match);$k=0;
+							for($i=0; $i< $size; $i++){ ?>
+						    <?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
+								<?php if($date<date('Y-m-d')  ){$k=1;?>
+								
+								
 						<tr>
 							
 							<td ><?php echo $match[$i]['team1_score'];?></td>
@@ -172,9 +140,21 @@
 
 							<td><a href = "<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"><input class='<?php if($match[$i]['status']== "Official") {echo "DButton";}else {echo "EButton";}?>' type ='button'  value = '<?php if($match[$i]['status']== "Official") {echo "Cancel";}else {echo "Undo";}?>'/></a></td>
 						</tr>
-						</tbody>
 						
-						<?php }}}?>
+						
+						<?php } } if($k==0){?>
+								<tr>
+							<td colspan="3">We could not find recent matches.</td>
+						</tr>
+
+							<?php }?>
+
+						<?php }else{?>
+
+							<tr>
+							<td colspan="3">We could not find any matches.</td>
+						</tr>
+						<?php	}?>
 					 </table>
 					 </div>
 					</div>

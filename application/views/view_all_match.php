@@ -52,12 +52,13 @@
 								
 								
 							
-								<?php $j=0;?>
+								
 							<tr>
 
 							<?php 
 							
 							if($match!=False){ 
+								$j=0;
 							 $size=sizeof($match);
 							 for($i=0; $i< $size; $i++){?>
 								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
@@ -84,7 +85,10 @@
 							<?php }?>
 							
 							<?php }?>
-							<?php }elseif($j==0){?>
+							<?php if($j==0){?><tr>
+								<td colspan="3">We could not find recent matches.</td>
+							</tr>
+							<?php } }else{?>
 							<tr>
 								<td colspan="3">We could not find any matches.</td>
 							</tr>
@@ -109,12 +113,13 @@
 								<td>Score</td>
 								<td>Category</td>
 								<td>Status</td></tr>
-								<?php $k=0;?>
+								
 							<tr>
 								
 						 	<?php 
 						    
 							if($match!=False){
+								$k=0;
 								$size=sizeof($match);
 								for($i=0; $i< $size; $i++){?>
 								<?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
@@ -140,11 +145,18 @@
 							</tr>
 							
 							<?php } }?>
+							<?php if($k==0){?>
+								
+							<tr>
+								<td colspan="3">We could not find upcomming matches.</td>
+							</tr>
+							
+							<?php }?>
 						
 							
 							
 							
-						<?php }elseif($k==0){?>
+						<?php }else{?>
 								
 							<tr>
 								<td colspan="3">We could not find any matches.</td>
