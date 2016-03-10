@@ -72,4 +72,14 @@ class Announcement_model extends CI_Model {
 		 return $query->row_array();
 	}
 
+		function check_unique_title($title, $id)
+		{
+	        $this->db->where('ann_title', $title);
+
+	        if($id) {
+	            $this->db->where_not_in('ann_id', $id);
+	        }
+        return $this->db->get('announcements')->num_rows();
+    	}
+
 }

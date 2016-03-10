@@ -1603,6 +1603,89 @@ span.result b {
   padding: 0;
   margin: 0;
 }
+
+/*Admin matches tab*/
+#v-tabss {
+  overflow: hidden;
+}
+#v-tabss ul {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 33.33333333333333%;
+}
+#v-tabss ul > li {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 100%;
+  padding: 15px 0px 15px 20px;
+  color: #0f314d;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+}
+#v-tabss ul > li > a {
+  font-size: 14px;
+  font-weight: 400;
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  color: #0f314d;
+  width: 80%;
+}
+#v-tabss ul > li > .fa {
+  margin-right: 20px;
+  line-height: 50px;
+  font-size: 18px;
+  vertical-align: top;
+  color: #8d9daa;
+}
+#v-tabss ul > li > a > span {
+  display: block;
+  font-size: 12px;
+  color: #8d9daa;
+  line-height: 30px;
+}
+#v-tabss ul > li:nth-child(2n) {
+  background: #f3f4f6;
+}
+#v-tabss ul > li:hover,
+.ui-tabss-active {
+  background: #63b141!important; 
+}
+#v-tabss ul > li:hover a,
+.ui-tabss-active a {
+  color: #fff!important;
+}
+#v-tabss ul > li:hover span,
+.ui-tabss-active span {
+  color: #ff9b9b!important;
+}
+#v-tabss ul > li:hover .fa,
+.ui-tabss-active .fa {
+  color: #fff!important;
+}
+#v-tabss .tab-content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  width: 66.66666666666666%;
+  background: #000;
+  padding: 0px;
+  overflow: hidden;
+}
+#v-tabss .tab-content img {
+  width: 100%;
+}
+#v-tabss .tab-content iframe {
+  width: 100%!important;
+  padding: 0;
+  margin: 0;
+}
 /* our players */
 .players {
   overflow: hidden;

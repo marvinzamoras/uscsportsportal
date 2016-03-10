@@ -73,4 +73,14 @@ class News_model extends CI_Model {
 		 $query = $this->db->get_where('user', array('stud_id' => $id));
 		 return $query->row_array();
 	}
+
+	function check_unique_title($title, $id)
+		{
+	        $this->db->where('news_title', $title);
+
+	        if($id) {
+	            $this->db->where_not_in('news_id', $id);
+	        }
+        return $this->db->get('news')->num_rows();
+    	}
 }

@@ -68,18 +68,19 @@ class Login extends MY_Controller{
 	}
 
 	function create_member(){
+		
 		$data['title'] = ucfirst('signup');
 		$this->load->library('form_validation');
 
 		//validation rules
-		$this->form_validation->set_rules('fname',' First Name','trim|required');
-		$this->form_validation->set_rules('lname','Last Name','trim|required');
+		$this->form_validation->set_rules('fname',' First Name','trim|max_length[24]|required');
+		$this->form_validation->set_rules('lname','Last Name','trim|max_length[24]|required');
 		$this->form_validation->set_rules('email_address','Email Address','trim|required|valid_email|callback_check_if_email_exists');
-		$this->form_validation->set_rules('contact_no','Contact No','trim|required|min_length[11]|max_length[11]');
+		$this->form_validation->set_rules('contact_no','Contact No','trim|required|min_length[11]|max_length[11]|numeric');
 		$this->form_validation->set_rules('home_address','Home Address','trim|required');
 		$this->form_validation->set_rules('school','School','trim|required');
 		$this->form_validation->set_rules('stud_id','ID Number','trim|min_length[8]|max_length[8]|required|callback_check_if_id_number_exists');
-		$this->form_validation->set_rules('username','Username','trim|required|callback_check_if_username_exists');
+		$this->form_validation->set_rules('username','Username','trim|max_length[24]|required|callback_check_if_username_exists');
 		$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[32]|required');
 		$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[32]|required|matches[password]');
 		$data['school_list'] = $this->membership_model->get_dropdown_list();

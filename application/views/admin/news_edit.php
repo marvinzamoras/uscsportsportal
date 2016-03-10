@@ -1,3 +1,6 @@
+<style type="text/css">
+	p {color:red; margin-left: 100px; font-weight: bold; font-size: 120%;}
+</style>
 <input type="hidden" id="page-identifier" value="page-news"/>
 
 <section id="bc-t">
@@ -18,15 +21,19 @@
 						
 							<br/>
 						    <label for="title">TITLE :</label>		
-						    <input type="text" name="news_title" value = "<?php echo $news_item['news_title'];?>" size="50" class="focus" required/><br/>
+						    <input type="text" name="news_title" value = "<?php echo $news_item['news_title'];?>" size="50" class="focus"/><br/>
+						    <center><?php echo form_error('news_title'); ?></center>
 						    <br/>
 						    <br/>
 						<center>
-							<textarea name="news_content" class= "textarea" id = "mytextarea" required><?php echo $news_item['news_content'];?></textarea><br/></br>
+							<textarea name="news_content" class= "textarea" id = "mytextarea"><?php echo $news_item['news_content'];?></textarea>
+							<center><?php echo form_error('news_content'); ?></center><br/></br>
 						 	<?php echo form_hidden('slug',$news_item['slug']); ?>
 							<?php echo form_hidden('news_id',$news_item['news_id']); ?>
-						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to save this?');"/>
+						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to save this?');"/>				   	
 						</center>
+
+						<?php echo form_hidden('news_id', ''); ?>
 
 					<?php echo form_close(); ?>
 
@@ -35,3 +42,7 @@
             </div>
         </div>
 	</section>
+
+	<style>
+	.controls p {  color : red; }
+</style>

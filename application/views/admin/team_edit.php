@@ -1,3 +1,6 @@
+<style type="text/css">
+	p {color:red; font-weight: bold; font-size: 120%;}
+</style>
 <input type="hidden" id="page-identifier" value="page-teams"/>
 
 <section id="bc-t">
@@ -45,9 +48,11 @@
 					  </tr>
 					 <tr>
 					    <td>  <label for="title">NAME :</label></td>
-					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52" placeholder="<?php echo $team_item['team_name'];?>" class="focus"/>	</td>		
-					    
+					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52"/>
+					    <center><?php echo form_error('team_name'); ?></center></td>	
 					  </tr>
+
+					<?php echo form_hidden('team_id', ''); ?>
 					</table>
 						
 						   <br>

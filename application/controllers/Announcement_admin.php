@@ -10,6 +10,7 @@ class Announcement_admin extends MY_Controller {
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('url');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -101,26 +102,29 @@ class Announcement_admin extends MY_Controller {
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-                  $this->form_validation->set_rules('ann_title', 'Title', 'required|is_unique[announcements.ann_title]');
-                 $this->form_validation->set_rules('ann_content', 'Content', 'required');
-                $this->load->helper('url');
-                $slug1 = url_title($this->input->post('ann_title'), 'dash', TRUE);
+                $this->form_validation->set_rules('ann_title', 'Title', 'required|callback_check_title');
+                $this->form_validation->set_rules('ann_content', 'Content', 'required');
                
-                if($this->form_validation->run() === FALSE)
+                if($this->form_validation->run() == FALSE)
                 {
                     $this->load->view('admin/announcement_edit',$data);
                     $this->load->view('includes/footer');
                 }
+
+                else{
+                $slug1 = url_title($this->input->post('ann_title'), 'dash', TRUE);
                 $data = array(
                 'ann_title' => $this->input->post('ann_title'),
                 'ann_updated' => $date,
                 'slug'=>$slug1,
                 'ann_content' => $this->input->post('ann_content')
-            );
+                );
 
                 $this->db->where('slug', $slug);
-                 $this->db->update('announcements', $data);
-                  redirect(base_url().'announcement_admin/');
+                $this->db->update('announcements', $data);
+                redirect(base_url().'announcement_admin/');
+
+                }
             } else{
                 $data['ann_item'] = $this->announcement_model->get_announcement($slug);
                 $this->load->view('admin/announcement_edit',$data);
@@ -128,6 +132,20 @@ class Announcement_admin extends MY_Controller {
             }
            
             
+        }
+
+        function check_title($title)
+        {  
+            $id= $this->input->post('ann_id');
+            $result = $this->announcement_model->check_unique_title($title, $id);
+
+            if($result == 0)
+                $response = true;
+            else {
+                $this->form_validation->set_message('check_title', 'Title already exist');
+                $response = false;
+            }
+            return $response;
         }
 
        

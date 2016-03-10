@@ -158,4 +158,14 @@ class Team_model extends CI_Model {
 		        
 		}
 
+		function check_unique_name($name, $id)
+		{
+	        $this->db->where('team_name', $name);
+
+	        if($id) {
+	            $this->db->where_not_in('team_id', $id);
+	        }
+        return $this->db->get('teams')->num_rows();
+    	}
+
 }

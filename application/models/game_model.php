@@ -64,6 +64,16 @@ class Game_model extends CI_Model {
 
 			return $return;
 		}
+
+		function check_unique_name($name, $id)
+		{
+	        $this->db->where('game_name', $name);
+
+	        if($id) {
+	            $this->db->where_not_in('game_id', $id);
+	        }
+        return $this->db->get('game')->num_rows();
+    	}
 		
 
 }

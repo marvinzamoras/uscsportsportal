@@ -10,6 +10,7 @@ class Team_admin extends MY_Controller {
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('url');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -98,30 +99,30 @@ class Team_admin extends MY_Controller {
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-                  $this->form_validation->set_rules('team_name', 'Team Name', 'required');
-            $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
-             $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
-             $this->form_validation->set_rules('FKschool_id', 'School', 'required');
+                $this->form_validation->set_rules('team_name', 'Team Name', 'required|callback_check_name');
+                $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
+                $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
+                $this->form_validation->set_rules('FKschool_id', 'School', 'required');
             
-                $this->load->helper('url');
                
-                if($this->form_validation->run() === FALSE)
+                if($this->form_validation->run() == FALSE)
                 {
                     $this->load->view('admin/team_edit',$data);
                     $this->load->view('includes/footer');
                 }
+                else{
                 $data = array(
                 'team_name' => $this->input->post('team_name'),
                 'team_cat' => $this->input->post('team_cat'),
                 'game_cat'=>$this->input->post('game_cat'),
                 'FKschool_id' => $this->input->post('FKschool_id')
-                
-
-            );
+                );
 
                 $this->db->where('team_id', $team_id);
-                 $this->db->update('teams', $data);
-                  redirect(base_url().'team_admin/');
+                $this->db->update('teams', $data);
+                redirect(base_url().'team_admin/');
+
+                }
             } else{
                 $data['team_item'] = $this->team_model->get_team($team_id);
                 $this->load->view('admin/team_edit',$data);
@@ -129,6 +130,20 @@ class Team_admin extends MY_Controller {
             }
            
             
+        }
+
+        function check_name($name)
+        {  
+            $id= $this->input->post('team_id');
+            $result = $this->team_model->check_unique_name($name, $id);
+
+            if($result == 0)
+                $response = true;
+            else {
+                $this->form_validation->set_message('check_name', 'Team Name already exist');
+                $response = false;
+            }
+            return $response;
         }
 
        

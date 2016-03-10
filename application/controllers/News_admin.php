@@ -9,6 +9,7 @@ class News_Admin extends MY_Controller {
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('url');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
         }
@@ -108,46 +109,63 @@ class News_Admin extends MY_Controller {
         public function edit($slug)
         {
             $data['news_item'] = $this->news_model->get_news($slug);
-            
+        
 
             if (empty($data['news_item']))
             {
                 show_404();
             }
-             $this->form_validation->set_rules('news_title', 'News Title', 'required');
-             $this->form_validation->set_rules('news_content', 'News Content', 'required');
             $data['title'] = $data['news_item']['news_title'];
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
 
             if($this->input->post('submit')){
-               
-                $this->load->helper('url');
-                $slug1 = url_title($this->input->post('news_title'), 'dash', TRUE);
-                $date =date('Y-m-d H:i:s');
+                $this->form_validation->set_rules('news_title', 'News Title', 'required|callback_check_title');
+                $this->form_validation->set_rules('news_content', 'News Content', 'required');
 
-                if($this->form_validation->run() === FALSE)
+                if($this->form_validation->run() == FALSE)
                 {
                     $this->load->view('admin/news_edit',$data);
                     $this->load->view('includes/footer');
                 }
-                $data = array(
-                'news_title' => $this->input->post('news_title'),
-                'news_updated' => $date,
-                'slug'=>$slug1,
-                'news_content' => $this->input->post('news_content')
-            );
 
-                $this->db->where('slug', $slug);
-                 $this->db->update('news', $data);
-                  redirect(base_url().'news_admin/');
+                else {
+                    $slug1 = url_title($this->input->post('news_title'), 'dash', TRUE);
+                    $date =date('Y-m-d H:i:s');
+                    $data = array(
+                    'news_title' => $this->input->post('news_title'),
+                    'news_updated' => $date,
+                    'slug'=>$slug1,
+                    'news_content' => $this->input->post('news_content')
+                    );
+
+                    $this->db->where('slug', $slug);
+                    $this->db->update('news', $data);
+                    redirect(base_url().'news_admin/');
+                }
+
             } else{
+
                 $data['news_item'] = $this->news_model->get_news($slug);
                 $this->load->view('admin/news_edit',$data);
                 $this->load->view('includes/footer');
             }
            
             
+        }
+
+    function check_title($title)
+        {  
+            $id= $this->input->post('news_id');
+            $result = $this->news_model->check_unique_title($title, $id);
+
+            if($result == 0)
+                $response = true;
+            else {
+                $this->form_validation->set_message('check_title', 'Title already exist');
+                $response = false;
+            }
+            return $response;
         }
                 
         
