@@ -33,7 +33,12 @@
 					<?php $string = $d['game_desc'];
 						preg_match('@src="([^"]+)"@', $string, $match);
 						$src = array_pop($match);
+						if(empty($src)){
+						 echo base_url("source/game.png");
+						}
+						else{
 						echo $src;
+					    }
 					;?>"/><?php echo $d['game_name'];?>
 					</a></center>
 					</div>
