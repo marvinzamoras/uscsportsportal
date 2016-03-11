@@ -52,7 +52,7 @@
 					    <center><?php echo form_error('team_name'); ?></center></td>	
 					  </tr>
 
-					<?php echo form_hidden('team_id', ''); ?>
+					<input type="hidden" name="team_id" value="<?php echo $team_item['team_id']?>" />
 					</table>
 						
 						   <br>

@@ -45,7 +45,7 @@
 					  
 					 <tr>
 					    <td>  <label for="title"> <?php echo $match['team1']['team_name'];?> score:</label></td>
-					    <td><input  type="text" name="team1_score" placeholder="<?php echo $match['team1_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
+					    <td><input  type="text" name="team1_score" value="<?php echo $match['team1_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
 					  </tr>
 
 
@@ -53,7 +53,7 @@
 					  
 					 <tr>
 					    <td>  <label for="title"> <?php echo $match['team2']['team_name'];?> score:</label></td>
-					    <td><input  type="text" name="team2_score" placeholder="<?php echo $match['team2_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
+					    <td><input  type="text" name="team2_score" value="<?php echo $match['team2_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
 					  </tr>
 
 
