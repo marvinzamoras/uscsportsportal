@@ -129,7 +129,7 @@
 							$size=sizeof($match);$j=0;
 							for($i=0; $i< $size; $i++){ ?>
 						    <?php $d=date_create($match[$i]['date']); $date = date_format($d, 'Y-m-d');?>
-								<?php if($date<date('Y-m-d')  ){ $j++;?>
+								<?php if($date<=date('Y-m-d')  ){ $j++;?>
 								
 								
 						</tbody>

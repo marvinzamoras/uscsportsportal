@@ -37,7 +37,7 @@
 							<?php echo form_hidden('user_id',$data['user_id']); ?>
 							<td><?php echo $data['school_name'];?></td>
 							<td><a href = "<?php echo base_url('/users_admin/view/'). '/'.$data['user_id'];?>"  ><input class='EButton' type ='button' value = 'View'/></a></td>
-							<td><a href = "<?php echo base_url('/users_admin/delete/'). '/'.$data['user_id'] .'/'. $data['status'] ;?>" onclick = "javascript:return confirm('Are you sure you want to <?php echo $data['status'];?> this?');"><input class='<?php echo $data['button'];?>' type ='button' value = '<?php echo $data['status'];?>'/></a></td>
+							<td><a href = "<?php echo base_url('/users_admin/delete/'). '/'.$data['user_id'] .'/'. $data['status'] ;?>" onclick = "javascript:return confirm('Are you sure you want to <?php echo $data['status'];?> this?');"><input class='<?php echo ($data['status']=='Delete'?'DButton':'UButton');?>' type ='button' value = '<?php echo $data['status'];?>'/></a></td>
 							
 						</tr>
 						<?php endforeach;?>
