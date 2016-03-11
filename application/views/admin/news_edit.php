@@ -22,18 +22,17 @@
 							<br/>
 						    <label for="title">TITLE :</label>		
 						    <input type="text" name="news_title" value = "<?php echo $news_item['news_title'];?>" size="50" class="focus"/><br/>
-						    <center><?php echo form_error('news_title'); ?></center>
+						    <div style="color:red;" align='center'><?php echo form_error('news_title'); ?></div>
 						    <br/>
 						    <br/>
 						<center>
-							<textarea name="news_content" class= "textarea" id = "mytextarea"><?php echo $news_item['news_content'];?></textarea>
-							<center><?php echo form_error('news_content'); ?></center><br/></br>
+							<textarea name="news_content" class= "textarea" id = "mytextarea"><?php echo $news_item['news_content'];?></textarea><br/>
+						    <div style="color:red;" align='center'><?php echo form_error('news_content'); ?></div>
 						 	<?php echo form_hidden('slug',$news_item['slug']); ?>
-							<?php echo form_hidden('news_id',$news_item['news_id']); ?>
 						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to save this?');"/>				   	
 						</center>
 
-						<?php echo form_hidden('news_id', ''); ?>
+						<input type="hidden" name="news_id" value="<?php echo $news_item['news_id'];?>" />
 
 					<?php echo form_close(); ?>
 

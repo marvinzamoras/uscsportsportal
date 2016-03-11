@@ -23,8 +23,8 @@
 						<p>
 						<?php 
 
-						$excerpt = explode(' ', strip_tags($data->news_content), 51);
-					   	 if(count($excerpt) >= 50){
+						$excerpt = explode(' ', strip_tags($data->news_content), 20);
+					   	 if(count($excerpt) >= 20){
 					        array_pop($excerpt);
 					    }
 
