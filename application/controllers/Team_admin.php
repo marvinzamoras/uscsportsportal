@@ -60,7 +60,7 @@ class Team_admin extends MY_Controller {
             $data['title'] = 'Create Team';
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
-            $this->form_validation->set_rules('team_name', 'Team Name', 'required');
+            $this->form_validation->set_rules('team_name', 'Team Name', 'required|callback_check_name');
             $this->form_validation->set_rules('game_cat', 'Game Category', 'required');
             $this->form_validation->set_rules('team_cat', 'Team Category', 'required');
             $this->form_validation->set_rules('FKschool_id', 'School', 'required');

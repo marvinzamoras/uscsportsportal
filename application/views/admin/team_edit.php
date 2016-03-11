@@ -48,7 +48,7 @@
 					  </tr>
 					 <tr>
 					    <td>  <label for="title">NAME :</label></td>
-					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52"/>
+					    <td><input type="text" name="team_name" value = "<?php echo $team_item['team_name'];?>" size="52" required/>
 					    <center><?php echo form_error('team_name'); ?></center></td>	
 					  </tr>
 

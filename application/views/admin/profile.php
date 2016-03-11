@@ -14,13 +14,35 @@
 			<div class="col-12 cinfo">
 				
 				<div class="di-wrap">
-					<p class="detinfo"><span>Name</span><?php echo $user_item['fname'] . ' ' . $user_item['lname'];?></p>
-					<p class="detinfo"><span>Contact No.</span><?php echo $user_item['contact_no'];?></p>
-					<p class="detinfo"><span>Email Adress</span><?php echo $user_item['email_address'];?></p>
-					<p class="detinfo"><span>Home Adress</span><?php echo $user_item['home_address'];?></p>
-					<p class="detinfo"><span>Stud ID</span><?php echo $user_item['stud_id'];?></p>
-					<p class="detinfo"><span>School</span><?php echo $user_item['school_name'];?></p>
+					<table>
+							<tr>
+								<td><p color="red"><span>Name</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['fname'] . ' ' . $user_item['lname'];?></p></td>
+							</tr>
+							<tr>
+								<td><p><span>Contact No.</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['contact_no'];?></p></td>
+							</tr>
+							<tr>
+								<td><p><span>Email Adress</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['email_address'];?></p></td>
+							</tr>
+							<tr>
+								<td><p><span>Home Adress</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['home_address'];?></p></td>
+							</tr>
+							<tr>
+								<td><p><span>Stuudent ID</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['stud_id'];?></p></td>
+							</tr>
+							<tr>
+								<td><p><span>School</span></p></td>
+								<td><p class="detinfo"><?php echo $user_item['school_name'];?></p></td>
+							</tr>
+
+					</table>
 				</div>
+
 				<p><a href = "<?php echo base_url('users_admin/index') ;?>"><input class='EButton' type ='button' value = 'Back'/></a></p>
 			</div>
 			
