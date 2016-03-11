@@ -16,14 +16,16 @@
 					
 						
 							<br/>
-							<?php echo form_error('ann_title');?>
 						    <label for="title">TITLE :</label>		
-						    <input type="text" name="ann_title" size="50" class="focus"/><br />
+						    <input type="text" name="ann_title" size="50" class="focus" required/><br />
+						    <div style="color:red;" align='center'><?php echo form_error('ann_title'); ?></div>
 						    <br/>
-						<center>
-							<?php echo form_error('ann_content');?> 
+						    <br/>
+						<center> 
 						    <textarea name="ann_content" class= "textarea" id = "mytextarea"></textarea><br/>
+						    <div style="color:red;" align='center'><?php echo form_error('ann_content'); ?></div>
 						   	<input class="EButton" type="submit" name="submit" value="Post" onclick = "javascript:return confirm('Are you sure you want to post this?');"/>
+						   	
 						</center>
 
 					<?php echo form_close(); ?>

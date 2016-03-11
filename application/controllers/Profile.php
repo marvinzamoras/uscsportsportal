@@ -3,6 +3,7 @@ class Profile extends MY_Controller{
 	public function __construct() {
 	    parent::__construct();
 	    $this->load->model('membership_model');
+	    $this->load->model('profile_model');
 	    $this->load->library("pagination");
 	    $this->load->helper('url_helper');
 	    $this->load->library('form_validation');
