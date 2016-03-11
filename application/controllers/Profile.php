@@ -76,7 +76,7 @@ class Profile extends MY_Controller{
 			                'home_address'=>$this->input->post('home_address'),
 			                'school'=>$this->input->post('school'),
 			                'username'=>$this->input->post('username'),
-			                'password' => $this->input->post('password')
+			                'password' => md5($this->input->post('password'))
 			                );
 			            }
 

@@ -5,7 +5,7 @@ class Membership_model extends CI_Model{
 	function validate(){
 		$stud_id =$this->input->post('stud_id');		
 		$this->db->where('stud_id',$stud_id);
-		$this->db->where('password',$this->input->post('password'));
+		$this->db->where('password',md5($this->input->post('password')));
 		$query = $this->db->get('user'); 
 		if($query->num_rows() == 1){
 			return true;
@@ -25,7 +25,7 @@ class Membership_model extends CI_Model{
 			'school' => $this->input->post('school'),
 			'stud_id' => $this->input->post('stud_id'),
 			'username' => $this->input->post('username'),
-			'password' => $this->input->post('password')
+			'password' => md5($this->input->post('password'))
 		);
 
 		$insert = $this->db->insert('user',$new_member_insert_data);

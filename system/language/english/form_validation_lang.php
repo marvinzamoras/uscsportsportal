@@ -71,3 +71,4 @@ $lang['check_if_email_exists'] = 'Sorry, that email address already exists.';
 $lang['check_if_id_number_exists'] = 'Sorry, that ID number already exists.';
 $lang['check_if_email_exists_profile'] = 'Sorry, that email address is already used.';
 $lang['check_if_username_exists_profile'] = 'Sorry, that username already exists.';
+$lang['check_title'] = 'Sorry, that title already exists.';
