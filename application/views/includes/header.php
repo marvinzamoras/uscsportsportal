@@ -110,6 +110,28 @@
         box-shaddow: 2px 2px 5px; #666666;
         }
     </style>
+
+    <style>
+        input.UButton {
+        width: 100px;
+        padding: 20px;
+        font-weight: bold;
+        font-size: 50%;
+        background: #149414;
+        color: #FFFFFF;
+        cursor: pointer;
+        border: 1px solid #999999;
+        border-radius: 10px;
+        }
+        input.DButton:hover {
+        color: #FFFF00;
+        background: #db3c21;
+        border: 1px solid #A3A3A3;
+        -webkit-box-shadow: 2px 2px 5px #666666;
+        -moz-box-shadow: 2px 2px 5px #666666;
+        box-shaddow: 2px 2px 5px; #666666;
+        }
+    </style>
    
 </head>
 <script type="text/javascript">

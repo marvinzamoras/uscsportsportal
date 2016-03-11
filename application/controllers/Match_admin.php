@@ -301,8 +301,11 @@ class Match_admin extends MY_Controller {
                 $res1 = $this->input->post('winner');
                 $team1 = $data['matchup']['team1']['team_id'];
                 $team2 = $data['matchup']['team2']['team_id'];
+                $team1_res = $data['matchup']['team1_res'];
+                $team2_res = $data['matchup']['team2_res'];
 
-                $this->match_model->points($res1,$team1,$team2);
+
+                $this->match_model->points($res1,$team1,$team2,$match_id);
                
                 $this->match_model->result($res1,$match_id);
                 $this->match_model->rank();

@@ -1,3 +1,5 @@
+
+
 <input type="hidden" id="page-identifier" value="page-games"/>
 <section id="bc-t">
 		<div class="container">
@@ -7,7 +9,7 @@
 		</div>
 	</section>
 	<section>
-        <div class="container">
+        <div class="container" >
             <div class="col-12">
                 <div class="match">
 
@@ -20,16 +22,30 @@
 						<td><?php echo $error;}?> </td> </tr>
 					 <tr>
 					    <td>  <label for="title"> Winner :</label></td>
-					    <td>
-         				 	<input type="radio" name="winner" value="team1"> <label for="title"><?php echo $match['team1']['team_name'];?></label><br>
-  							<input type="radio" name="winner" value="team2"> <label for="title"><?php echo $match['team2']['team_name'];?></label><br>	
+					    <td >
+					    	<?php 
+					    	if($match['team1_res']=="Default")
+					    	{
+					    		$a="false";
+					    		$b="false";
+					    	}elseif($match['team1_res']=="Win")
+					    		{
+					    			$a="true";
+					    			$b="false";
+					    	}elseif($match['team1_res']=="Loss")
+					    	{
+					    		$a="false";
+					    		$b="true";
+					    	}?>
+         				 	<input type="radio" name="winner" value="team1" checked="<?php echo $a;?>"> <label for="title"><?php echo $match['team1']['team_name'];?></label><br>
+  							<input type="radio" name="winner" value="team2" checked="<?php echo $b;?>"> <label for="title"><?php echo $match['team2']['team_name'];?></label><br>	
 					    </td>
 					  </tr>
 
 					  
 					 <tr>
 					    <td>  <label for="title"> <?php echo $match['team1']['team_name'];?> score:</label></td>
-					    <td><input  type="text" name="team1_score" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%"   ></td>
+					    <td><input  type="text" name="team1_score" placeholder="<?php echo $match['team1_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
 					  </tr>
 
 
@@ -37,7 +53,7 @@
 					  
 					 <tr>
 					    <td>  <label for="title"> <?php echo $match['team2']['team_name'];?> score:</label></td>
-					    <td><input  type="text" name="team2_score" class="col-12" style="background-color:#ffffff; color:black; height:45px; width:90%"   ></td>
+					    <td><input  type="text" name="team2_score" placeholder="<?php echo $match['team2_score'];?>" class="col-12" style=" color:black; height:45px; width:90%"   ></td>
 					  </tr>
 
 
@@ -64,3 +80,5 @@
             </div>
         </div>
 	</section>
+
+	

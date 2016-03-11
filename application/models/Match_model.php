@@ -130,9 +130,18 @@ class Match_model extends CI_Model {
 
 //para update
 
-		public function points($res1,$team1,$team2){
-		
-
+		public function points($res,$team1,$team2,$m){
+				
+				 $this->db->select('*');
+				 $this->db->from('matchup');
+				 $this->db->where('match_id',$m);
+				 $result = $this->db->get();
+					if ($result->num_rows() > 0) {
+	            	foreach ($result->result() as $row) {
+	                $res1 = $row->team1_res;
+	                $res2 = $row->team2_res;
+	            }
+	            }
 				 $this->db->select('*');
 				 $this->db->from('teams');
 				 $this->db->where('team_id',$team1);
@@ -158,8 +167,8 @@ class Match_model extends CI_Model {
 				 
 				}
 
-
-			if($res1 == 'team1'){
+		if($res1=="Default"){
+			if($res == 'team1'){
 				    $wins1= $wins1 +1;
 				    $loss2=$loss2 +1;
 					$data = array(
@@ -188,8 +197,44 @@ class Match_model extends CI_Model {
 					$this->db->where('team_id', $team1);
                  	$this->db->update('teams', $data);
 	            }
+		}else{
 
+			if($res == 'team1'&& $res1 == 'Loss'){
+
+					$wins1= $wins1 +1;
+					$wins2= $wins2 -1;
+					$loss1= $loss1 -1;
+				    $loss2= $loss2 +1;
+					$data = array(
+               		'wins' => $wins1);
+					$this->db->where('team_id', $team1);
+                 	$this->db->update('teams', $data);
+
+                 	$data = array(
+               		'loss' => $loss2);
+					$this->db->where('team_id', $team2);
+                 	$this->db->update('teams', $data);
+
+			}elseif($res!= 'team1'&& $res1 == 'Win'){
+
+				    $wins1= $wins1 -1;
+					$wins2= $wins2 +1;
+					$loss1= $loss1 +1;
+				    $loss2= $loss2 -1;
+					$data = array(
+               		'wins' => $wins1);
+					$this->db->where('team_id', $team1);
+                 	$this->db->update('teams', $data);
+
+                 	$data = array(
+               		'loss' => $loss2);
+					$this->db->where('team_id', $team2);
+                 	$this->db->update('teams', $data);
+			}
 		}
+	}
+
+		
 
 
 
@@ -216,8 +261,6 @@ class Match_model extends CI_Model {
                 'team1_res' => "Loss",
                 'team2_res' => "Win"
                 
-                
-
             );
 
 
@@ -300,14 +343,6 @@ class Match_model extends CI_Model {
 
 
 		}
-
-
-
-		
-
-		
-
-		
 		
 
 		public function men($game)
