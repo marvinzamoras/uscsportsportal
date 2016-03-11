@@ -124,7 +124,7 @@ class Membership_model extends CI_Model{
 	}
 
 	function retrieve_user($id){
-		$query = $this->db->get_where('user', array('stud_id' => $id));
+		 $query =  $this->db->get_where('user',array('stud_id'=> $id));
 		 return $query->row_array();
 	}
 	

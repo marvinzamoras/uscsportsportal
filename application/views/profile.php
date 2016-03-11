@@ -33,10 +33,7 @@
 							<td><p><span>Email Adress</span></p></td>
 							<td><p><?php echo $user_item['email_address'];?></p></td>
 						</tr>
-						<tr>
-							<td><p><span>School</span></p></td>
-							<td><p><?php echo $user_item['school'];?></p></td>
-						</tr>
+						
 						<tr>
 							<td><p><span>Home Adress</span></p></td>
 							<td><p><?php echo $user_item['home_address'];?></p></td>
