@@ -27,6 +27,10 @@ class Match extends MY_Controller {
                 
                 $data['rank'] = $this->match_model->rank(); 
                 $data['game'] = $this->game_model->get_game($game_id);
+                 $data['men'] = $this->match_model->teams($game_id,1);
+                 $data['women'] = $this->match_model->teams($game_id,2);
+                 $data['mixed'] = $this->match_model->teams($game_id,3);
+
 
                 /*$config = array();
                 $config["base_url"] = base_url() . "/match_admin/index";

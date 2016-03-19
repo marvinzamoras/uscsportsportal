@@ -455,10 +455,29 @@ class Match_model extends CI_Model {
 		
 
 		
+public function teams($game,$type)
+		{
+			$this->db->SELECT('*');
+		    $this->db->FROM('teams');
+		   $this->db->WHERE('game_cat',$game);
+			$this->db->WHERE('team_cat', $type);
+		    //$this->db->JOIN('category', 'category.cat_id = matchup.category');
 
+		    
+		    $result = $this->db->get();
+				if ($result->num_rows() > 0) {
+	            $teams=$result->result_array();
+
+
+	  
+				}else {$teams=false;}
 		
 		
-		
+		return $teams;
+
+		}
+
+
     } 
 
 		

@@ -1,4 +1,18 @@
+
+
+
+
 <input type="hidden" id="page-identifier" value="page-games"/>
+<script type="text/javascript" src="<?php  echo base_url('/assets/js/tablesorter-master/jquery-latest.js');?>"></script> 
+<script type="text/javascript" src="<?php  echo base_url('/assets/js/tablesorter-master/jquery.tablesorter.js');?>"></script> 
+<script type="text/javascript">
+$(document).ready(function() 
+    { 
+        $('#men').tablesorter({sortList: [[0,0], [1,0]]}); 
+    } 
+); 
+
+ </script>
 <section id="bc-t">
 		<div class="container">
 		<ul class="breadcrumb">
@@ -16,12 +30,14 @@
 				<div class="club-content">
 					<div class="img-wrap col-3">
 						<div class="bot-name">
-						<h3><?php echo  $game['game_name']; ?></h3>
+						<h3><?php echo  $game['game_name']; ?>
+						</h3>
 						</div>
 					</div>
 					<div class="post-content">
 					<p class="col-9">
 					<?php echo $game['game_desc'];?>
+
 					</p>
 					</div>
 					
@@ -153,7 +169,86 @@
 							<?php }?>
 						 </table>
 				</div>
+				<div>
+					<?php if($men!= false){?>
+					<div class="col-4" style="padding-right:5px; ">
+							<h3 style="color: black;"><b>Men</b></h3>
+							<table  id="men" class="table-striped-dflt" >
+							<thead>
+											
+						 		<tr class='tr-head'>
+								
+								<td>Team</td>
+								<td>Wins</td>
+								<td>Loss</td>
+								<td>Avg</td>
+								</tr>
+							</thead>
+								<?php foreach($men as $m){?>
+								<tbody>
+								<td ><?php echo $m['team_name'];?></td>
+								<td ><?php echo $m['wins'];?></td>
+								<td ><?php echo $m['loss'];?></td>
+								<td ><?php echo ($m['wins']!=0?$m['wins']/($m['wins']+$m['loss']):0) ;?></td>
+								</tbody>
+								
+								<?php }?>
+								</table>
+					</div><?php }if($women!= false){?>
+					<div class="col-4" style="padding-right:5px;padding-left:5px; ">
+							<h3 style="color: black;"><b>Women</b></h3>
+							<table  id="women" class="table-striped-dflt" >
+								
+							<thead>	
+											
+						 		<tr class='tr-head'>
+								
+								<td>Team</td>
+								<td>Wins</td>
+								<td>Loss</td>
+								<td>Avg</td>
+								</tr>
+							</thead>	
+								
+								<?php foreach($women as $women){?>
+								<tbody>
+								<td ><?php echo $women['team_name'];?></td>
+								<td ><?php echo $women['wins'];?></td>
+								<td ><?php echo $women['loss'];?></td>
+								<td ><?php echo ($women['wins']!=0?$women['wins']/($women['wins']+$women['loss']):0);?></td>
+								</tbody>
+								
+								<?php }?>
+								</table>
+								
+					</div><?php }if($mixed!= false){?>
+					<div class="col-4" style="padding-left:5px; ">
+							<h3 style="color: black;"><b>Mixed</b></h3>
+							<table  id="mixed" class="table-striped-dflt" >
+
+								<thead>		
+						 		<tr class='tr-head'>
+								
+								<td>Team</td>
+								<td>Wins</td>
+								<td>Loss</td>
+								<td>Avg</td>
+								</tr>
+								</thead>
+								<?php foreach($mixed as $mixed){?>
+								<tbody>
+								<td ><?php echo $mixed['team_name'];?></td>
+								<td ><?php echo $mixed['wins'];?></td>
+								<td ><?php echo $mixed['loss'];?></td>
+								<td ><?php echo ($mixed['wins']!=0?$mixed['wins']/($mixed['wins']+$mixed['loss']):0);?></td>
+								</tbody>
+								
+								<?php }?>
+								</table>
+					</div><?php }?>
 				</div>
+				</div>
+				
 			</div>
 			</article>
 		</div>

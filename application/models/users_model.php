@@ -53,14 +53,14 @@ class Users_Model extends CI_Model {
 		{
 			if( "Restore" == $status){
 			$data = array(
-		        'status' => "Delete",
-		        'button' => "DButton"
+		        'status' => "Delete"
+		        
 		        
 		    );
 			}else{
 			$data = array(
-		        'status' => "Restore",
-		        'button' => "EButton");
+		        'status' => "Restore"	
+		        );
 			}
 			 $this->db->where('user_id',$id);
 		    $this->db->update('user',$data);
