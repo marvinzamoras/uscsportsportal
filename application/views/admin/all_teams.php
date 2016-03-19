@@ -35,7 +35,7 @@
 							<th>School</th>
 							<th>Wins</th>
 							<th>Losses</th>
-							<th>Edit</th>
+							<th></th>
 						</tr>
 					 </thead>
 					 <tbody>
@@ -48,7 +48,8 @@
 							<td><?php echo $d['wins'];?></td>
 							<td><?php echo $d['loss'];?></td>
 							<?php echo form_hidden('team_id',$d['team_id']); ?>
-							<td><a href = "<?php echo base_url('/team_admin/edit/'). '/'.$d['team_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
+						
+							<td><a href = "<?php echo base_url('/team_admin/edit/').'/'.$d['team_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');" title="Edit Team"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>							
 							
 						</tr>
 						<?php endforeach;?>

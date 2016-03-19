@@ -32,8 +32,8 @@
 							<tr class="tr-head">
 								<th>News and Updates Title</th>
 								<th>Date Published</th>
-								<th>Edit</th>
-								<th>Delete</th>
+								<th></th>
+								<th></th>
 							</tr>
 						</thead>
 
@@ -46,8 +46,10 @@
 								<td class="td-head"><a href = "<?php echo base_url('/news_admin/edit/'). '/'.$data['slug'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><?php echo $data['news_title'];?></a></td>
 								<td><?php echo date("M d Y h:i:s A",strtotime($data['news_pub']));?></td>
 								
-								<td><a href = "<?php echo base_url('/news_admin/edit/'). '/'.$data['slug'] ;?>"><input class='EButton' type ='button' value = 'Edit'/></a></td>
-								<td><a href = "<?php echo base_url('/news_admin/delete/'). '/'.$data['news_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to delete this?');"><input class='DButton' type ='button' value = 'Delete'/></a></td>
+								<td><a href = "<?php echo base_url('/news_admin/edit/').'/'.$data['slug'] ; ?>" title="Edit News/Update" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>							
+
+								<td><a href = "<?php echo base_url('/news_admin/delete/').'/'.$data['news_id'] ;?>" title="Delete News/Update" onclick = "javascript:return confirm('Are you sure you want to delete this?');"><img src="<?php  echo base_url('/assets/css/images/delete.png');?>" hspace="2" border="0" alt="Edit" /></a></td>		
+								
 							</tr>
 							<?php endforeach;?>
 

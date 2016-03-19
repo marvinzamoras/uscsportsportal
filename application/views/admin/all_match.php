@@ -47,15 +47,10 @@
 								<td>Team</td>
 								<td>Score</td>
 								<td>Category</td>
-								<td>Update Score</td>
-								<td>Edit</td>
-								<td>Cancel</td>
-
-
-
-
-
-								</tr>
+								<td></td>
+								<td></td>
+								<td></td>
+					</tr>
 
 						<?php 
 						
@@ -82,11 +77,12 @@
 							<?php echo form_hidden('match_id',$match[$i]['match_id']); ?>
 							
 							<?php echo form_hidden('game_id',$game['game_id']); ?>
-							<td><a href = "<?php echo base_url('/match_admin/update/'.$match[$i]['match_id']);?>" onclick = "javascript:return confirm('Are you sure you want to update this match?');"><input class='UButton'type ='button'  value = 'Update'/></a></td>
-
-							<td><a href = "<?php echo base_url('/match_admin/edit/'.$match[$i]['match_id']. '/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
 							
-							<td><a href = "<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"><input class='<?php if($match[$i]['status']== "Official") {echo "DButton";}else{echo "UButton";}?>' type ='button'  value = '<?php if($match[$i]['status']== "Official") {echo "Cancel";}else {echo "Undo";}?>'/></a></td>
+							<td><a href="<?php echo base_url('/match_admin/update/'.$match[$i]['match_id']); ?>" title="Update Score" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><img src="<?php  echo base_url('/assets/css/images/update.gif');?>" hspace="2" border="0" alt="Update Score" /></a></td>
+							
+							<td><a href="<?php echo base_url('/match_admin/edit/'.$match[$i]['match_id']. '/'.$game['game_id']); ?>" title="Edit Match Details" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>							
+							
+							<td><a href="<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']); ?>"  title="<?php if($match[$i]['status']== "Official") {echo "Cancel";}else{echo "Undo";}?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"> <img src="<?php if($match[$i]['status']== "Official") {echo base_url('/assets/css/images/cancel.gif');}else{echo base_url('/assets/css/images/undo.gif');}?>" hspace="2" border="0"/></a></td>
 						</tr>
 						</tbody>
 						
@@ -122,9 +118,9 @@
 								<td>Team</td>
 								<td>Score</td>
 								<td>Category</td>
-								<td>Update Score</td>
-								<td>Edit</td>
-								<td>Cancel</td>
+								<td></td>
+								<td></td>
+								<td></td>
 
 
 
@@ -158,11 +154,11 @@
 							<?php echo form_hidden('status',$match[$i]['status']); ?>
 							
 							<?php echo form_hidden('game_id',$game['game_id']); ?>
-							<td><a href = "<?php echo base_url('/match_admin/update/'.$match[$i]['match_id']);?>" onclick = "javascript:return confirm('Are you sure you want to update this match?');"><input class='UButton'type ='button' value = 'Update'/></a></td>
-
-							<td><a href = "<?php echo base_url('/match_admin/edit/'.$match[$i]['match_id']. '/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
-
-							<td><a href = "<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']);?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"><input class='<?php if($match[$i]['status']== "Official") {echo "DButton";}else {echo "UButton";}?>' type ='button'  value = '<?php if($match[$i]['status']== "Official") {echo "Cancel";}else {echo "Undo";}?>'/></a></td>
+							<td><a href="<?php echo base_url('/match_admin/update/'.$match[$i]['match_id']); ?>" title="Update Score" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><img src="<?php  echo base_url('/assets/css/images/update.gif');?>" hspace="2" border="0" alt="Update Score" /></a></td>
+							
+							<td><a href="<?php echo base_url('/match_admin/edit/'.$match[$i]['match_id']. '/'.$game['game_id']); ?>" title="Edit Match Details" onclick = "javascript:return confirm('Are you sure you want to edit this match?');"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>							
+							
+							<td><a href="<?php echo base_url('/match_admin/cancel/'.$match[$i]['match_id'].'/'.$game['game_id']); ?>"  title="<?php if($match[$i]['status']== "Official") {echo "Cancel";}else{echo "Undo";}?>" onclick = "javascript:return confirm('Are you sure you want to cancel this match?');"> <img src="<?php if($match[$i]['status']== "Official") {echo base_url('/assets/css/images/cancel.gif');}else{echo base_url('/assets/css/images/undo.gif');}?>" hspace="2" border="0"/></a></td>
 						</tr>
 						</tbody>
 						<?php } }

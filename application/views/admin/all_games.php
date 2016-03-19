@@ -44,9 +44,10 @@
 							<?php echo form_hidden('game_id',$d['game_id']); 
 							$game =$d['game_id']; ?>
 
-							<td><a href = "<?php echo base_url('/match_admin/index/'). '/'.$game;?>"><input class='EButton' type ='button' value = 'View'/></a></td>
-							<td><a href = "<?php echo base_url('/game_admin/edit/'). '/'.$d['game_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='DButton' type ='button' value = 'Edit'/></a></td>
 							
+							<td><a href = "<?php echo base_url('/match_admin/index/').'/'.$game;?>" title="View Game"><img src="<?php  echo base_url('/assets/css/images/view.gif');?>" hspace="2" border="0" alt="View" /></a></td>
+							
+							<td><a href = "<?php echo base_url('/game_admin/edit/').'/'.$d['game_id'] ;?>" title="Edit Game" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>	
 						</tr>
 						<?php endforeach;?>
 						<?php else:?>
