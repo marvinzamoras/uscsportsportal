@@ -11,7 +11,7 @@ class Game extends MY_Controller {
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->load->library('form_validation');
-                $this->is_logged_in();
+               // $this->is_logged_in();
 
         }
 

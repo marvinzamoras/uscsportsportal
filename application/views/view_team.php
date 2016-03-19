@@ -33,7 +33,9 @@
 								   	<tbody>
 										<?php foreach($results['team'] as $t):?>
 										<tr>
-										<td><?php if($g->game_id == $t->game_cat) echo $t->team_name." (".$t->cat_name.")";?></td>
+										<td><?php if($g->game_id == $t->game_cat) 
+										
+										echo '<a href="'.base_url('player/view/').'/'.$t->team_id.'">'.$t->team_name." (".$t->cat_name.")";?></td>
 										<tr>
 										<?php endforeach;?>
 									</tbody>

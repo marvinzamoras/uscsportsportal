@@ -2,7 +2,7 @@
 class Profile extends MY_Controller{
 	public function __construct() {
 	    parent::__construct();
-	    $this->load->model('membership_model');
+	    //$this->load->model('membership_model');
 	    $this->load->model('profile_model');
 	    $this->load->library("pagination");
 	    $this->load->helper('url_helper');
@@ -20,6 +20,14 @@ class Profile extends MY_Controller{
 	}
 	
     public function edit($stud_id){
+		/*$author = $this->session->userdata['stud_id'];
+		$data['user_item'] = $this->membership_model->retrieve_user($author);
+		$data['title'] = 'My Profile';
+		 $this->load->view('includes/header', $data);
+         $this->load->view('includes/header_content', $data);
+         $this->load->view('edit_profile', $data);
+         $this->load->view('includes/footer');
+         */
 
 	         $data['profile_item'] = $this->membership_model->retrieve_user($stud_id);
 	         if (empty($data['profile_item'])){
@@ -35,7 +43,7 @@ class Profile extends MY_Controller{
 					$this->form_validation->set_rules('email_address','Email Address','trim|required|valid_email|callback_check_if_email_exists_profile');
 					$this->form_validation->set_rules('contact_no','Contact No','trim|required|min_length[11]|max_length[11]|numeric');
 					$this->form_validation->set_rules('home_address','Home Address','trim|required');
-					$this->form_validation->set_rules('school','School','trim|required|numeric');
+					$this->form_validation->set_rules('school','School','trim|required');
 					$this->form_validation->set_rules('username','Username','trim|required|callback_check_if_username_exists_profile');
 					$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[8]');
 					$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[8]|matches[password]');

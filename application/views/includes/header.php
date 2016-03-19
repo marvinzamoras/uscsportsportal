@@ -31,7 +31,8 @@
         relative_urls: false,
         height: 500,
         width: 900,
-        selector: "textarea",theme: "modern",
+        mode : "exact",
+        selector: "textarea.textarea",theme: "modern",
          //menubar: false,
          style_formats: [
         {
@@ -57,10 +58,70 @@
             external_plugins: { "filemanager" : "<?php echo base_url();?>filemanager/plugin.min.js"}
 
          });
+
+  tinymce.init({
+        relative_urls: false,
+        height: 100,
+        width: 413,
+        mode : "exact",
+        selector: "textarea.playerarea",theme: "modern",
+         menubar: false,
+        
+        plugins: [
+             "advlist autolink link image charmap preview hr pagebreak",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+             "table contextmenu directionality emoticons paste textcolor responsivefilemanager"
+       ],
+        image_class_list: [
+        {title: 'Post Image', value: 'post-img'}
+        ],
+       toolbar1: "undo redo | responsivefilemanager | link unlink | image media | print preview code ",
+       
+       image_advtab: true ,
+       
+            external_filemanager_path:"<?php echo base_url();?>filemanager/",
+            filemanager_title: "Responsive Filemanager",
+            external_plugins: { "filemanager" : "<?php echo base_url();?>filemanager/plugin.min.js"}
+
+         });
+
+  tinymce.init({
+        relative_urls: false,
+        height: 100,
+        width: 413,
+        mode : "exact",
+        selector: "textarea.playerbio",theme: "modern",
+         menubar: false,
+         style_formats: [
+        {
+         title: 'Custom Bullet',
+             selector: 'ul', 
+             classes: 'markered'
+         }
+        ],
+        plugins: [
+             "advlist autolink link image charmap preview hr pagebreak",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+             "table contextmenu directionality emoticons paste textcolor responsivefilemanager"
+       ],
+        image_class_list: [
+        {title: 'Post Image', value: 'post-img'}
+        ],
+       toolbar2: "undo redo | responsivefilemanager | link unlink | image media | print preview code ",
+       toolbar1: "insertfile | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | forecolor backcolor emoticons",
+       image_advtab: true ,
+       
+            external_filemanager_path:"<?php echo base_url();?>filemanager/",
+            filemanager_title: "Responsive Filemanager",
+            external_plugins: { "filemanager" : "<?php echo base_url();?>filemanager/plugin.min.js"}
+
+         });
+
     </script>
 
      
     <style>
+   
      label {
         color: #f8f8f8;
         font-family: 'Ubuntu', serif;

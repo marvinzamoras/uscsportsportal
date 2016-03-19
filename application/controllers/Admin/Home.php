@@ -8,7 +8,7 @@ class Home extends MY_Controller {
                 parent::__construct();
                 $this->load->model('news_model');
                 $this->load->library("pagination");
-                $this->load->model('membership_model');
+                //$this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->is_logged_in();
         }

@@ -4,11 +4,11 @@ class Site extends MY_Controller{
 
 	public function __construct() {
 	    parent::__construct();
-	    $this->load->model('membership_model');
+	    //$this->load->model('membership_model');
 	    $this->load->model('match_model');
 	    $this->load->library("pagination");
 	    $this->load->helper('url_helper');
-		$this->is_logged_in();
+		//$this->is_logged_in();
 
 
 	}

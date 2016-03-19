@@ -14,21 +14,7 @@
                                                         <li id="page-news"><a href="<?php echo base_url('news');?>">News and Updates</a></li>
                                                         <li id="page-ann"><a href="<?php echo base_url('announcement');?>">Announcements</a></li>
 
-                                                        <li id="page-acc" class="dropdown"><a href=""><i class="fa fa-user"></i> Account</a>
-
-                                                                <ul class="dropdown-menu">
-                                                                        <li><a href="<?php echo base_url('profile/view');?>">View Profile</a></li>
-                                                                        <?php
-                                                                                $this->load->model('membership_model');
-                                                                                if($this->membership_model->check_if_admin()){
-                                                                                        echo '<li><a href="';
-                                                                                        echo base_url('users_admin');
-                                                                                        echo '">Admin Panel</a></li>';
-                                                                                }
-                                                                        ;?>
-                                                                        <li><a href="<?php echo base_url('login/logout');?>">logout</a></li>
-                                                                </ul>
-                                                        </li>
+                                                        
                                                         </div>
                                                 </ul>
                                                 <a href="#" id="pull">Menu</a>

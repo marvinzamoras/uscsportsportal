@@ -16,7 +16,7 @@ class Users_Admin extends MY_Controller {
         public function index()
         {
                 $data['users'] = $this->users_model->get_users();
-                $data['title'] ='Users';
+                $data['title'] ='Administrators';
 
                 /*$config = array();
                 $config["base_url"] = base_url() . "/Users_Admin/index";

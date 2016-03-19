@@ -10,10 +10,10 @@ class Match extends MY_Controller {
                 
                 $this->load->model('game_model');
                 $this->load->library("pagination");
-                $this->load->model('membership_model');
+                //$this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->load->library('form_validation');
-                $this->is_logged_in();
+               // $this->is_logged_in();
 
         }
 

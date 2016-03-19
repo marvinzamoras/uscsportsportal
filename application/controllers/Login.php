@@ -8,7 +8,7 @@ class Login extends MY_Controller{
 		$this->load->library('form_validation');
 		$data['title'] = ucfirst($page);
 		$is_logged_in = $this->session->userdata('is_logged_in');
-		$home = 'site/home';
+		$home = 'users_admin';
 		if($is_logged_in==1)
 		{
 			redirect($home);
@@ -49,7 +49,7 @@ class Login extends MY_Controller{
 			);
 			$this->session->set_userdata($data);
 			
-			redirect('site/home');}
+			redirect('users_admin');}
 		 }else
 		 if(empty($this->input->post('stud_id'))||empty($this->input->post('password')))
 		 {
@@ -79,7 +79,7 @@ class Login extends MY_Controller{
 		$this->form_validation->set_rules('contact_no','Contact No','trim|required|min_length[11]|max_length[11]|numeric');
 		$this->form_validation->set_rules('home_address','Home Address','trim|required');
 		$this->form_validation->set_rules('school','School','trim|required');
-		$this->form_validation->set_rules('stud_id','ID Number','trim|min_length[8]|max_length[8]|required|numeric|callback_check_if_id_number_exists');
+		$this->form_validation->set_rules('stud_id','ID Number','trim|min_length[8]|max_length[8]|required|callback_check_if_id_number_exists');
 		$this->form_validation->set_rules('username','Username','trim|max_length[24]|required|callback_check_if_username_exists');
 		$this->form_validation->set_rules('password','Password','trim|min_length[8]|max_length[32]|required');
 		$this->form_validation->set_rules('password_confirm','Password Confirmation','trim|max_length[32]|required|matches[password]');

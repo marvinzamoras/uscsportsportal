@@ -12,9 +12,10 @@ class Users_Model extends CI_Model {
 		        {
 
 		        		$this->db->select("*");
-
+		        		
 		        		$this->db->from('user');
 		        		$this->db->join('school', 'school.school_id = user.school');
+		        		$this->db->where('user_type',"admin");
 		                $query = $this->db->get();
 		                return $query->result_array();
 		        }
@@ -23,7 +24,7 @@ class Users_Model extends CI_Model {
 		        		$this->db->select("*");
 		        		$this->db->from('user');
 		        		$this->db->where('user_id',$id);
-
+		        		$this->db->where('user_type',"admin");
 		        		$this->db->join('school', 'school.school_id = user.school');
 		        $query =  $this->db->get();
 		        return $query->row_array();
