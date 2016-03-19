@@ -3,14 +3,14 @@ class Announcement_admin extends MY_Controller {
 
         public function __construct()
         {
-                 parent::__construct();
+                parent::__construct();
                 date_default_timezone_set('Asia/Manila');
                 $this->load->model('announcement_model');
-
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->load->helper('url');
+                $this->load->library('session');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -71,6 +71,7 @@ class Announcement_admin extends MY_Controller {
             else
             {
                 $this->announcement_model->set_announcement();
+                $this->session->set_flashdata('message', 'Successfully added an Announcement!');
                 redirect(base_url().'announcement_admin/');
             }
         

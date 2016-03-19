@@ -3,14 +3,14 @@ class Team_admin extends MY_Controller {
 
         public function __construct()
         {
-                 parent::__construct();
+                parent::__construct();
                 date_default_timezone_set('Asia/Manila');
                 $this->load->model('team_model');
-
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->load->helper('url');
+                $this->load->library('session');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -77,6 +77,7 @@ class Team_admin extends MY_Controller {
             else
             {
                 $this->team_model->set_team();
+                $this->session->set_flashdata('message', 'Successfully added a Team!');
                 redirect(base_url().'team_admin/');
             }
         

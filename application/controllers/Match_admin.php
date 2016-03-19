@@ -7,11 +7,12 @@ class Match_admin extends MY_Controller {
                 date_default_timezone_set('Asia/Manila');
                 $this->load->model('match_model');
                 $this->load->model('team_model');
-                
                 $this->load->model('game_model');
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('url');
+                $this->load->library('session');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -140,6 +141,7 @@ class Match_admin extends MY_Controller {
             else
             {   
                 $this->match_model->set_match($team1,$team2);
+                $this->session->set_flashdata('message', 'Successfully added a Match!');
                 redirect(base_url().'match_admin/index/'.$data['game']['game_id']);
                 
             }

@@ -6,10 +6,11 @@ class Game_admin extends MY_Controller {
                  parent::__construct();
                 date_default_timezone_set('Asia/Manila');
                 $this->load->model('game_model');
-
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
+                $this->load->helper('url');
+                $this->load->library('session');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
 
@@ -72,6 +73,7 @@ class Game_admin extends MY_Controller {
             else
             {
                 $this->game_model->set_game();
+                $this->session->set_flashdata('message', 'Successfully added a Game!');
                 redirect(base_url().'game_admin/');
             }
         

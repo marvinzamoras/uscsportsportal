@@ -3,13 +3,14 @@ class News_Admin extends MY_Controller {
 
         public function __construct()
         {
-                date_default_timezone_set('Asia/Manila');
                 parent::__construct();
+                date_default_timezone_set('Asia/Manila');
                 $this->load->model('news_model');
                 $this->load->library("pagination");
                 $this->load->model('membership_model');
                 $this->load->helper('url_helper');
                 $this->load->helper('url');
+                $this->load->library('session');
                 $this->load->library('form_validation');
                 $this->is_logged_in();
         }
@@ -101,7 +102,8 @@ class News_Admin extends MY_Controller {
             else
             {
                 $this->news_model->set_news();
-                 redirect(base_url().'news_admin/');
+                $this->session->set_flashdata('message', 'Successfully added a News/Update!');
+                redirect(base_url().'news_admin/');
             }
         
         }

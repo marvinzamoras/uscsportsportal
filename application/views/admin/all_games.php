@@ -9,6 +9,15 @@
 
 <section id="blog-single">
 		<div class="container">
+			<center>
+				<?php
+					$message = $this->session->flashdata('message');
+					if (isset($message)) {
+					echo '<div class="alert alert-info"><font size="5px"><font color="#a72121">' . $message . '</font></font></div>';
+					$this->session->unset_userdata('message');
+					}
+				?>
+			</center>
 			<!-- BLOG POST SINGLE -->
 			<div class="col-12">
 			<div class="tab">games</div>

@@ -1,30 +1,19 @@
 
  <!-- Footer Section -->
     <footer>
-		<div class="container">
-				
-			<div class="col-4">
-				<div class="social-icon">
-					<ul id="social">
-						<li><a href="#"><img src="<?php echo base_url('/assets/css/images/soc-twitter.png');?>" alt=""/></a></li>
-						<li><a href="#"><img src="<?php echo base_url('/assets/css/images/soc-facebook.png');?>" alt=""/></a></li>
-						<li><a href="#"><img src="<?php echo base_url('/assets/css/images/soc-g.png');?>" alt=""/></a></li>
-						<li><a href="#"><img src="<?php echo base_url('/assets/css/images/soc-play.png');?>" alt=""/></a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="col-6"><p class="copyright">© 2014  - All Rights Reserved </p></div>
-		</div>
-		
-		</div>
+        <div class="container">
+            <div ><p style="text-align:center" class="copyright">© 2014  - All Rights Reserved </p></div>
+        </div>
+        
+        </div>
     </footer>
 
     <!-- Libs -->
 
     <script type='text/javascript' src='<?php echo base_url('/assets/js/libs/jquery.flexslider-min.js');?>'></script>
 
-	<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="<?php echo base_url('/assets/js/jquery.bxslider.min.js');?>"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="<?php echo base_url('/assets/js/jquery.bxslider.min.js');?>"></script>
 
     <!-- Custom -->
     <script src="<?php echo base_url('/assets/js/scripts.js');?>"></script>
