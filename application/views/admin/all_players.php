@@ -23,8 +23,8 @@
 							<th>Player Name</th>
 							<th>Team Name</th>
 							<th>School</th>
-							<th>Edit</th>
-							<th>Delete</th>
+							<th></th>
+							<th></th>
 						</tr>
 					 </thead>
 					 <tbody>
@@ -34,9 +34,10 @@
 							<td><?php echo $d['team_name'];?></td>
 							<td><?php echo $d['school_name'];?></td>
 							<?php echo form_hidden('player_id',$d['player_id']); ?>
-							<td><a href = "<?php echo base_url('/player_admin/edit/'). '/'.$d['player_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><input class='EButton' type ='button' value = 'Edit'/></a></td>
-							<td><a href = "<?php echo base_url('/player_admin/delete/'). '/'.$d['player_id'] ;?>" onclick = "javascript:return confirm('Are you sure you want to delete this?');"><input class='DButton' type ='button' value = 'Delete'/></a></td>
-							
+							<td><a href = "<?php echo base_url('/player_admin/edit/').'/'.$d['player_id'] ;?>" title="Edit Player" onclick = "javascript:return confirm('Are you sure you want to edit this?');"><img src="<?php  echo base_url('/assets/css/images/edit.gif');?>" hspace="2" border="0" alt="Edit" /></a></td>							
+
+							<td><a href = "<?php echo base_url('/player_admin/delete/').'/'.$d['player_id'] ;?>" title="Delete Player" onclick = "javascript:return confirm('Are you sure you want to delete this?');"><img src="<?php  echo base_url('/assets/css/images/delete.png');?>" hspace="2" border="0" alt="Edit" /></a></td>		
+								
 						</tr>
 						<?php endforeach;?>
 						<?php else:?>
