@@ -60,7 +60,7 @@ class Game_admin extends MY_Controller {
             $data['title'] = 'Create Game';
             $this->load->view('includes/header', $data);
             $this->load->view('admin/header_content');
-            $this->form_validation->set_rules('game_name', 'Game Name', 'required');
+            $this->form_validation->set_rules('game_name', 'Game Name', 'required|is_unique[game.game_name]');
             $this->form_validation->set_rules('game_desc', 'Game Description', 'required');
             $data['game_list'] = $this->game_model->get_dropdown_list();
             
